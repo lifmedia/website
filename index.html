@@ -113,25 +113,6 @@
   opacity: 0; transform: translateY(16px);
   animation: lifFadeUp 0.8s var(--ease-out) 1.4s forwards;
 }
-.lif-hero__trust {
-  margin-top: 48px; opacity: 0; transform: translateY(16px);
-  animation: lifFadeUp 0.8s var(--ease-out) 1.8s forwards;
-}
-.lif-hero__trust .trust-label {
-  font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em;
-  color: rgba(255,255,255,0.3); font-weight: 600; margin-bottom: 14px;
-}
-.lif-hero__trust .trust-logos {
-  display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap;
-}
-.trust-logo {
-  font-family: var(--font-body); font-size: 13px; font-weight: 600;
-  color: rgba(255,255,255,0.35); white-space: nowrap;
-  transition: color 0.3s; letter-spacing: 0.02em;
-}
-.trust-logo:hover { color: rgba(255,255,255,0.6); }
-.trust-logo .t-accent { font-family: var(--font-accent); font-style: italic; }
-.trust-sep { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.15); flex-shrink: 0; }
 .lif-hero__scroll {
   position: absolute; bottom: 32px; left: 50%; z-index: 10;
   display: flex; flex-direction: column; align-items: center; gap: 8px;
@@ -198,11 +179,6 @@
   font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em;
   color: var(--muted-sage); font-weight: 600; white-space: nowrap;
 }
-.lif-logos__cta {
-  display: flex; align-items: center; justify-content: center;
-  gap: 16px; margin-top: 28px; padding: 0 24px;
-}
-
 /* ══════════════════════════════════════
    SERVICES
    ══════════════════════════════════════ */
@@ -373,6 +349,34 @@
 .lif-testimonials__bottom::after { content: ''; flex: 1; max-width: 120px; height: 1px; background: var(--warm-cream); }
 
 /* ══════════════════════════════════════
+   CLOSING CTA
+   ══════════════════════════════════════ */
+.lif-cta {
+  background: var(--obsidian); color: var(--white);
+  padding: 120px 24px; text-align: center;
+  position: relative; overflow: hidden;
+}
+.lif-cta::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 0%, rgba(66,104,46,0.15) 0%, transparent 70%);
+}
+.lif-cta__inner { position: relative; max-width: 640px; margin: 0 auto; }
+.lif-cta__inner .lif-label::before { background: rgba(255,255,255,0.2); }
+.lif-cta__title {
+  font-family: var(--font-accent); font-size: clamp(32px, 6vw, 52px);
+  font-weight: 400; line-height: 1.1; letter-spacing: -0.02em;
+  margin-top: 18px; margin-bottom: 18px;
+}
+.lif-cta__title em { font-style: italic; color: var(--soft-moss); }
+.lif-cta__sub {
+  font-size: 16px; color: rgba(255,255,255,0.5); line-height: 1.65;
+  max-width: 480px; margin: 0 auto 40px; font-weight: 300;
+}
+.lif-cta__buttons {
+  display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;
+}
+
+/* ══════════════════════════════════════
    RESPONSIVE — Page-specific
    ══════════════════════════════════════ */
 @media (max-width: 700px) {
@@ -401,6 +405,8 @@
 @media (max-width: 480px) {
   .lif-hero__ctas { flex-direction: column; width: 100%; }
   .lif-hero__ctas .lif-btn { width: 100%; justify-content: center; }
+  .lif-cta__buttons { flex-direction: column; width: 100%; }
+  .lif-cta__buttons .lif-btn { width: 100%; justify-content: center; }
 }
 </style>
 </head>
@@ -528,20 +534,6 @@
         <span class="lif-btn__arrow"></span>
       </a>
     </div>
-    <div class="lif-hero__trust">
-      <div class="trust-label">Trusted by</div>
-      <div class="trust-logos">
-        <span class="trust-logo">Research<span class="t-accent">NB</span></span>
-        <span class="trust-sep"></span>
-        <span class="trust-logo">WINMAR</span>
-        <span class="trust-sep"></span>
-        <span class="trust-logo">JA Kelly</span>
-        <span class="trust-sep"></span>
-        <span class="trust-logo"><span class="t-accent">Premium</span> Group</span>
-        <span class="trust-sep"></span>
-        <span class="trust-logo"><span class="t-accent">Innova</span></span>
-      </div>
-    </div>
   </div>
 
   <div class="lif-hero__scroll">
@@ -573,11 +565,7 @@
       <div class="logo-item"><img src="https://images.squarespace-cdn.com/content/6661bebfa1db887ebcd616d5/f0745f8e-01b2-45de-9ccc-462bea9d72fa/13.png?content-type=image%2Fpng" alt="Hillside Church" class="logo-img"></div><div class="logo-sep"></div>
     </div>
   </div>
-  <div class="lif-logos__bottom"><span>World-Class Video Production</span></div>
-  <div class="lif-logos__cta">
-    <a href="https://calendly.com/contact-lifmedia/discovery-meeting" target="_blank" class="lif-btn lif-btn--dark">Book a Free Consultation <span class="lif-btn__arrow"></span></a>
-    <a href="./contact/" class="lif-btn lif-btn--outline">Get a Quote <span class="lif-btn__arrow"></span></a>
-  </div>
+  <div class="lif-logos__bottom"><span>Trusted Across Atlantic Canada</span></div>
 </section>
 
 <!-- ══════════════════════════════════════
@@ -780,6 +768,30 @@
   </div>
 
   <div class="lif-testimonials__bottom"><span>World-Class Video for World-Class Brands</span></div>
+</section>
+
+<!-- ══════════════════════════════════════
+     5. CLOSING CTA
+     ══════════════════════════════════════ -->
+<section class="lif-cta">
+  <div class="lif-cta__inner">
+    <div class="lif-label lif-reveal" style="justify-content: center; color: rgba(255,255,255,0.4);">
+      <span style="background: rgba(255,255,255,0.2);" class="lif-label-line"></span>
+      Start Your Project
+    </div>
+    <h2 class="lif-cta__title lif-reveal lif-reveal-d1">Ready to <em>Grow</em> Your Brand?</h2>
+    <p class="lif-cta__sub lif-reveal lif-reveal-d2">Book a free discovery call and let's talk about how cinematic video can move your business forward.</p>
+    <div class="lif-cta__buttons lif-reveal lif-reveal-d3">
+      <a href="https://calendly.com/contact-lifmedia/discovery-meeting" target="_blank" class="lif-btn lif-btn--white">
+        Book a Free Call
+        <span class="lif-btn__arrow"></span>
+      </a>
+      <a href="./contact/" class="lif-btn lif-btn--outline-light">
+        Get a Quote
+        <span class="lif-btn__arrow"></span>
+      </a>
+    </div>
+  </div>
 </section>
 
 <!-- ══════════════════════════════════════

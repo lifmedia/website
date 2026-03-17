@@ -17,6 +17,11 @@
   --section-pad: 120px 24px;
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out: cubic-bezier(0.0, 0, 0.2, 1);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-pill: 9999px;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -61,6 +66,7 @@ body::before {
   letter-spacing: 0.12em; text-transform: uppercase;
   transition: background 0.3s, transform 0.2s;
   border: none; cursor: pointer;
+  border-radius: var(--radius-pill);
 }
 .lif-btn--primary { background: var(--deep-olive); color: var(--white); }
 .lif-btn--primary:hover { background: #527a38; transform: translateX(4px); }
@@ -255,6 +261,7 @@ body::before {
 .lif-footer {
   background: #0a0a0a; color: #fff;
   padding: 64px 32px 0; width: 100%;
+  border-top-left-radius: 24px; border-top-right-radius: 24px;
 }
 .lif-footer .footer-inner {
   max-width: 900px; margin: 0 auto;

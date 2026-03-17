@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | LIF Media — Video Production in Moncton, NB</title>
+<meta name="description" content="Meet the team behind LIF Media — a video production agency in Moncton, New Brunswick specializing in cinematic commercials, social media content, brand documentaries, and event coverage.">
+<link rel="canonical" href="https://www.lifmedia.ca/about-us">
+<meta property="og:title" content="About Us | LIF Media — Video Production in Moncton, NB">
+<meta property="og:description" content="Meet the team behind LIF Media — cinematic video production for businesses across Moncton, New Brunswick, and Atlantic Canada.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.lifmedia.ca/about-us">
+<meta property="og:locale" content="en_CA">
+<meta property="og:site_name" content="LIF Media">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"LIF Media","description":"Video production agency in Moncton, New Brunswick specializing in cinematic commercials, social media content, brand documentaries, and event coverage.","url":"https://www.lifmedia.ca","telephone":"+1-506-688-7043","email":"contact@lifmedia.ca","address":{"@type":"PostalAddress","streetAddress":"21 Rue Foxtrot","addressLocality":"Moncton","addressRegion":"NB","postalCountry":"CA"},"geo":{"@type":"GeoCoordinates","latitude":46.0878,"longitude":-64.7782},"areaServed":[{"@type":"City","name":"Moncton"},{"@type":"City","name":"Dieppe"},{"@type":"City","name":"Riverview"},{"@type":"City","name":"Fredericton"},{"@type":"City","name":"Saint John"},{"@type":"AdministrativeArea","name":"New Brunswick"},{"@type":"AdministrativeArea","name":"Atlantic Canada"}],"founder":{"@type":"Person","name":"Jorge Melgar","jobTitle":"Creative Director"},"employee":[{"@type":"Person","name":"Isaac Ochoa","jobTitle":"Lead Editor & Digital Specialist"},{"@type":"Person","name":"Carolina Galo","jobTitle":"Chief Financial Officer"}],"sameAs":["https://www.instagram.com/lifmedia.ca/"]}
+</script>
+
+<style>
+/* ══════════════════════════════════════
+   ABOUT — HERO
+   ══════════════════════════════════════ */
+.about-hero {
+  position: relative; display: flex; align-items: flex-end;
+  background: var(--obsidian); min-height: 100vh; min-height: 100dvh;
+}
+.about-hero__bg {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden;
+}
+.about-hero__bg img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center 30%;
+}
+.about-hero__bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(26,26,26,0.92), rgba(26,26,26,0.5) 40%, rgba(26,26,26,0.15));
+}
+.about-hero__content {
+  position: relative; z-index: 1; padding: 0 24px 80px;
+  max-width: var(--max-w); margin: 0 auto; width: 100%;
+}
+.about-hero h1 {
+  font-family: var(--font-accent); font-size: clamp(2.2rem, 5vw, 4rem);
+  color: var(--white); line-height: 1.15; margin-bottom: 20px; font-weight: 400;
+}
+.about-hero h1 em { color: var(--soft-moss); font-style: italic; }
+.about-hero__dot {
+  display: inline-block; width: 8px; height: 8px;
+  background: var(--deep-olive); border-radius: 50%; margin-left: 4px; vertical-align: middle;
+}
+.about-hero__sub {
+  font-size: clamp(1rem, 1.5vw, 1.15rem); color: rgba(255,255,255,0.78);
+  max-width: 580px; line-height: 1.75; font-weight: 300;
+}
+.about-hero__scroll {
+  position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+  z-index: 2; width: 1px; height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+  animation: aboutPulse 2s ease-in-out infinite;
+}
+@keyframes aboutPulse {
+  0%, 100% { opacity: 1; transform: translateX(-50%) scaleY(1); }
+  50% { opacity: 0.3; transform: translateX(-50%) scaleY(0.6); }
+}
+
+/* ══════════════════════════════════════
+   ABOUT — OUR STORY
+   ══════════════════════════════════════ */
+.about-story { padding: var(--section-pad); background: var(--white); }
+.about-story__inner {
+  max-width: var(--max-w); margin: 0 auto;
+}
+.about-story__grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start;
+}
+.about-story__heading h2 {
+  font-family: var(--font-accent); font-size: clamp(2rem, 3.5vw, 2.8rem);
+  line-height: 1.2; color: var(--obsidian); margin-top: 14px;
+}
+.about-story__heading h2 span { color: var(--deep-olive); }
+.about-story__quote {
+  font-family: var(--font-accent); font-style: italic; font-size: 1.3rem;
+  color: var(--deep-olive); line-height: 1.5; margin-top: 36px;
+  padding-left: 20px; border-left: 3px solid var(--terracotta);
+}
+.about-story__text {
+  font-size: 1rem; color: #4a4a4a; line-height: 1.85; font-weight: 300;
+}
+.about-story__text p + p { margin-top: 18px; }
+.about-story__text strong { font-weight: 600; color: var(--obsidian); }
+
+/* ══════════════════════════════════════
+   ABOUT — TEAM
+   ══════════════════════════════════════ */
+.about-team { padding: var(--section-pad); background: var(--off-white); }
+.about-team__inner { max-width: var(--max-w); margin: 0 auto; }
+.about-team__header { text-align: center; margin-bottom: 64px; }
+.about-team__header h2 {
+  font-family: var(--font-accent); font-size: clamp(2rem, 3.5vw, 2.8rem);
+  line-height: 1.2; color: var(--obsidian); margin-top: 14px;
+}
+.about-team__sub {
+  font-size: 1rem; color: var(--muted-sage); font-weight: 300;
+  margin-top: 12px; max-width: 540px; margin-left: auto; margin-right: auto;
+  line-height: 1.65;
+}
+.about-team__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+.about-member { text-align: center; }
+.about-member__photo {
+  width: 240px; height: 240px; margin: 0 auto 28px;
+  border-radius: 50%; overflow: hidden; border: 4px solid var(--soft-moss);
+  transition: border-color 0.3s;
+}
+.about-member:hover .about-member__photo { border-color: var(--deep-olive); }
+.about-member__photo img {
+  width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;
+}
+.about-member:hover .about-member__photo img { transform: scale(1.05); }
+.about-member h3 {
+  font-family: var(--font-accent); font-size: 1.4rem;
+  color: var(--obsidian); margin-bottom: 4px;
+}
+.about-member__role {
+  font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--terracotta); margin-bottom: 16px;
+}
+.about-member__bar {
+  width: 36px; height: 3px; background: var(--deep-olive);
+  margin: 0 auto 14px;
+}
+.about-member__bio {
+  font-size: 0.9rem; color: var(--muted-sage); line-height: 1.75;
+  font-weight: 300; max-width: 290px; margin: 0 auto;
+}
+
+/* ══════════════════════════════════════
+   ABOUT — MID CTA
+   ══════════════════════════════════════ */
+.about-mcta {
+  padding: 72px 24px; background: var(--soft-moss); text-align: center;
+}
+.about-mcta__inner { max-width: var(--max-w); margin: 0 auto; }
+.about-mcta h2 {
+  font-family: var(--font-accent); font-size: clamp(1.5rem, 2.5vw, 2rem);
+  line-height: 1.3; color: var(--obsidian); margin-bottom: 28px;
+}
+.about-mcta__btns {
+  display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+}
+
+/* ══════════════════════════════════════
+   ABOUT — APPROACH
+   ══════════════════════════════════════ */
+.about-approach {
+  padding: var(--section-pad); background: var(--obsidian);
+  position: relative; overflow: hidden;
+}
+.about-approach::before {
+  content: ''; position: absolute; top: -200px; right: -200px;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: var(--deep-olive); opacity: 0.08;
+}
+.about-approach__inner { max-width: var(--max-w); margin: 0 auto; }
+.about-approach__header { text-align: center; margin-bottom: 64px; }
+.about-approach__header h2 {
+  font-family: var(--font-accent); font-size: clamp(2rem, 3.5vw, 2.8rem);
+  line-height: 1.2; color: var(--white); margin-top: 14px;
+}
+.about-approach__header h2 em { color: var(--soft-moss); font-style: italic; }
+.about-pillars {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px;
+}
+.about-pillar {
+  padding: 36px 24px;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+  transition: background 0.3s, transform 0.3s;
+}
+.about-pillar:hover { background: rgba(255,255,255,0.07); transform: translateY(-4px); }
+.about-pillar__num {
+  font-family: var(--font-accent); font-size: 2.2rem;
+  color: var(--terracotta); margin-bottom: 16px; line-height: 1;
+}
+.about-pillar h3 { font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 12px; }
+.about-pillar p {
+  font-size: 0.88rem; color: rgba(255,255,255,0.55);
+  line-height: 1.7; font-weight: 300;
+}
+
+/* ══════════════════════════════════════
+   ABOUT — INDUSTRIES
+   ══════════════════════════════════════ */
+.about-industries { padding: var(--section-pad); background: var(--off-white); }
+.about-industries__inner { max-width: var(--max-w); margin: 0 auto; }
+.about-industries__grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
+}
+.about-industries__text h2 {
+  font-family: var(--font-accent); font-size: clamp(2rem, 3.5vw, 2.8rem);
+  line-height: 1.2; color: var(--obsidian); margin-top: 14px; margin-bottom: 16px;
+}
+.about-industries__desc {
+  font-size: 1rem; color: #3a3a3a; line-height: 1.8; font-weight: 300;
+}
+.about-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+.about-tag {
+  padding: 12px 24px; background: var(--white);
+  font-size: 0.88rem; font-weight: 500; color: var(--obsidian);
+  border: 1px solid rgba(66,104,46,0.15); transition: all 0.3s; cursor: default;
+}
+.about-tag:hover { background: var(--deep-olive); color: var(--white); border-color: var(--deep-olive); }
+
+/* ══════════════════════════════════════
+   ABOUT — RESULTS
+   ══════════════════════════════════════ */
+.about-results {
+  padding: var(--section-pad); background: var(--deep-olive); text-align: center;
+}
+.about-results__inner { max-width: var(--max-w); margin: 0 auto; }
+.about-results h2 {
+  font-family: var(--font-accent); font-size: clamp(2rem, 3.5vw, 2.8rem);
+  line-height: 1.2; color: var(--white); margin-top: 14px; margin-bottom: 16px;
+}
+.about-results__sub {
+  color: rgba(255,255,255,0.65); max-width: 600px;
+  margin: 0 auto 56px; font-weight: 300; line-height: 1.8;
+}
+.about-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 32px; max-width: 780px; margin: 0 auto;
+}
+.about-stat {
+  padding: 28px 16px; background: rgba(255,255,255,0.08);
+}
+.about-stat__num {
+  font-family: var(--font-accent); font-size: 2.4rem;
+  color: var(--soft-moss); line-height: 1; margin-bottom: 6px;
+}
+.about-stat__label { font-size: 0.83rem; color: rgba(255,255,255,0.55); }
+
+/* ══════════════════════════════════════
+   ABOUT — SERVICE AREAS
+   ══════════════════════════════════════ */
+.about-areas {
+  padding: 72px 24px; background: var(--white); text-align: center;
+}
+.about-areas__inner { max-width: var(--max-w); margin: 0 auto; }
+.about-areas h2 {
+  font-family: var(--font-accent); font-size: clamp(1.5rem, 2.5vw, 2rem);
+  line-height: 1.3; color: var(--obsidian); margin-top: 14px; margin-bottom: 10px;
+}
+.about-areas__sub {
+  font-size: 0.95rem; color: var(--muted-sage); font-weight: 300;
+  max-width: 600px; margin: 0 auto 36px; line-height: 1.8;
+}
+.about-areas__list {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
+}
+.about-area-tag {
+  padding: 9px 20px; background: var(--white);
+  font-size: 0.83rem; font-weight: 500; color: var(--deep-olive);
+  border: 1px solid var(--soft-moss); transition: all 0.3s; cursor: default;
+}
+.about-area-tag:hover {
+  background: var(--deep-olive); color: var(--white); border-color: var(--deep-olive);
+}
+
+/* ══════════════════════════════════════
+   ABOUT — FINAL CTA
+   ══════════════════════════════════════ */
+.about-fcta {
+  padding: var(--section-pad); background: var(--obsidian);
+  text-align: center; position: relative; overflow: hidden;
+}
+.about-fcta::before {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%); width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--deep-olive), transparent 70%);
+  opacity: 0.1;
+}
+.about-fcta__inner { position: relative; z-index: 1; max-width: var(--max-w); margin: 0 auto; }
+.about-fcta__quote {
+  font-family: var(--font-accent); font-style: italic;
+  font-size: 1.1rem; color: var(--terracotta); margin-bottom: 28px;
+}
+.about-fcta h2 {
+  font-family: var(--font-accent); font-size: clamp(2rem, 3.5vw, 2.8rem);
+  line-height: 1.2; color: var(--white); margin-bottom: 16px;
+}
+.about-fcta__sub {
+  font-size: 1rem; color: rgba(255,255,255,0.6); max-width: 500px;
+  margin: 0 auto 36px; font-weight: 300; line-height: 1.8;
+}
+.about-fcta__btns {
+  display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE — About Page
+   ══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .about-pillars { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .about-story__grid,
+  .about-industries__grid { grid-template-columns: 1fr; gap: 36px; }
+  .about-pillars { grid-template-columns: 1fr; gap: 16px; }
+  .about-team__grid { grid-template-columns: 1fr; gap: 48px; }
+  .about-stats { grid-template-columns: 1fr; gap: 16px; }
+  .about-member__photo { width: 200px; height: 200px; }
+  .about-mcta__btns,
+  .about-fcta__btns { flex-direction: column; align-items: center; }
+  .about-mcta__btns .lif-btn,
+  .about-fcta__btns .lif-btn { width: 100%; max-width: 320px; justify-content: center; }
+  .about-fcta,
+  .about-mcta { padding: 60px 24px; }
+  .about-hero { min-height: auto; padding-top: 120px; }
+  .about-hero__content { padding-bottom: 60px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     HEADER
+     ══════════════════════════════════════ -->
+<div id="lif-hdr">
+  <a href="/" class="hdr-logo" aria-label="LIF Media Home">
+    <img class="logo-w" src="https://images.squarespace-cdn.com/content/6661bebfa1db887ebcd616d5/1f20eab3-1a73-44f7-9696-2637aea6f78b/2.png?content-type=image%2Fpng" alt="LIF Media" height="48">
+    <img class="logo-d" src="https://images.squarespace-cdn.com/content/6661bebfa1db887ebcd616d5/2d08dc8b-11da-4c4e-b766-d0c6e1b3cc15/1.png?content-type=image%2Fpng" alt="LIF Media" height="48">
+  </a>
+  <div class="hdr-right">
+    <ul class="hdr-nav">
+      <li><a href="/">Home</a></li>
+      <li class="hdr-drop">
+        <a href="/services">Services <span class="hdr-chev"></span></a>
+        <div class="hdr-drop-menu">
+          <a href="/cinematic-commercials">Cinematic Commercials</a>
+          <a href="/social-media">Social Media Content</a>
+          <a href="/events">Event Highlight Films</a>
+          <a href="/documentaries-interviews">Brand Documentaries &amp; Interviews</a>
+        </div>
+      </li>
+      <li><a href="/portfolio">Portfolio</a></li>
+      <li><a href="/about-us">About Us</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <span class="hdr-divider"></span>
+    <div class="hdr-socials">
+      <a href="https://www.instagram.com/lifmedia/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+      <a href="https://www.facebook.com/lifmediaca/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      <a href="https://www.tiktok.com/@lifmedia" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+      <a href="https://www.linkedin.com/company/lif-media/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+    </div>
+    <span class="hdr-divider"></span>
+    <button class="hdr-menu-btn" id="lifMenuBtn" aria-label="Open menu">
+      <span>Menu</span>
+      <span class="menu-lines"><span></span><span></span></span>
+    </button>
+  </div>
+</div>
+
+<!-- Full-screen menu overlay -->
+<div id="lif-mob">
+  <div class="mob-close-row">
+    <button class="mob-close-btn" id="lifMobClose" aria-label="Close menu">
+      <span>Close</span><span class="close-line"></span>
+    </button>
+  </div>
+  <div class="mob-inner">
+    <div class="mob-left">
+      <a href="/" class="mob-link">Home</a>
+      <a href="#" class="mob-link">Services</a>
+      <div class="mob-services">
+        <a href="/cinematic-commercials">Cinematic Commercials</a>
+        <a href="/social-media">Social Media Content</a>
+        <a href="/events">Event Highlight Films</a>
+        <a href="/documentaries-interviews">Documentaries &amp; Interviews</a>
+      </div>
+      <a href="/portfolio" class="mob-link">Portfolio</a>
+      <a href="/about-us" class="mob-link">About Us</a>
+      <a href="/contact" class="mob-link">Contact</a>
+    </div>
+    <div class="mob-right">
+      <div class="mob-info-block">
+        <h4>Follow</h4>
+        <div class="mob-social-row">
+          <a href="https://www.instagram.com/lifmedia/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="https://www.facebook.com/lifmediaca/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://www.tiktok.com/@lifmedia" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+          <a href="https://www.linkedin.com/company/lif-media/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        </div>
+      </div>
+      <div class="mob-info-block">
+        <h4>Contact</h4>
+        <a href="mailto:contact@lifmedia.ca">contact@lifmedia.ca</a>
+        <a href="tel:+15066887043">+1 506-688-7043</a>
+      </div>
+      <div class="mob-info-block">
+        <h4>Location</h4>
+        <p>21 Rue Foxtrot<br>Moncton, New Brunswick<br>Canada</p>
+      </div>
+      <div class="mob-logo-bottom">
+        <img src="https://images.squarespace-cdn.com/content/6661bebfa1db887ebcd616d5/1f20eab3-1a73-44f7-9696-2637aea6f78b/2.png?content-type=image%2Fpng" alt="LIF Media" height="32">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     HERO
+     ══════════════════════════════════════ -->
+<section class="about-hero">
+  <div class="about-hero__bg">
+    <img src="https://images.squarespace-cdn.com/content/6661bebfa1db887ebcd616d5/10467d20-27ba-4668-b639-bff351c7b113/_22A3995.jpg?content-type=image%2Fjpeg" alt="LIF Media video production team filming on location in Moncton, New Brunswick" loading="eager">
+  </div>
+  <div class="about-hero__content">
+    <div class="lif-label lif-reveal" style="color: var(--soft-moss);">About LIF Media</div>
+    <h1 class="lif-reveal lif-reveal-d1">Your Strategic <em>Video Production</em> Partner in Moncton<span class="about-hero__dot"></span></h1>
+    <p class="about-hero__sub lif-reveal lif-reveal-d2">We don't just hit record. We engineer growth for New Brunswick businesses through cinematic storytelling that resonates and converts.</p>
+  </div>
+  <div class="about-hero__scroll"></div>
+</section>
+
+<!-- ══════════════════════════════════════
+     OUR STORY
+     ══════════════════════════════════════ -->
+<section class="about-story">
+  <div class="about-story__inner">
+    <div class="about-story__grid">
+      <div class="about-story__heading lif-reveal">
+        <div class="lif-label">Our Story</div>
+        <h2>More Than Just<br><span>Video Production</span></h2>
+        <p class="about-story__quote">We don't just shoot content, we frame meaning, one moment at a time.</p>
+      </div>
+      <div class="about-story__text lif-reveal lif-reveal-d2">
+        <p>LIF Media was founded by <strong>Jorge Melgar</strong> after noticing a clear gap in the <strong>Greater Moncton area</strong>: talented business owners and entrepreneurs were doing incredible work, but their marketing didn't reflect it. Jorge believes that <strong>every great business with great people and great culture deserves amazing video content</strong>, not generic clips, but real cinematic storytelling that captures who they are and why they matter. By helping companies across <strong>Moncton, Dieppe, Riverview</strong>, and throughout <strong>New Brunswick</strong> present themselves at their very best, we're not just producing videos, we're serving the community, helping people discover the outstanding local products, services, and professionals right in their own backyard.</p>
+        <p>Today, we act as <strong>strategic partners</strong> for businesses across <strong>Atlantic Canada</strong>, delivering <strong>organic, high-impact content</strong> that strips away the corporate veneer and connects on a deeply human level. The result? Thousands of authentic reactions, massive brand awareness, and a digital presence that drives real business growth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     TEAM
+     ══════════════════════════════════════ -->
+<section class="about-team">
+  <div class="about-team__inner">
+    <div class="about-team__header lif-reveal">
+      <div class="lif-label" style="justify-content: center;">The Team</div>
+      <h2>The People Behind the Lens</h2>
+      <p class="about-team__sub">A small, focused crew that moves fast and delivers big, headquartered right here in Moncton.</p>
+    </div>
+    <div class="about-team__grid">
+      <article class="about-member lif-reveal lif-reveal-d1" itemscope itemtype="https://schema.org/Person">
+        <div class="about-member__photo"><img src="https://images.squarespace-cdn.com/content/6661bebfa1db887ebcd616d5/e2eea107-f6b5-427e-8fc6-a8f26880f3e6/1.png?content-type=image%2Fpng" alt="Jorge Melgar, Creative Director of LIF Media in Moncton, New Brunswick" loading="lazy"></div>
+        <h3 itemprop="name">Jorge Melgar</h3>
+        <p class="about-member__role" itemprop="jobTitle">Creative Director & Founder</p>
+        <div class="about-member__bar"></div>
+        <p class="about-member__bio" itemprop="description">The visionary behind LIF Media. With a relentless eye for cinematic detail, Jorge leads the creative direction of every project, ensuring every frame serves a purpose and becomes a powerful asset for your brand.</p>
+      </article>
+      <article class="about-member lif-reveal lif-reveal-d2" itemscope itemtype="https://schema.org/Person">
+        <div class="about-member__photo"><img src="https://images.squarespace-cdn.com/content/6661bebfa1db887ebcd616d5/a2f90b2b-4bfd-4353-ab13-2a33ac1d2c61/Disen%CC%83o+sin+ti%CC%81tulo+%288%29.png?content-type=image%2Fpng" alt="Isaac Ochoa, Lead Editor and Digital Specialist at LIF Media" loading="lazy"></div>
+        <h3 itemprop="name">Isaac Ochoa</h3>
+        <p class="about-member__role" itemprop="jobTitle">Lead Editor & Digital Specialist</p>
+        <div class="about-member__bar"></div>
+        <p class="about-member__bio" itemprop="description">Where creativity meets technical precision. Isaac oversees the digital ecosystem, from editing and web development to strategic media buying, translating cinematic content into tangible growth for your brand.</p>
+      </article>
+      <article class="about-member lif-reveal lif-reveal-d3" itemscope itemtype="https://schema.org/Person">
+        <div class="about-member__photo"><img src="https://images.squarespace-cdn.com/content/6661bebfa1db887ebcd616d5/db0a4609-848c-4ab1-b428-303a84e7fc0f/2.png?content-type=image%2Fpng" alt="Carolina Galo, Chief Financial Officer at LIF Media" loading="lazy"></div>
+        <h3 itemprop="name">Carolina Galo</h3>
+        <p class="about-member__role" itemprop="jobTitle">Chief Financial Officer</p>
+        <div class="about-member__bar"></div>
+        <p class="about-member__bio" itemprop="description">The financial backbone of LIF Media. Carolina oversees all accounting and fiscal strategy, ensuring the company operates with precision and stability so our creative team can execute ambitious projects with confidence.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     MID CTA
+     ══════════════════════════════════════ -->
+<section class="about-mcta">
+  <div class="about-mcta__inner lif-reveal">
+    <h2>Want to see what we can do for your brand?</h2>
+    <div class="about-mcta__btns">
+      <a href="/contact" class="lif-btn lif-btn--primary">
+        Get In Touch
+        <span class="lif-btn__arrow"></span>
+      </a>
+      <a href="https://calendly.com/contact-lifmedia/discovery-meeting" class="lif-btn lif-btn--outline" target="_blank" rel="noopener">
+        Book a Free Discovery Call
+        <span class="lif-btn__arrow"></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     APPROACH
+     ══════════════════════════════════════ -->
+<section class="about-approach">
+  <div class="about-approach__inner">
+    <div class="about-approach__header lif-reveal">
+      <div class="lif-label" style="justify-content: center; color: var(--terracotta);">What Sets Us Apart</div>
+      <h2>A production agency that thinks like <em>your growth partner</em></h2>
+    </div>
+    <div class="about-pillars">
+      <article class="about-pillar lif-reveal lif-reveal-d1">
+        <div class="about-pillar__num">01</div>
+        <h3>Cinematic Quality</h3>
+        <p>Every project is shot with cinema-grade gear and a director's eye for detail. We bring the same production value to a social media reel as we do to a full commercial shoot.</p>
+      </article>
+      <article class="about-pillar lif-reveal lif-reveal-d2">
+        <div class="about-pillar__num">02</div>
+        <h3>Organic Content Strategy</h3>
+        <p>We specialize in authentic content that feels real, not scripted. Content that earns attention on social media because it connects with people on a human level.</p>
+      </article>
+      <article class="about-pillar lif-reveal lif-reveal-d3">
+        <div class="about-pillar__num">03</div>
+        <h3>Full-Service Production</h3>
+        <p>From concept and pre-production through filming, editing, color grading, and delivery, we handle the entire pipeline so you can focus on running your business.</p>
+      </article>
+      <article class="about-pillar lif-reveal lif-reveal-d4">
+        <div class="about-pillar__num">04</div>
+        <h3>Client-First Process</h3>
+        <p>We embed ourselves in your brand. We learn your goals, your audience, and your voice, then build a visual strategy that's uniquely yours and built to perform.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     INDUSTRIES
+     ══════════════════════════════════════ -->
+<section class="about-industries">
+  <div class="about-industries__inner">
+    <div class="about-industries__grid">
+      <div class="about-industries__text lif-reveal">
+        <div class="lif-label">Industries We Serve</div>
+        <h2>Trusted by Businesses Across New Brunswick</h2>
+        <p class="about-industries__desc">From Moncton's booming construction sector to government innovation initiatives, we've delivered results for brands that demand more than just another video, they demand content that builds authority and drives growth.</p>
+      </div>
+      <div class="about-tags lif-reveal lif-reveal-d2">
+        <span class="about-tag">Construction & Development</span>
+        <span class="about-tag">Real Estate & Architecture</span>
+        <span class="about-tag">Retail & E-Commerce</span>
+        <span class="about-tag">Government & Innovation</span>
+        <span class="about-tag">Hospitality & Tourism</span>
+        <span class="about-tag">Professional Services</span>
+        <span class="about-tag">Health & Wellness</span>
+        <span class="about-tag">Technology & Startups</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     RESULTS
+     ══════════════════════════════════════ -->
+<section class="about-results">
+  <div class="about-results__inner lif-reveal">
+    <div class="lif-label" style="justify-content: center; color: var(--soft-moss);">The Results</div>
+    <h2>Content That Drives Real Business Growth</h2>
+    <p class="about-results__sub">We measure success by your success. Here's what strategic video production looks like when every frame is built to perform.</p>
+    <div class="about-stats">
+      <div class="about-stat lif-reveal lif-reveal-d1">
+        <div class="about-stat__num">50+</div>
+        <div class="about-stat__label">Projects Delivered</div>
+      </div>
+      <div class="about-stat lif-reveal lif-reveal-d2">
+        <div class="about-stat__num">1M+</div>
+        <div class="about-stat__label">Organic Views Generated</div>
+      </div>
+      <div class="about-stat lif-reveal lif-reveal-d3">
+        <div class="about-stat__num">100%</div>
+        <div class="about-stat__label">Client Retention Rate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SERVICE AREAS
+     ══════════════════════════════════════ -->
+<section class="about-areas">
+  <div class="about-areas__inner lif-reveal">
+    <div class="lif-label" style="justify-content: center;">Where We Work</div>
+    <h2>Serving Greater Moncton & All of New Brunswick</h2>
+    <p class="about-areas__sub">While our studio is based in Moncton, we regularly produce content for clients throughout the province and across Atlantic Canada. Wherever your story needs to be told, we'll be there.</p>
+    <div class="about-areas__list">
+      <span class="about-area-tag">Moncton</span>
+      <span class="about-area-tag">Dieppe</span>
+      <span class="about-area-tag">Riverview</span>
+      <span class="about-area-tag">Fredericton</span>
+      <span class="about-area-tag">Saint John</span>
+      <span class="about-area-tag">Miramichi</span>
+      <span class="about-area-tag">Bathurst</span>
+      <span class="about-area-tag">Edmundston</span>
+      <span class="about-area-tag">Shediac</span>
+      <span class="about-area-tag">Sussex</span>
+      <span class="about-area-tag">Sackville</span>
+      <span class="about-area-tag">Atlantic Canada</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FINAL CTA
+     ══════════════════════════════════════ -->
+<section class="about-fcta">
+  <div class="about-fcta__inner lif-reveal">
+    <p class="about-fcta__quote">Because how we speak matters just as much as what we show.</p>
+    <h2>Ready to Elevate Your Brand?</h2>
+    <p class="about-fcta__sub">Let's discuss how we can tell your story with the impact it deserves. Your next chapter starts with a conversation.</p>
+    <div class="about-fcta__btns">
+      <a href="/contact" class="lif-btn lif-btn--primary">
+        Contact Us
+        <span class="lif-btn__arrow"></span>
+      </a>
+      <a href="https://calendly.com/contact-lifmedia/discovery-meeting" class="lif-btn lif-btn--outline-light" target="_blank" rel="noopener">
+        Book Your Discovery Call
+        <span class="lif-btn__arrow"></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════ -->
+<footer class="lif-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h4>Let's create together</h4>
+      <div class="footer-tagline">Audio-Visual Content Production Company</div>
+      <div class="footer-contact-line">
+        <a href="tel:+15066887043">+1 506-688-7043</a><br>
+        21 Rue Foxtrot,<br>
+        Moncton, New Brunswick, Canada<br>
+        <a href="mailto:contact@lifmedia.ca">contact@lifmedia.ca</a>
+      </div>
+    </div>
+    <div class="footer-nav-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="/cinematic-commercials">Cinematic Commercials</a></li>
+        <li><a href="/social-media">Social Media Content</a></li>
+        <li><a href="/events">Event Highlight Films</a></li>
+        <li><a href="/documentaries-interviews">Brand Documentaries</a></li>
+      </ul>
+    </div>
+    <div class="footer-nav-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about-us">About Us</a></li>
+        <li><a href="/portfolio">Portfolio</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom-row">
+    <img src="https://images.squarespace-cdn.com/content/v1/6661bebfa1db887ebcd616d5/1d1ecc8e-15cd-4d44-a9ff-0a04e22bd1c0/Brand_lifmedia+white+logo.png" alt="LIF Media">
+    <div class="footer-copyright">&copy; 2026 LIF Media Inc, All Rights Reserved.</div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

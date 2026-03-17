@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | LIF Media — Video Production in Moncton, NB</title>
+<meta name="description" content="Explore LIF Media's portfolio of social media content, cinematic commercials, brand documentaries, and event highlight films. Video production for businesses across Moncton, New Brunswick, and Atlantic Canada.">
+<link rel="canonical" href="https://www.lifmedia.ca/portfolio">
+<meta property="og:title" content="Portfolio | LIF Media — Video Production Moncton, NB">
+<meta property="og:description" content="Social media content, cinematic commercials, brand documentaries, and event films for businesses across New Brunswick and Atlantic Canada.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.lifmedia.ca/portfolio">
+<meta property="og:locale" content="en_CA">
+<meta property="og:site_name" content="LIF Media">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "LIF Media Portfolio",
+    "description": "Video production portfolio featuring social media content, cinematic commercials, brand documentaries, and event highlight films for businesses in Moncton, New Brunswick.",
+    "url": "https://www.lifmedia.ca/portfolio",
+    "provider": {
+        "@type": "LocalBusiness",
+        "name": "LIF Media",
+        "url": "https://www.lifmedia.ca",
+        "address": { "@type": "PostalAddress", "addressLocality": "Moncton", "addressRegion": "NB", "addressCountry": "CA" },
+        "areaServed": ["Moncton", "Dieppe", "Riverview", "New Brunswick", "Atlantic Canada"]
+    }
+}
+</script>
+
+<style>
+/* ══════════════════════════════════════
+   PORTFOLIO HERO
+   ══════════════════════════════════════ */
+.portfolio-hero {
+  padding: 180px 24px 80px;
+  text-align: center;
+  background: var(--obsidian);
+  color: var(--white);
+  position: relative;
+}
+.portfolio-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+}
+.portfolio-hero .lif-label {
+  justify-content: center;
+  color: var(--terracotta);
+  margin-bottom: 20px;
+}
+.portfolio-hero .lif-label::before {
+  background: var(--terracotta);
+}
+.portfolio-hero h1 {
+  font-family: var(--font-accent);
+  font-size: clamp(36px, 6vw, 64px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.portfolio-hero h1 em {
+  font-style: italic;
+  color: var(--soft-moss);
+}
+.portfolio-hero p {
+  font-size: clamp(15px, 2vw, 17px);
+  color: rgba(255,255,255,0.5);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* ══════════════════════════════════════
+   PORTFOLIO CONTENT
+   ══════════════════════════════════════ */
+.lif-portfolio {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 40px;
+  padding-top: 20px;
+}
+
+/* ═══════════ FILTER NAV ═══════════ */
+.lif-nav {
+  z-index: 100;
+  padding: 32px 0 24px;
+  margin-bottom: 48px;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+
+.lif-nav__label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--terracotta);
+  font-weight: 600;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.lif-nav__label::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: var(--terracotta);
+  flex-shrink: 0;
+}
+
+.lif-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+}
+
+.lif-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1.5px solid rgba(26,26,26,0.12);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-sage);
+  cursor: pointer;
+  padding: 12px 26px;
+  border-radius: 0;
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+}
+
+.lif-filter-btn .lif-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(26,26,26,0.2);
+  background: transparent;
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  flex-shrink: 0;
+}
+
+.lif-filter-btn:hover {
+  border-color: var(--deep-olive);
+  color: var(--deep-olive);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(66, 104, 46, 0.08);
+}
+
+.lif-filter-btn:hover .lif-dot {
+  border-color: var(--deep-olive);
+  background: rgba(66, 104, 46, 0.15);
+}
+
+.lif-filter-btn.active {
+  background: var(--deep-olive);
+  border-color: var(--deep-olive);
+  color: var(--white);
+  box-shadow: 0 4px 16px rgba(66, 104, 46, 0.2);
+}
+
+.lif-filter-btn.active .lif-dot {
+  border-color: var(--terracotta);
+  background: var(--terracotta);
+  box-shadow: 0 0 0 2px rgba(198, 113, 85, 0.3);
+}
+
+.lif-filter-btn.active:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(66, 104, 46, 0.25);
+}
+
+.lif-filter-btn:active {
+  transform: scale(0.97);
+  transition-duration: 0.1s;
+}
+
+.lif-filter-count {
+  font-size: 0.6rem;
+  font-weight: 400;
+  opacity: 0.6;
+  margin-left: 2px;
+}
+
+.lif-filter-btn.active .lif-filter-count {
+  opacity: 0.8;
+}
+
+/* ═══════════ SECTIONS ═══════════ */
+.lif-section {
+  padding-bottom: 88px;
+  margin-bottom: 88px;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+
+.lif-section:last-of-type { border-bottom: none; }
+.lif-section.hidden { display: none; }
+
+.lif-section__header {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  margin-bottom: 14px;
+}
+
+.lif-section__number {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--terracotta);
+}
+
+.lif-section__title {
+  font-family: var(--font-accent);
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  color: var(--obsidian);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.lif-section__desc {
+  font-size: 0.9rem;
+  color: var(--muted-sage);
+  line-height: 1.7;
+  max-width: 560px;
+  font-weight: 300;
+  margin-bottom: 52px;
+  padding-left: 52px;
+}
+
+/* ═══════════ GRIDS ═══════════ */
+.lif-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 52px 40px;
+}
+
+.lif-grid--social {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px 24px;
+}
+
+/* ═══════════ VIDEO CARD ═══════════ */
+.lif-card {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.lif-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── BRANDED VIDEO WRAPPER ─── */
+.lif-video {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: var(--obsidian);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.lif-grid--social .lif-video {
+  padding-bottom: 177.78%;
+}
+
+.lif-video__thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.4s ease;
+}
+
+.lif-video:hover .lif-video__thumb {
+  transform: scale(1.03);
+}
+
+.lif-video__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 26, 26, 0.25);
+  transition: background 0.4s ease;
+  z-index: 1;
+}
+
+.lif-video:hover .lif-video__overlay {
+  background: rgba(26, 26, 26, 0.15);
+}
+
+.lif-video__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 2;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--deep-olive);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+}
+
+.lif-video__play svg {
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+  margin-left: 3px;
+}
+
+.lif-video:hover .lif-video__play {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 6px 32px rgba(66, 104, 46, 0.35);
+}
+
+.lif-video__badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  font-family: var(--font-body);
+  font-size: 0.55rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #fff;
+  background: rgba(26, 26, 26, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 5px 12px;
+  border-radius: 0;
+}
+
+.lif-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  z-index: 3;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lif-video.playing iframe {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lif-video.playing .lif-video__thumb,
+.lif-video.playing .lif-video__overlay,
+.lif-video.playing .lif-video__play,
+.lif-video.playing .lif-video__badge {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* ─── Card text ─── */
+.lif-card__title {
+  font-family: var(--font-accent);
+  font-size: 1.05rem;
+  color: var(--obsidian);
+  margin-bottom: 8px;
+  line-height: 1.35;
+  font-weight: 400;
+}
+
+.lif-card__tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.lif-card__tag {
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-sage);
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 3px 10px;
+  border-radius: 0;
+}
+
+.lif-card__description {
+  font-size: 0.82rem;
+  color: var(--muted-sage);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ═══════════ INLINE CTA ═══════════ */
+.lif-inline-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 36px;
+  margin-top: 56px;
+  background: var(--warm-cream);
+  border-radius: 0;
+  gap: 24px;
+}
+
+.lif-inline-cta__text {
+  font-size: 1rem;
+  color: var(--muted-sage);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.lif-inline-cta__text strong {
+  color: var(--obsidian);
+  font-weight: 600;
+}
+
+.lif-inline-cta__links {
+  display: flex;
+  gap: 16px;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.lif-inline-cta__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--deep-olive);
+  letter-spacing: 0.02em;
+  transition: gap 0.3s ease;
+  white-space: nowrap;
+}
+
+.lif-inline-cta__link:hover { gap: 12px; }
+.lif-inline-cta__link svg { width: 14px; height: 14px; }
+
+.lif-inline-cta__link--btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 32px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--deep-olive);
+  color: var(--white);
+  border-radius: 0;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.lif-inline-cta__link--btn:hover {
+  background: var(--obsidian);
+  transform: translateY(-2px);
+  gap: 14px;
+}
+
+/* ═══════════ FINAL CTA ═══════════ */
+.lif-cta {
+  text-align: center;
+  padding: 100px 24px 120px;
+}
+
+.lif-cta__title {
+  font-family: var(--font-accent);
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  color: var(--obsidian);
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.lif-cta__title em { color: var(--terracotta); font-style: italic; }
+
+.lif-cta__sub {
+  font-size: 0.9rem;
+  color: var(--muted-sage);
+  font-weight: 300;
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE — Portfolio Page
+   ══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .lif-grid--social { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .portfolio-hero { padding: 140px 20px 56px; }
+  .lif-portfolio { padding: 0 20px; padding-top: 12px; }
+  .lif-nav {
+    padding: 16px 0;
+    margin-bottom: 32px;
+  }
+  .lif-nav__label {
+    font-size: 0.65rem;
+    margin-bottom: 14px;
+  }
+  .lif-filters { gap: 8px; }
+  .lif-filter-btn { font-size: 0.72rem; padding: 9px 16px; }
+  .lif-section { padding-bottom: 56px; margin-bottom: 56px; }
+  .lif-section__desc { padding-left: 0; }
+  .lif-grid, .lif-grid--social { grid-template-columns: 1fr; gap: 44px; }
+  .lif-inline-cta {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding: 28px 24px;
+  }
+  .lif-inline-cta__links {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .lif-inline-cta__link--btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .lif-cta { padding: 64px 20px 80px; }
+  .lif-video__play { width: 52px; height: 52px; }
+  .lif-video__play svg { width: 16px; height: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     HEADER
+     ══════════════════════════════════════ -->
+<div id="lif-hdr">
+  <a href="/" class="hdr-logo" aria-label="LIF Media Home">
+    <img class="logo-w" src="https://images.squarespace-cdn.com/content/6661bebfa1db887ebcd616d5/1f20eab3-1a73-44f7-9696-2637aea6f78b/2.png?content-type=image%2Fpng" alt="LIF Media" height="48">
+    <img class="logo-d" src="https://images.squarespace-cdn.com/content/6661bebfa1db887ebcd616d5/2d08dc8b-11da-4c4e-b766-d0c6e1b3cc15/1.png?content-type=image%2Fpng" alt="LIF Media" height="48">
+  </a>
+  <div class="hdr-right">
+    <ul class="hdr-nav">
+      <li><a href="/">Home</a></li>
+      <li class="hdr-drop">
+        <a href="/services">Services <span class="hdr-chev"></span></a>
+        <div class="hdr-drop-menu">
+          <a href="/cinematic-commercials">Cinematic Commercials</a>
+          <a href="/social-media">Social Media Content</a>
+          <a href="/events">Event Highlight Films</a>
+          <a href="/documentaries-interviews">Brand Documentaries &amp; Interviews</a>
+        </div>
+      </li>
+      <li><a href="/portfolio">Portfolio</a></li>
+      <li><a href="/about-us">About Us</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <span class="hdr-divider"></span>
+    <div class="hdr-socials">
+      <a href="https://www.instagram.com/lifmedia/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+      <a href="https://www.facebook.com/lifmediaca/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      <a href="https://www.tiktok.com/@lifmedia" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+      <a href="https://www.linkedin.com/company/lif-media/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+    </div>
+    <span class="hdr-divider"></span>
+    <button class="hdr-menu-btn" id="lifMenuBtn" aria-label="Open menu">
+      <span>Menu</span>
+      <span class="menu-lines"><span></span><span></span></span>
+    </button>
+  </div>
+</div>
+
+<!-- Full-screen menu overlay -->
+<div id="lif-mob">
+  <div class="mob-close-row">
+    <button class="mob-close-btn" id="lifMobClose" aria-label="Close menu">
+      <span>Close</span><span class="close-line"></span>
+    </button>
+  </div>
+  <div class="mob-inner">
+    <div class="mob-left">
+      <a href="/" class="mob-link">Home</a>
+      <a href="#" class="mob-link">Services</a>
+      <div class="mob-services">
+        <a href="/cinematic-commercials">Cinematic Commercials</a>
+        <a href="/social-media">Social Media Content</a>
+        <a href="/events">Event Highlight Films</a>
+        <a href="/documentaries-interviews">Documentaries &amp; Interviews</a>
+      </div>
+      <a href="/portfolio" class="mob-link">Portfolio</a>
+      <a href="/about-us" class="mob-link">About Us</a>
+      <a href="/contact" class="mob-link">Contact</a>
+    </div>
+    <div class="mob-right">
+      <div class="mob-info-block">
+        <h4>Follow</h4>
+        <div class="mob-social-row">
+          <a href="https://www.instagram.com/lifmedia/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="https://www.facebook.com/lifmediaca/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://www.tiktok.com/@lifmedia" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+          <a href="https://www.linkedin.com/company/lif-media/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        </div>
+      </div>
+      <div class="mob-info-block">
+        <h4>Contact</h4>
+        <a href="mailto:contact@lifmedia.ca">contact@lifmedia.ca</a>
+        <a href="tel:+15066887043">+1 506-688-7043</a>
+      </div>
+      <div class="mob-info-block">
+        <h4>Location</h4>
+        <p>21 Rue Foxtrot<br>Moncton, New Brunswick<br>Canada</p>
+      </div>
+      <div class="mob-logo-bottom">
+        <img src="https://images.squarespace-cdn.com/content/6661bebfa1db887ebcd616d5/1f20eab3-1a73-44f7-9696-2637aea6f78b/2.png?content-type=image%2Fpng" alt="LIF Media" height="32">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PORTFOLIO HERO
+     ══════════════════════════════════════ -->
+<section class="portfolio-hero">
+  <div class="lif-label lif-reveal">Our Work</div>
+  <h1 class="lif-reveal lif-reveal-d1">Our <em>Portfolio</em></h1>
+  <p class="lif-reveal lif-reveal-d2">Social media content, cinematic commercials, brand documentaries, and event films for businesses across New Brunswick and Atlantic Canada.</p>
+</section>
+
+<div class="lif-portfolio">
+
+    <!-- ═══════════ FILTER NAV ═══════════ -->
+    <nav class="lif-nav lif-reveal" aria-label="Portfolio filters">
+        <span class="lif-nav__label">Filter by Category</span>
+        <div class="lif-filters" role="tablist">
+            <button class="lif-filter-btn active" data-filter="all" role="tab" aria-selected="true">All <span class="lif-dot"></span></button>
+            <button class="lif-filter-btn" data-filter="social" role="tab" aria-selected="false">Social Media <span class="lif-dot"></span></button>
+            <button class="lif-filter-btn" data-filter="commercial" role="tab" aria-selected="false">Commercials <span class="lif-dot"></span></button>
+            <button class="lif-filter-btn" data-filter="documentary" role="tab" aria-selected="false">Documentaries <span class="lif-dot"></span></button>
+            <button class="lif-filter-btn" data-filter="event" role="tab" aria-selected="false">Events <span class="lif-dot"></span></button>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════
+         SECTION 1: SOCIAL MEDIA CONTENT
+         ═══════════════════════════════════════════════════ -->
+    <section class="lif-section" data-category="social">
+        <div class="lif-section__header lif-reveal">
+            <span class="lif-section__number">01</span>
+            <h2 class="lif-section__title">Social Media Content</h2>
+        </div>
+        <p class="lif-section__desc lif-reveal lif-reveal-d1">Scroll-stopping vertical content built for engagement and growth. High-volume reels, shorts, and stories that turn followers into customers for businesses across Moncton and New Brunswick.</p>
+        <div class="lif-grid lif-grid--social">
+
+            <!-- REAL: Premium Group - Built With Heart -->
+            <article class="lif-card">
+                <div class="lif-video" data-yt="Y5lV1Br61Pk">
+                    <img class="lif-video__thumb" src="https://img.youtube.com/vi/Y5lV1Br61Pk/maxresdefault.jpg" alt="Premium Group Built With Heart social media content Moncton NB" loading="lazy">
+                    <div class="lif-video__overlay"></div>
+                    <span class="lif-video__badge">LIF Media</span>
+                    <div class="lif-video__play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
+                    <iframe data-src="https://www.youtube.com/embed/Y5lV1Br61Pk" title="Premium Group - Built With Heart" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <h3 class="lif-card__title">Premium Group — Built With Heart</h3>
+                <div class="lif-card__tags"><span class="lif-card__tag">Fireproofing & Drywall</span><span class="lif-card__tag">Moncton, NB</span></div>
+                <p class="lif-card__description">Premium Group wanted their audience to feel the meaning behind their tagline, not just read it. This social media piece brought "Built With Heart" to life, giving the brand an emotional anchor that resonated with general contractors and property managers looking for a trusted fireproofing, firestopping, drywall and caulking partner in the Greater Moncton market.</p>
+            </article>
+
+            <!-- REAL: JA Kelly - Before and After 1212 Mountain Rd -->
+            <article class="lif-card">
+                <div class="lif-video" data-yt="mSGB-cVpIOM">
+                    <img class="lif-video__thumb" src="https://img.youtube.com/vi/mSGB-cVpIOM/maxresdefault.jpg" alt="JA Kelly Contracting before and after 1212 Mountain Rd Moncton NB" loading="lazy">
+                    <div class="lif-video__overlay"></div>
+                    <span class="lif-video__badge">LIF Media</span>
+                    <div class="lif-video__play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
+                    <iframe data-src="https://www.youtube.com/embed/mSGB-cVpIOM" title="JA Kelly - Before and After 1212 Mountain Rd" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <h3 class="lif-card__title">JA Kelly Contracting — Before & After, 1212 Mountain Rd</h3>
+                <div class="lif-card__tags"><span class="lif-card__tag">Construction</span><span class="lif-card__tag">Moncton, NB</span></div>
+                <p class="lif-card__description">Nothing sells quality craftsmanship like a dramatic transformation. This before-and-after reel showcased deck builds JA Kelly completed for a property management company, giving them proof-of-work content that speaks louder than any sales pitch and driving inquiries from property managers across Moncton looking for the same results.</p>
+            </article>
+
+            <!-- REAL: Innova Design Studio - Hybrid Bar Top -->
+            <article class="lif-card">
+                <div class="lif-video" data-yt="mD59ghMvH3w">
+                    <img class="lif-video__thumb" src="https://img.youtube.com/vi/mD59ghMvH3w/maxresdefault.jpg" alt="Innova Design Studio hybrid bar top social media content Moncton NB" loading="lazy">
+                    <div class="lif-video__overlay"></div>
+                    <span class="lif-video__badge">LIF Media</span>
+                    <div class="lif-video__play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
+                    <iframe data-src="https://www.youtube.com/embed/mD59ghMvH3w" title="Innova Design Studio - Hybrid Bar Top" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <h3 class="lif-card__title">Innova Design Studio — Hybrid Bar Top</h3>
+                <div class="lif-card__tags"><span class="lif-card__tag">Architectural Design</span><span class="lif-card__tag">Moncton, NB</span></div>
+                <p class="lif-card__description">Innova needed content that would showcase their attention to detail and attract clients who value premium design. This social media piece turned a single design element into a scroll-stopping moment, positioning the architectural design firm as the go-to studio for homeowners who want spaces that are anything but ordinary.</p>
+            </article>
+
+            <!-- REAL: LIF Media - Creative Director Personal Brand -->
+            <article class="lif-card">
+                <div class="lif-video" data-yt="mX7iZqX0k-w">
+                    <img class="lif-video__thumb" src="https://img.youtube.com/vi/mX7iZqX0k-w/maxresdefault.jpg" alt="LIF Media Creative Director personal brand video Moncton NB" loading="lazy">
+                    <div class="lif-video__overlay"></div>
+                    <span class="lif-video__badge">LIF Media</span>
+                    <div class="lif-video__play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
+                    <iframe data-src="https://www.youtube.com/embed/mX7iZqX0k-w" title="LIF Media Creative Director - Personal Brand" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <h3 class="lif-card__title">LIF Media — The Journey Behind the Lens</h3>
+                <div class="lif-card__tags"><span class="lif-card__tag">Personal Brand</span><span class="lif-card__tag">Moncton, NB</span></div>
+                <p class="lif-card__description">People work with people, not logos. This personal brand piece shares our Creative Director's journey to starting LIF Media, building the kind of trust and human connection that turns followers into clients. Because when your audience knows your story, they're already halfway to choosing you.</p>
+            </article>
+
+            <!-- REAL: Anessa - Biogas Software -->
+            <article class="lif-card">
+                <div class="lif-video" data-yt="tbVO4esRCis">
+                    <img class="lif-video__thumb" src="https://img.youtube.com/vi/tbVO4esRCis/maxresdefault.jpg" alt="Anessa biogas software company social media content" loading="lazy">
+                    <div class="lif-video__overlay"></div>
+                    <span class="lif-video__badge">LIF Media</span>
+                    <div class="lif-video__play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
+                    <iframe data-src="https://www.youtube.com/embed/tbVO4esRCis" title="Anessa - Biogas Industry Software" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <h3 class="lif-card__title">Anessa — Software for the Biogas Industry</h3>
+                <div class="lif-card__tags"><span class="lif-card__tag">Technology</span><span class="lif-card__tag">Biogas & Energy</span></div>
+                <p class="lif-card__description">Anessa needed to make complex biogas software feel approachable to decision-makers who aren't technical. This social media content broke down the value of their platform in a way that resonated on LinkedIn and industry channels, generating awareness and qualified leads from biogas producers looking for smarter tools.</p>
+            </article>
+
+        </div>
+        <div class="lif-inline-cta lif-reveal">
+            <p class="lif-inline-cta__text"><strong>Need social media content?</strong> We produce weekly content packages for brands across New Brunswick.</p>
+            <div class="lif-inline-cta__links">
+                <a href="/contact" class="lif-inline-cta__link">Get a quote <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></a>
+                <a href="https://calendly.com/contact-lifmedia/discovery-meeting" target="_blank" rel="noopener" class="lif-inline-cta__link--btn">Book a Discovery Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         SECTION 2: CINEMATIC COMMERCIALS
+         ═══════════════════════════════════════════════════ -->
+    <section class="lif-section" data-category="commercial">
+        <div class="lif-section__header lif-reveal">
+            <span class="lif-section__number">02</span>
+            <h2 class="lif-section__title">Cinematic Commercials</h2>
+        </div>
+        <p class="lif-section__desc lif-reveal lif-reveal-d1">Premium commercial video production with a cinematic edge. Every frame crafted to elevate your brand and deliver real business results across New Brunswick.</p>
+        <div class="lif-grid">
+
+            <!-- REAL: Existence Is Enough -->
+            <article class="lif-card">
+                <div class="lif-video" data-yt="HuUUlx7e8Gg">
+                    <img class="lif-video__thumb" src="https://img.youtube.com/vi/HuUUlx7e8Gg/maxresdefault.jpg" alt="Existence Is Enough non-profit awareness commercial - Moncton NB" loading="lazy">
+                    <div class="lif-video__overlay"></div>
+                    <span class="lif-video__badge">LIF Media</span>
+                    <div class="lif-video__play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
+                    <iframe data-src="https://www.youtube.com/embed/HuUUlx7e8Gg" title="Existence Is Enough awareness commercial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <h3 class="lif-card__title">Existence Is Enough — Awareness Campaign</h3>
+                <div class="lif-card__tags"><span class="lif-card__tag">Non-Profit</span><span class="lif-card__tag">Awareness</span></div>
+                <p class="lif-card__description">A powerful cinematic commercial for Existence Is Enough, a non-profit organization empowering individuals to seek help and know they are not alone. This video helped amplify the organization's message, reaching thousands of people and opening conversations around mental health across New Brunswick and beyond.</p>
+            </article>
+
+            <!-- REAL: Three Sisters by Lafford Properties -->
+            <article class="lif-card">
+                <div class="lif-video" data-yt="7wiZB4ZBJSE">
+                    <img class="lif-video__thumb" src="https://img.youtube.com/vi/7wiZB4ZBJSE/maxresdefault.jpg" alt="Three Sisters Lafford Properties marketing campaign - Moncton NB" loading="lazy">
+                    <div class="lif-video__overlay"></div>
+                    <span class="lif-video__badge">LIF Media</span>
+                    <div class="lif-video__play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
+                    <iframe data-src="https://www.youtube.com/embed/7wiZB4ZBJSE" title="Three Sisters by Lafford Properties commercial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <h3 class="lif-card__title">Lafford Properties — Three Sisters Campaign</h3>
+                <div class="lif-card__tags"><span class="lif-card__tag">Real Estate</span><span class="lif-card__tag">Moncton, NB</span></div>
+                <p class="lif-card__description">A fun, story-driven marketing campaign for Lafford Properties' Three Sisters development in Moncton. The ad follows two friends living in different parts of the city, showing how Three Sisters puts you closer to great restaurants, nightlife, and everything in between, so you never miss a moment. This campaign helped drive interest and leasing inquiries for the property.</p>
+            </article>
+
+            <!-- REAL: Jocelyn Clements - Realtor -->
+            <article class="lif-card">
+                <div class="lif-video" data-yt="c-bbbE9f0Ig">
+                    <img class="lif-video__thumb" src="https://img.youtube.com/vi/c-bbbE9f0Ig/maxresdefault.jpg" alt="Jocelyn Clements realtor commercial - Greater Moncton NB real estate" loading="lazy">
+                    <div class="lif-video__overlay"></div>
+                    <span class="lif-video__badge">LIF Media</span>
+                    <div class="lif-video__play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
+                    <iframe data-src="https://www.youtube.com/embed/c-bbbE9f0Ig" title="Jocelyn Clements - Why List With Us" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <h3 class="lif-card__title">Jocelyn Clements — Why List With Us</h3>
+                <div class="lif-card__tags"><span class="lif-card__tag">Real Estate</span><span class="lif-card__tag">Greater Moncton, NB</span></div>
+                <p class="lif-card__description">In a crowded real estate market, Jocelyn needed a way to stand out and show potential sellers why she's the right choice. This cinematic commercial gave her a professional edge over competitors, building instant trust with homeowners across the Greater Moncton area and turning cold leads into listing appointments.</p>
+            </article>
+
+        </div>
+        <div class="lif-inline-cta lif-reveal">
+            <p class="lif-inline-cta__text"><strong>Looking for a commercial?</strong> Let's craft something cinematic for your brand.</p>
+            <div class="lif-inline-cta__links">
+                <a href="/contact" class="lif-inline-cta__link">Discuss your project <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></a>
+                <a href="https://calendly.com/contact-lifmedia/discovery-meeting" target="_blank" rel="noopener" class="lif-inline-cta__link--btn">Book a Discovery Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         SECTION 3: BRAND DOCUMENTARIES & INTERVIEWS
+         ═══════════════════════════════════════════════════ -->
+    <section class="lif-section" data-category="documentary">
+        <div class="lif-section__header lif-reveal">
+            <span class="lif-section__number">03</span>
+            <h2 class="lif-section__title">Brand Documentaries & Interviews</h2>
+        </div>
+        <p class="lif-section__desc lif-reveal lif-reveal-d1">Long-form storytelling that builds trust and emotional connection. We document the people, processes, and purpose behind New Brunswick's most ambitious brands.</p>
+        <div class="lif-grid">
+
+            <!-- REAL: Dr. Barry Blight - UNB Chemistry -->
+            <article class="lif-card">
+                <div class="lif-video" data-yt="llPxH_uaMG0">
+                    <img class="lif-video__thumb" src="https://img.youtube.com/vi/llPxH_uaMG0/maxresdefault.jpg" alt="Dr. Barry Blight UNB chemistry research documentary - New Brunswick innovation" loading="lazy">
+                    <div class="lif-video__overlay"></div>
+                    <span class="lif-video__badge">LIF Media</span>
+                    <div class="lif-video__play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
+                    <iframe data-src="https://www.youtube.com/embed/llPxH_uaMG0" title="Dr. Barry Blight UNB Chemistry Research" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <h3 class="lif-card__title">ResearchNB — Dr. Barry Blight, Molecular Innovation at UNB</h3>
+                <div class="lif-card__tags"><span class="lif-card__tag">ResearchNB</span><span class="lif-card__tag">Fredericton, NB</span></div>
+                <p class="lif-card__description">Produced for ResearchNB, this documentary helped put UNB's groundbreaking chemistry research on the map for potential funders and collaborators. Dr. Blight's team is creating molecular structures that could revolutionize carbon reduction, electronic displays, and medicine delivery, and this film made that story accessible and compelling to audiences far beyond the lab.</p>
+            </article>
+
+            <!-- REAL: Biogas / NB Agriculture -->
+            <article class="lif-card">
+                <div class="lif-video" data-yt="IoAhnrKV-jY">
+                    <img class="lif-video__thumb" src="https://img.youtube.com/vi/IoAhnrKV-jY/maxresdefault.jpg" alt="New Brunswick biogas agriculture documentary - sustainable farming NB" loading="lazy">
+                    <div class="lif-video__overlay"></div>
+                    <span class="lif-video__badge">LIF Media</span>
+                    <div class="lif-video__play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
+                    <iframe data-src="https://www.youtube.com/embed/IoAhnrKV-jY" title="New Brunswick Biogas Agriculture Documentary" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <h3 class="lif-card__title">ResearchNB — Biogas, The Future of Farming in New Brunswick</h3>
+                <div class="lif-card__tags"><span class="lif-card__tag">ResearchNB</span><span class="lif-card__tag">New Brunswick</span></div>
+                <p class="lif-card__description">Produced for ResearchNB, this documentary helped a provincial program educate NB farmers about a new revenue opportunity: turning manure into clean energy through biogas production. The film made a complex topic simple and relatable, encouraging farmers to apply for feasibility studies and positioning New Brunswick as a leader in sustainable agriculture innovation.</p>
+            </article>
+
+            <!-- REAL: RPC - Innovation in Service of Public Good -->
+            <article class="lif-card">
+                <div class="lif-video" data-yt="VRQBDRS_Spg">
+                    <img class="lif-video__thumb" src="https://img.youtube.com/vi/VRQBDRS_Spg/maxresdefault.jpg" alt="Research and Productivity Council RPC documentary - New Brunswick innovation" loading="lazy">
+                    <div class="lif-video__overlay"></div>
+                    <span class="lif-video__badge">LIF Media</span>
+                    <div class="lif-video__play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
+                    <iframe data-src="https://www.youtube.com/embed/VRQBDRS_Spg" title="Research & Productivity Council - Innovation in Service of Public Good" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <h3 class="lif-card__title">ResearchNB — Research & Productivity Council, Innovation in Service of the Public Good</h3>
+                <div class="lif-card__tags"><span class="lif-card__tag">ResearchNB</span><span class="lif-card__tag">New Brunswick</span></div>
+                <p class="lif-card__description">RPC needed a film that would communicate the real-world value of their work to government stakeholders, industry partners, and the public. This documentary showcased how their innovations directly serve New Brunswick communities, helping RPC secure continued support, attract partnerships, and demonstrate measurable impact.</p>
+            </article>
+
+            <!-- REAL: Carly Smith - Inspiration Story -->
+            <article class="lif-card">
+                <div class="lif-video" data-yt="ZqlZGaC8x7o">
+                    <img class="lif-video__thumb" src="https://img.youtube.com/vi/ZqlZGaC8x7o/maxresdefault.jpg" alt="Carly Smith inspirational documentary - overcoming obstacles New Brunswick" loading="lazy">
+                    <div class="lif-video__overlay"></div>
+                    <span class="lif-video__badge">LIF Media</span>
+                    <div class="lif-video__play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
+                    <iframe data-src="https://www.youtube.com/embed/ZqlZGaC8x7o" title="Carly Smith - Inspiration and Overcoming Obstacles" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <h3 class="lif-card__title">TSN (The Sports Network) — Carly Smith, Anything Is Possible</h3>
+                <div class="lif-card__tags"><span class="lif-card__tag">TSN</span><span class="lif-card__tag">Inspirational</span></div>
+                <p class="lif-card__description">Produced for TSN, The Sports Network, Carly's story of overcoming obstacles needed to be told in a way that would move people to action. This documentary gave her message a national platform that inspired audiences, opened doors for speaking engagements, and proved that authentic storytelling is the most powerful tool for connecting with people on a human level.</p>
+            </article>
+
+        </div>
+        <div class="lif-inline-cta lif-reveal">
+            <p class="lif-inline-cta__text"><strong>Tell your brand story.</strong> Documentaries that build trust and connect with your audience.</p>
+            <div class="lif-inline-cta__links">
+                <a href="/contact" class="lif-inline-cta__link">Get in touch <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></a>
+                <a href="https://calendly.com/contact-lifmedia/discovery-meeting" target="_blank" rel="noopener" class="lif-inline-cta__link--btn">Book a Discovery Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         SECTION 4: EVENT HIGHLIGHT FILMS
+         ═══════════════════════════════════════════════════ -->
+    <section class="lif-section" data-category="event">
+        <div class="lif-section__header lif-reveal">
+            <span class="lif-section__number">04</span>
+            <h2 class="lif-section__title">Event Highlight Films</h2>
+        </div>
+        <p class="lif-section__desc lif-reveal lif-reveal-d1">We capture the energy, emotion, and key moments of your events. Our event videography across New Brunswick preserves the experience and extends its impact.</p>
+        <div class="lif-grid">
+
+            <!-- REAL: Pond-Deshpande Centre -->
+            <article class="lif-card">
+                <div class="lif-video" data-yt="pJgxD_EZzHg">
+                    <img class="lif-video__thumb" src="https://img.youtube.com/vi/pJgxD_EZzHg/maxresdefault.jpg" alt="Pond-Deshpande Centre Social Enterprise Excellence Symposium Moncton NB" loading="lazy">
+                    <div class="lif-video__overlay"></div>
+                    <span class="lif-video__badge">LIF Media</span>
+                    <div class="lif-video__play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
+                    <iframe data-src="https://www.youtube.com/embed/pJgxD_EZzHg" title="Pond-Deshpande Centre Social Enterprise Excellence Symposium" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <h3 class="lif-card__title">Pond-Deshpande Centre — Social Enterprise Excellence Symposium</h3>
+                <div class="lif-card__tags"><span class="lif-card__tag">Social Enterprise</span><span class="lif-card__tag">Moncton, NB</span></div>
+                <p class="lif-card__description">The Pond-Deshpande Centre needed their symposium to live beyond the day itself. Our full photo and video coverage gave them content to attract future attendees, showcase their impact to funders, and keep the momentum going year-round across their social channels and website.</p>
+            </article>
+
+            <!-- REAL: Moncton Youth Rally -->
+            <article class="lif-card">
+                <div class="lif-video" data-yt="xEfanvkMGhE">
+                    <img class="lif-video__thumb" src="https://img.youtube.com/vi/xEfanvkMGhE/maxresdefault.jpg" alt="Moncton Youth Rally event highlight film - Moncton NB" loading="lazy">
+                    <div class="lif-video__overlay"></div>
+                    <span class="lif-video__badge">LIF Media</span>
+                    <div class="lif-video__play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
+                    <iframe data-src="https://www.youtube.com/embed/xEfanvkMGhE" title="Moncton Youth Rally highlight film" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <h3 class="lif-card__title">Moncton Youth Rally — Event Highlight Film</h3>
+                <div class="lif-card__tags"><span class="lif-card__tag">Community</span><span class="lif-card__tag">Moncton, NB</span></div>
+                <p class="lif-card__description">The Moncton Youth Rally wanted a video that would inspire students who couldn't attend and energize planning for next year's event. Our highlight film captured the passion and energy of the day, giving organizers a powerful tool to grow attendance, engage school communities, and show potential sponsors the real impact of their mission.</p>
+            </article>
+
+            <!-- REAL: Paint Shop Contractor Appreciation -->
+            <article class="lif-card">
+                <div class="lif-video" data-yt="w8_lujIOGmc">
+                    <img class="lif-video__thumb" src="https://img.youtube.com/vi/w8_lujIOGmc/maxresdefault.jpg" alt="Paint Shop contractor appreciation event Happy Craft Brewing Moncton NB" loading="lazy">
+                    <div class="lif-video__overlay"></div>
+                    <span class="lif-video__badge">LIF Media</span>
+                    <div class="lif-video__play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
+                    <iframe data-src="https://www.youtube.com/embed/w8_lujIOGmc" title="Paint Shop Contractor Appreciation Event" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <h3 class="lif-card__title">The Paint Shop — Contractor Appreciation Event</h3>
+                <div class="lif-card__tags"><span class="lif-card__tag">Construction</span><span class="lif-card__tag">Moncton, NB</span></div>
+                <p class="lif-card__description">The Paint Shop wanted to strengthen relationships with their contractor network and show them they're valued. Our coverage of the Contractor Appreciation Event at Happy Craft Brewing in Moncton gave them shareable content that reinforced loyalty, attracted new contractor partnerships, and positioned the brand as one that truly invests in its community.</p>
+            </article>
+
+            <!-- REAL: Pont Bridge - Forum CapBleu / BlueShift 2025 -->
+            <article class="lif-card">
+                <div class="lif-video" data-yt="Y0vMtEfOiqg">
+                    <img class="lif-video__thumb" src="https://img.youtube.com/vi/Y0vMtEfOiqg/maxresdefault.jpg" alt="Pont Bridge Forum CapBleu BlueShift 2025 Canada Africa port industry blue economy" loading="lazy">
+                    <div class="lif-video__overlay"></div>
+                    <span class="lif-video__badge">LIF Media</span>
+                    <div class="lif-video__play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
+                    <iframe data-src="https://www.youtube.com/embed/Y0vMtEfOiqg" title="Forum CapBleu BlueShift 2025 - Canada-Africa Forum" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <h3 class="lif-card__title">Pont Bridge — Forum CapBleu / BlueShift 2025</h3>
+                <div class="lif-card__tags"><span class="lif-card__tag">International</span><span class="lif-card__tag">Blue Economy</span></div>
+                <p class="lif-card__description">Pont Bridge needed their Canada-Africa Forum on the Port Industry and the Blue Economy to reach far beyond the room. Our event coverage captured the key discussions around knowledge transfer, decarbonization, ESG, and sustainable ocean management, giving organizers polished content to attract future sponsors, expand their international network, and position the forum as a must-attend event in the global blue economy space.</p>
+            </article>
+
+        </div>
+        <div class="lif-inline-cta lif-reveal">
+            <p class="lif-inline-cta__text"><strong>Have an upcoming event?</strong> Let's make sure every moment is captured.</p>
+            <div class="lif-inline-cta__links">
+                <a href="/contact" class="lif-inline-cta__link">Get event pricing <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></a>
+                <a href="https://calendly.com/contact-lifmedia/discovery-meeting" target="_blank" rel="noopener" class="lif-inline-cta__link--btn">Book a Discovery Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ FINAL CTA ═══════════ -->
+    <section class="lif-cta lif-reveal">
+        <h2 class="lif-cta__title">Let's Create Something <em>Worth Watching</em></h2>
+        <p class="lif-cta__sub">Ready to elevate your brand with cinematic video production in New Brunswick?</p>
+        <a href="/contact" class="lif-btn lif-btn--dark">
+            Start Your Project
+            <span class="lif-btn__arrow"></span>
+        </a>
+    </section>
+
+</div>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════ -->
+<footer class="lif-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h4>Let's create together</h4>
+      <div class="footer-tagline">Audio-Visual Content Production Company</div>
+      <div class="footer-contact-line">
+        <a href="tel:+15066887043">+1 506-688-7043</a><br>
+        21 Rue Foxtrot,<br>
+        Moncton, New Brunswick, Canada<br>
+        <a href="mailto:contact@lifmedia.ca">contact@lifmedia.ca</a>
+      </div>
+    </div>
+    <div class="footer-nav-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="/cinematic-commercials">Cinematic Commercials</a></li>
+        <li><a href="/social-media">Social Media Content</a></li>
+        <li><a href="/events">Event Highlight Films</a></li>
+        <li><a href="/documentaries-interviews">Brand Documentaries</a></li>
+      </ul>
+    </div>
+    <div class="footer-nav-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about-us">About Us</a></li>
+        <li><a href="/portfolio">Portfolio</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom-row">
+    <img src="https://images.squarespace-cdn.com/content/v1/6661bebfa1db887ebcd616d5/1d1ecc8e-15cd-4d44-a9ff-0a04e22bd1c0/Brand_lifmedia+white+logo.png" alt="LIF Media">
+    <div class="footer-copyright">&copy; 2026 LIF Media Inc, All Rights Reserved.</div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  // Card scroll reveal
+  var cards = document.querySelectorAll('.lif-card');
+  var cardObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        cardObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  cards.forEach(function(card, i) {
+    card.style.transitionDelay = (i % 3) * 0.1 + 's';
+    cardObserver.observe(card);
+  });
+
+  // Branded video player
+  document.querySelectorAll('.lif-video').forEach(function(wrapper) {
+    wrapper.addEventListener('click', function(e) {
+      if (this.classList.contains('playing')) return;
+      e.preventDefault();
+      e.stopPropagation();
+
+      var iframe = this.querySelector('iframe');
+      var src = iframe.getAttribute('data-src');
+      if (src) {
+        var separator = src.includes('?') ? '&' : '?';
+        iframe.setAttribute('src', src + separator + 'autoplay=1&mute=0');
+        this.classList.add('playing');
+
+        setTimeout(function() {
+          iframe.focus();
+        }, 300);
+      }
+    });
+  });
+
+  // Filter nav
+  var filterBtns = document.querySelectorAll('.lif-filter-btn');
+  var sections = document.querySelectorAll('.lif-section');
+
+  // Add project counts
+  filterBtns.forEach(function(btn) {
+    var filter = btn.dataset.filter;
+    var count = 0;
+    if (filter === 'all') {
+      count = document.querySelectorAll('.lif-card').length;
+    } else {
+      count = document.querySelectorAll('.lif-section[data-category="' + filter + '"] .lif-card').length;
+    }
+    var countSpan = document.createElement('span');
+    countSpan.className = 'lif-filter-count';
+    countSpan.textContent = count;
+    btn.insertBefore(countSpan, btn.querySelector('.lif-dot'));
+  });
+
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var filter = btn.dataset.filter;
+      filterBtns.forEach(function(b) {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      sections.forEach(function(section) {
+        var category = section.dataset.category;
+        if (filter === 'all' || filter === category) {
+          section.classList.remove('hidden');
+          section.querySelectorAll('.lif-card').forEach(function(c) { c.classList.add('visible'); });
+        } else {
+          section.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

@@ -261,7 +261,6 @@ body::before {
 .lif-footer {
   background: #0a0a0a; color: #fff;
   padding: 64px 32px 0; width: 100%;
-  border-top-left-radius: 24px; border-top-right-radius: 24px;
 }
 .lif-footer .footer-inner {
   max-width: 900px; margin: 0 auto;

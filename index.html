@@ -128,7 +128,7 @@
    ══════════════════════════════════════ */
 .lif-logos {
   padding: 48px 24px; overflow: hidden; position: relative;
-  background: var(--obsidian);
+  background: var(--off-white);
 }
 .lif-logos::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
@@ -137,7 +137,7 @@
 .lif-logos__header { text-align: center; margin-bottom: 20px; padding: 0 24px; }
 .lif-logos__header .eyebrow {
   font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em;
-  color: rgba(255,255,255,0.4); font-weight: 600;
+  color: rgba(26,26,26,0.4); font-weight: 600;
 }
 .marquee-viewport { position: relative; width: 100%; overflow: hidden; }
 .marquee-track {
@@ -153,19 +153,19 @@
 .logo-item:hover { opacity: 0.9; }
 .logo-img {
   max-height: 80px; max-width: 240px; width: auto; height: auto; object-fit: contain;
-  filter: grayscale(1) brightness(1.5); transition: filter 0.4s ease;
+  filter: grayscale(1) brightness(0.8); transition: filter 0.4s ease;
 }
-.logo-item:hover .logo-img { filter: grayscale(0) brightness(1.2); }
-.logo-sep { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.15); flex-shrink: 0; opacity: 0.5; }
+.logo-item:hover .logo-img { filter: grayscale(0) brightness(1); }
+.logo-sep { width: 4px; height: 4px; border-radius: 50%; background: rgba(26,26,26,0.15); flex-shrink: 0; opacity: 0.5; }
 .lif-logos__bottom {
   display: flex; align-items: center; justify-content: center;
   gap: 12px; margin-top: 20px; padding: 0 24px;
 }
 .lif-logos__bottom::before,
-.lif-logos__bottom::after { content: ''; flex: 1; max-width: 80px; height: 1px; background: rgba(255,255,255,0.1); }
+.lif-logos__bottom::after { content: ''; flex: 1; max-width: 80px; height: 1px; background: rgba(26,26,26,0.1); }
 .lif-logos__bottom span {
   font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em;
-  color: rgba(255,255,255,0.45); font-weight: 600; white-space: nowrap;
+  color: rgba(26,26,26,0.45); font-weight: 600; white-space: nowrap;
 }
 
 /* ══════════════════════════════════════
@@ -772,7 +772,7 @@
      ══════════════════════════════════════ -->
 <section class="lif-hero">
   <div class="lif-hero__video">
-    <video autoplay loop muted playsinline preload="auto"
+    <video loop muted playsinline preload="auto"
            src="https://video.squarespace-cdn.com/content/v1/6661bebfa1db887ebcd616d5/27cb56c2-58f1-45f9-be9e-5be2b1914cca/LIF+Media+Showreel+2025.mp4"
            poster=""></video>
   </div>
@@ -831,36 +831,6 @@
 </section>
 
 <!-- ══════════════════════════════════════
-     3. STORY / ABOUT — the guide enters
-     ══════════════════════════════════════ -->
-<section class="lif-story" id="story">
-  <div class="lif-story__grid">
-    <div class="lif-story__image-wrap lif-reveal">
-      <img src="https://images.squarespace-cdn.com/content/6661bebfa1db887ebcd616d5/e4fd6018-5f36-4068-bba5-2fd83d1ef9df/621314100_912583598380811_6046215848092940215_n.jpg?content-type=image%2Fjpeg" alt="Jorge, Creative Director at LIF Media" loading="lazy">
-    </div>
-    <div>
-      <div class="lif-label lif-reveal" style="color: var(--terracotta);">Who We Are</div>
-      <h2 class="lif-story__heading lif-reveal lif-reveal-d1">
-        You have a story worth telling.<br><em>We make sure the world sees it.</em>
-      </h2>
-      <p class="lif-story__text lif-reveal lif-reveal-d2">
-        Every business has something worth showing — the craftsmanship, the culture, the moments that define who you are. But between running your company and serving your clients, telling that story often falls to the bottom of the list.
-      </p>
-      <p class="lif-story__text lif-reveal lif-reveal-d2">
-        That's where we come in. LIF Media is a video production company built to take the storytelling off your plate. We show up, we capture the real work, and we turn it into content that actually moves your business forward. No stock footage. No generic scripts. Just your story, told right.
-      </p>
-      <div class="lif-story__footer lif-reveal lif-reveal-d3">
-        <div class="lif-story__location">Based in Moncton, NB</div>
-        <a href="#contact" class="lif-btn lif-btn--outline" style="padding: 12px 24px; font-size: 0.75rem;">
-          Get a Quote
-          <span class="lif-btn__arrow"></span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════
      4. SERVICES — obsidian bg, 2x2 grid
      ══════════════════════════════════════ -->
 <section class="lif-services" id="services">
@@ -873,7 +843,7 @@
     <article class="lif-service-card lif-reveal" data-service="social">
       <div class="lif-service-card__visual">
         <div class="video-cover is-vertical">
-          <iframe src="https://www.youtube.com/embed/mD59ghMvH3w?autoplay=1&mute=1&loop=1&playlist=mD59ghMvH3w&rel=0&controls=1&modestbranding=1&playsinline=1&showinfo=0" title="LIF Media — Social Media Content Reel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/mD59ghMvH3w?mute=1&loop=1&playlist=mD59ghMvH3w&rel=0&controls=1&modestbranding=1&playsinline=1&showinfo=0" title="LIF Media — Social Media Content Reel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <span class="lif-service-card__number">01</span>
       </div>
@@ -899,7 +869,7 @@
     <article class="lif-service-card lif-reveal" data-service="commercials">
       <div class="lif-service-card__visual">
         <div class="video-cover">
-          <iframe src="https://www.youtube.com/embed/7wiZB4ZBJSE?si=3hRj4wqjKPo0tBER&controls=1&autoplay=1&mute=1&loop=1&playlist=7wiZB4ZBJSE&rel=0&playsinline=1" title="Cinematic Commercials Reel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/7wiZB4ZBJSE?si=3hRj4wqjKPo0tBER&controls=1&mute=1&loop=1&playlist=7wiZB4ZBJSE&rel=0&playsinline=1" title="Cinematic Commercials Reel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <span class="lif-service-card__number">02</span>
       </div>
@@ -924,7 +894,7 @@
     <article class="lif-service-card lif-reveal" data-service="documentaries">
       <div class="lif-service-card__visual">
         <div class="video-cover">
-          <iframe src="https://www.youtube.com/embed/VRQBDRS_Spg?autoplay=1&mute=1&loop=1&playlist=VRQBDRS_Spg&rel=0&controls=1&modestbranding=1&playsinline=1&showinfo=0" title="Brand Documentaries Reel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/VRQBDRS_Spg?mute=1&loop=1&playlist=VRQBDRS_Spg&rel=0&controls=1&modestbranding=1&playsinline=1&showinfo=0" title="Brand Documentaries Reel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <span class="lif-service-card__number">03</span>
       </div>
@@ -948,7 +918,7 @@
     <article class="lif-service-card lif-reveal" data-service="events">
       <div class="lif-service-card__visual">
         <div class="video-cover">
-          <iframe src="https://www.youtube.com/embed/Y0vMtEfOiqg?autoplay=1&mute=1&loop=1&playlist=Y0vMtEfOiqg&rel=0&controls=1&modestbranding=1&playsinline=1&showinfo=0" title="Event Highlight Films Reel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/Y0vMtEfOiqg?mute=1&loop=1&playlist=Y0vMtEfOiqg&rel=0&controls=1&modestbranding=1&playsinline=1&showinfo=0" title="Event Highlight Films Reel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <span class="lif-service-card__number">04</span>
       </div>
@@ -1060,6 +1030,36 @@
       <div class="lif-process__step-num">03</div>
       <h3 class="lif-process__step-title">Editing &amp; Delivery</h3>
       <p class="lif-process__step-body">Fast turnaround, reviewed once, and delivered ready to publish. Whether it's a one-time project or ongoing partnership, you walk away with professional video content that works.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     3. STORY / ABOUT — the guide enters
+     ══════════════════════════════════════ -->
+<section class="lif-story" id="story">
+  <div class="lif-story__grid">
+    <div class="lif-story__image-wrap lif-reveal">
+      <img src="https://images.squarespace-cdn.com/content/6661bebfa1db887ebcd616d5/e4fd6018-5f36-4068-bba5-2fd83d1ef9df/621314100_912583598380811_6046215848092940215_n.jpg?content-type=image%2Fjpeg" alt="Jorge, Creative Director at LIF Media" loading="lazy">
+    </div>
+    <div>
+      <div class="lif-label lif-reveal" style="color: var(--terracotta);">Who We Are</div>
+      <h2 class="lif-story__heading lif-reveal lif-reveal-d1">
+        You have a story worth telling.<br><em>We make sure the world sees it.</em>
+      </h2>
+      <p class="lif-story__text lif-reveal lif-reveal-d2">
+        Every business has something worth showing — the craftsmanship, the culture, the moments that define who you are. But between running your company and serving your clients, telling that story often falls to the bottom of the list.
+      </p>
+      <p class="lif-story__text lif-reveal lif-reveal-d2">
+        That's where we come in. LIF Media is a video production company built to take the storytelling off your plate. We show up, we capture the real work, and we turn it into content that actually moves your business forward. No stock footage. No generic scripts. Just your story, told right.
+      </p>
+      <div class="lif-story__footer lif-reveal lif-reveal-d3">
+        <div class="lif-story__location">Based in Moncton, NB</div>
+        <a href="#contact" class="lif-btn lif-btn--outline" style="padding: 12px 24px; font-size: 0.75rem;">
+          Get a Quote
+          <span class="lif-btn__arrow"></span>
+        </a>
+      </div>
     </div>
   </div>
 </section>

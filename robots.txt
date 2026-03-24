@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /.claude/
+
+Sitemap: https://www.lifmedia.ca/sitemap.xml

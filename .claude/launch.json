@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "website",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", "-l", "8080", "."],
+      "runtimeExecutable": "/usr/local/bin/node",
+      "runtimeArgs": ["-e", "require('http').createServer((q,r)=>{let p=q.url.replace(/\\/$/,'/index.html').replace(/^\\/$/,'/index.html');require('fs').readFile('.'+p,(e,d)=>{if(e){r.writeHead(404);r.end('Not found')}else{let t='text/html';if(p.endsWith('.css'))t='text/css';if(p.endsWith('.js'))t='text/javascript';if(p.endsWith('.xml'))t='text/xml';if(p.endsWith('.json'))t='application/json';if(p.endsWith('.png'))t='image/png';if(p.endsWith('.jpg'))t='image/jpeg';if(p.endsWith('.svg'))t='image/svg+xml';r.writeHead(200,{'Content-Type':t});r.end(d)}})}).listen(8080,()=>console.log('Server on 8080'))"],
       "port": 8080
     }
   ]

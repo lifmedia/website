@@ -263,8 +263,8 @@ body::before {
   padding: 64px 32px 0; width: 100%;
 }
 .lif-footer .footer-inner {
-  max-width: 900px; margin: 0 auto;
-  display: grid; grid-template-columns: 1.4fr 1fr 1fr;
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr;
   gap: 48px; align-items: start;
 }
 .lif-footer .footer-brand h4 {

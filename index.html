@@ -95,26 +95,22 @@
    1. HERO — video bg, bottom-left aligned
    ══════════════════════════════════════ */
 .lif-hero {
-  min-height: 100vh; display: flex; flex-direction: column;
+  min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column;
   justify-content: flex-end; position: relative;
   padding: 0 24px 80px; overflow: hidden; background: #000;
 }
-.lif-hero__video { position: absolute; inset: 0; z-index: 0; }
-.lif-hero__video video { width: 100%; height: 100%; object-fit: cover; }
-.lif-hero__video::after {
-  content: ''; position: absolute; inset: 0;
-  background:
-    linear-gradient(180deg, rgba(10,10,10,0.65) 0%, rgba(10,10,10,0.25) 25%, rgba(10,10,10,0.15) 40%, rgba(10,10,10,0.6) 65%, rgba(10,10,10,0.95) 100%),
-    linear-gradient(90deg, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0.2) 50%, transparent 80%);
-  z-index: 1;
+.lif-hero__video { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.lif-hero__video iframe,
+.lif-hero__video #heroYTPlayer {
+  position: absolute; top: 50%; left: 50%;
+  width: 177.78vh; height: 100vh;
+  min-width: 100%; min-height: 100%;
+  transform: translate(-50%, -50%) scale(1.2);
+  pointer-events: none; border: 0;
 }
-.lif-hero__grain {
-  position: absolute; inset: 0; z-index: 2; opacity: 0.035; pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-}
-.lif-hero__vignette {
-  position: absolute; inset: 0; z-index: 2; pointer-events: none;
-  box-shadow: inset 0 0 200px rgba(0,0,0,0.4);
+.lif-hero__overlay {
+  position: absolute; inset: 0; z-index: 2;
+  background: rgba(0,0,0,0.5);
 }
 .lif-hero__content {
   position: relative; z-index: 5; max-width: var(--max-w); margin: 0 auto; width: 100%;
@@ -122,13 +118,13 @@
 .lif-hero__headline {
   font-family: var(--font-accent); font-size: clamp(2.8rem, 7vw, 6rem);
   line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 24px;
-  max-width: 800px; color: var(--white);
+  color: var(--white);
   text-shadow: 0 4px 40px rgba(0,0,0,0.6);
 }
-.lif-hero__headline em { font-style: italic; color: var(--soft-moss); }
+.lif-hero__headline em { font-style: italic; font-weight: 400; color: var(--white); }
 .lif-hero__sub {
   font-size: clamp(1rem, 1.5vw, 1.15rem); font-weight: 300;
-  color: rgba(255,255,255,0.9); max-width: 520px; line-height: 1.75;
+  color: rgba(255,255,255,0.8); max-width: 520px; line-height: 1.75;
   margin-bottom: 40px; text-shadow: 0 2px 16px rgba(0,0,0,0.5);
 }
 .lif-hero__actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
@@ -137,14 +133,13 @@
   transition: color 0.3s; margin-left: 16px;
 }
 .lif-hero__scroll-hint:hover { color: var(--white); }
-.lif-hero__sound-btn {
-  position: absolute; bottom: 32px; right: 32px; z-index: 6;
-  width: 44px; height: 44px; border-radius: 50%; padding: 0;
-  background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
-  color: white; cursor: pointer; display: flex; align-items: center; justify-content: center;
-  transition: background 0.3s, transform 0.2s; backdrop-filter: blur(8px);
+@media (max-width: 768px) {
+  .lif-hero { padding: 0 20px 32px; }
+  .lif-hero__headline { font-size: clamp(2rem, 8.5vw, 3rem); margin-bottom: 12px; }
+  .lif-hero__sub { font-size: 0.85rem; margin-bottom: 16px; line-height: 1.5; }
+  .lif-hero__actions { gap: 10px; }
+  .lif-hero__content .lif-label { font-size: 0.6rem; margin-bottom: 8px; }
 }
-.lif-hero__sound-btn:hover { background: rgba(255,255,255,0.22); transform: scale(1.08); }
 
 /* ══════════════════════════════════════
    2. LOGO MARQUEE — obsidian bg
@@ -815,23 +810,16 @@
      ══════════════════════════════════════ -->
 <section class="lif-hero">
   <div class="lif-hero__video">
-    <video loop muted playsinline preload="auto"
-           src="https://video.squarespace-cdn.com/content/v1/6661bebfa1db887ebcd616d5/27cb56c2-58f1-45f9-be9e-5be2b1914cca/LIF+Media+Showreel+2025.mp4"
-           poster=""></video>
+    <div id="heroYTPlayer"></div>
   </div>
-  <button class="lif-hero__sound-btn" id="heroSoundBtn" aria-label="Unmute video">
-    <svg class="icon-muted" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-    <svg class="icon-unmuted" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
-  </button>
-  <div class="lif-hero__grain"></div>
-  <div class="lif-hero__vignette"></div>
+  <div class="lif-hero__overlay"></div>
   <div class="lif-hero__content">
-    <div class="lif-label lif-reveal" style="color: rgba(255,255,255,0.5);">Video Production Agency · Moncton, NB</div>
+    <div class="lif-label lif-reveal" style="color: rgba(255,255,255,0.5);">Video Production Agency &middot; Moncton, NB</div>
     <h1 class="lif-hero__headline lif-reveal lif-reveal-d1">
       Videos That<br><em>Grow</em> Your Business
     </h1>
     <p class="lif-hero__sub lif-reveal lif-reveal-d2">
-      Cinematic commercials, social content, documentaries &amp; event films, crafted for ambitious brands across New Brunswick and Atlantic Canada.
+      Cinematic commercials, social content, documentaries &amp; event films, crafted for ambitious brands across New Brunswick.
     </p>
     <div class="lif-hero__actions lif-reveal lif-reveal-d3">
       <a href="#contact" class="lif-btn lif-btn--primary">
@@ -1303,20 +1291,31 @@
      ══════════════════════════════════════ -->
 <script src="./js/main.js"></script>
 <script>
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+  function onYouTubeIframeAPIReady() {
+    new YT.Player('heroYTPlayer', {
+      videoId: 'b8RDtRjx8wo',
+      playerVars: {
+        autoplay: 1, mute: 1, controls: 0, showinfo: 0,
+        modestbranding: 1, rel: 0, disablekb: 1, fs: 0,
+        iv_load_policy: 3, playsinline: 1, cc_load_policy: 0,
+        origin: location.origin
+      },
+      events: {
+        onReady: function(e) { e.target.mute(); e.target.playVideo(); },
+        onStateChange: function(e) {
+          if (e.data === YT.PlayerState.ENDED) { e.target.seekTo(0); e.target.playVideo(); }
+        }
+      }
+    });
+  }
+</script>
+<script>
 (function() {
   'use strict';
 
-  // Hero video sound toggle
-  var heroSoundBtn = document.getElementById('heroSoundBtn');
-  var heroVideo = document.querySelector('.lif-hero__video video');
-  if (heroSoundBtn && heroVideo) {
-    heroSoundBtn.addEventListener('click', function() {
-      heroVideo.muted = !heroVideo.muted;
-      heroSoundBtn.querySelector('.icon-muted').style.display = heroVideo.muted ? '' : 'none';
-      heroSoundBtn.querySelector('.icon-unmuted').style.display = heroVideo.muted ? 'none' : '';
-      heroSoundBtn.setAttribute('aria-label', heroVideo.muted ? 'Unmute video' : 'Mute video');
-    });
-  }
 
   // Hero entrance animation
   setTimeout(function() {

@@ -98,8 +98,8 @@
 
 /* ── CREDIBILITY ── */
 .cred { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; max-width: 1080px; margin: 0 auto; align-items: center; position: relative; z-index: 1; }
-.cred__img { border-radius: 2px; overflow: hidden; aspect-ratio: 4/3; }
-.cred__img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s var(--ease); }
+.cred__img { border-radius: 2px; overflow: hidden; aspect-ratio: 3/4; max-height: 580px; }
+.cred__img img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; transition: transform 0.7s var(--ease); }
 .cred__img:hover img { transform: scale(1.03); }
 .cred h2 { font-family: var(--font-accent); font-size: clamp(25px, 3.4vw, 38px); line-height: 1.15; margin-bottom: 18px; color: var(--obsidian); font-weight: 400; }
 .cred h2 em { font-style: italic; color: var(--deep-olive); }

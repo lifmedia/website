@@ -30,6 +30,25 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-R4RGQTNSQS');
+  gtag('config', 'AW-17933483390');
+</script>
+
+<!-- Google Ads Click-to-Call Conversion -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17933483390/qHYXCJLw-JYcEP76rOdC',
+      'value': 1.0,
+      'currency': 'CAD',
+      'event_callback': callback
+  });
+  return false;
+}
 </script>
 
 <script type="application/ld+json">
@@ -804,7 +823,7 @@
       <div class="mob-info-block">
         <h4>Contact</h4>
         <a href="mailto:contact@lifmedia.ca">contact@lifmedia.ca</a>
-        <a href="tel:+15066887043">+1 506-688-7043</a>
+        <a href="tel:+15066887043" onclick="return gtag_report_conversion('tel:+15066887043');">+1 506-688-7043</a>
       </div>
       <div class="mob-info-block">
         <h4>Location</h4>
@@ -1205,7 +1224,7 @@
     </div>
     <div class="lif-contact-section__detail">
       <svg viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-      <a href="tel:+15066887043">+1 (506) 688-7043</a>
+      <a href="tel:+15066887043" onclick="return gtag_report_conversion('tel:+15066887043');">+1 (506) 688-7043</a>
     </div>
     <div class="lif-contact-section__detail">
       <svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
@@ -1254,7 +1273,7 @@
       <h4>Let's create together</h4>
       <div class="footer-tagline">Audio-Visual Content Production Company</div>
       <div class="footer-contact-line">
-        <a href="tel:+15066887043">+1 506-688-7043</a><br>
+        <a href="tel:+15066887043" onclick="return gtag_report_conversion('tel:+15066887043');">+1 506-688-7043</a><br>
         21 Rue Foxtrot,<br>
         Moncton, New Brunswick, Canada<br>
         <a href="mailto:contact@lifmedia.ca">contact@lifmedia.ca</a>

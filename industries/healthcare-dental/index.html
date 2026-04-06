@@ -39,6 +39,25 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-R4RGQTNSQS');
+  gtag('config', 'AW-17933483390');
+</script>
+
+<!-- Google Ads Click-to-Call Conversion -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17933483390/qHYXCJLw-JYcEP76rOdC',
+      'value': 1.0,
+      'currency': 'CAD',
+      'event_callback': callback
+  });
+  return false;
+}
 </script>
 <style>
 /* ══════════════════════════════════════
@@ -285,7 +304,7 @@
       <div class="mob-info-block">
         <h4>Contact</h4>
         <a href="mailto:contact@lifmedia.ca">contact@lifmedia.ca</a>
-        <a href="tel:+15066887043">+1 506-688-7043</a>
+        <a href="tel:+15066887043" onclick="return gtag_report_conversion('tel:+15066887043');">+1 506-688-7043</a>
       </div>
       <div class="mob-info-block">
         <h4>Location</h4>
@@ -411,9 +430,9 @@
     <p>Book a free discovery call and let us show you how cinematic video can help patients feel confident choosing your practice, reduce no-shows, and grow your patient base.</p>
     <div class="cta__btns">
       <a href="../../contact/" class="lif-btn lif-btn--primary">Get a Quote <span class="lif-btn__arrow"></span></a>
-      <a href="tel:+15066887043" class="lif-btn lif-btn--outline-light">Call 506-688-7043 <span class="lif-btn__arrow"></span></a>
+      <a href="tel:+15066887043" onclick="return gtag_report_conversion('tel:+15066887043');" class="lif-btn lif-btn--outline-light">Call 506-688-7043 <span class="lif-btn__arrow"></span></a>
     </div>
-    <div class="cta__contact"><p><a href="mailto:contact@lifmedia.ca">contact@lifmedia.ca</a> · <a href="tel:+15066887043">506-688-7043</a></p></div>
+    <div class="cta__contact"><p><a href="mailto:contact@lifmedia.ca">contact@lifmedia.ca</a> · <a href="tel:+15066887043" onclick="return gtag_report_conversion('tel:+15066887043');">506-688-7043</a></p></div>
   </div>
 </section>
 
@@ -426,7 +445,7 @@
       <h4>Let's create together</h4>
       <div class="footer-tagline">Audio-Visual Content Production Company</div>
       <div class="footer-contact-line">
-        <a href="tel:+15066887043">+1 506-688-7043</a><br>
+        <a href="tel:+15066887043" onclick="return gtag_report_conversion('tel:+15066887043');">+1 506-688-7043</a><br>
         21 Rue Foxtrot,<br>
         Moncton, New Brunswick, Canada<br>
         <a href="mailto:contact@lifmedia.ca">contact@lifmedia.ca</a>

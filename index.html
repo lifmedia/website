@@ -23,6 +23,14 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R4RGQTNSQS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-R4RGQTNSQS');
+</script>
 
 <script type="application/ld+json">
 {
@@ -1449,9 +1457,7 @@
       project_details: projectDetails || 'No additional details provided.'
     };
     emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams).then(function() {
-      document.getElementById('hpSteps').style.display = 'none';
-      document.getElementById('hpProgress').style.display = 'none';
-      document.getElementById('hpSuccess').style.display = 'block';
+      window.location.href = '/thank-you/';
     }).catch(function(error) {
       console.error('EmailJS Error:', error);
       btn.innerHTML = originalHTML;

@@ -153,6 +153,20 @@
   background: var(--obsidian);
   color: #fff;
 }
+/* Force header to always show in scrolled (visible) state */
+#lif-hdr {
+  background: rgba(255,255,255,0.94) !important;
+  backdrop-filter: blur(28px) saturate(1.6);
+  -webkit-backdrop-filter: blur(28px) saturate(1.6);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+}
+#lif-hdr .hdr-logo .logo-w { display: none !important; }
+#lif-hdr .hdr-logo .logo-d { display: block !important; }
+#lif-hdr .hdr-nav > li > a { color: #0a0a0a; }
+#lif-hdr .hdr-socials svg { fill: #0a0a0a; }
+#lif-hdr .hdr-divider { background: rgba(0,0,0,0.12); }
+#lif-hdr .hdr-menu-btn { color: #0a0a0a; }
+#lif-hdr .hdr-menu-btn .menu-lines span { background: #0a0a0a; }
 </style>
 </head>
 <body>

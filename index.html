@@ -407,7 +407,7 @@ function gtag_report_conversion(url) {
   font-weight: 400; line-height: 1.1; margin-top: 20px; color: var(--obsidian);
 }
 .lif-testimonials__header h2 em { font-style: italic; color: var(--deep-olive); }
-.carousel-viewport { position: relative; width: 100%; }
+.carousel-viewport { position: relative; width: 100%; overflow: hidden; }
 .carousel-viewport::before,
 .carousel-viewport::after {
   content: ''; position: absolute; top: 0; bottom: 0; width: 80px;
@@ -508,7 +508,7 @@ function gtag_report_conversion(url) {
 .lif-contact-section {
   background: var(--deep-olive); color: var(--white);
   padding: 120px 24px 100px; position: relative;
-  scroll-margin-top: 80px;
+  scroll-margin-top: 80px; overflow: hidden;
 }
 .lif-contact-section__bg {
   position: absolute; inset: 0; pointer-events: none;

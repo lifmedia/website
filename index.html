@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./css/style.css">
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4RGQTNSQS"></script>
 <script>
@@ -507,7 +507,8 @@ function gtag_report_conversion(url) {
    ══════════════════════════════════════ */
 .lif-contact-section {
   background: var(--deep-olive); color: var(--white);
-  padding: 100px 24px 80px; position: relative; overflow: hidden;
+  padding: 120px 24px 100px; position: relative;
+  scroll-margin-top: 80px;
 }
 .lif-contact-section__bg {
   position: absolute; inset: 0; pointer-events: none;
@@ -523,28 +524,55 @@ function gtag_report_conversion(url) {
   position: absolute; width: 200px; height: 200px; border-radius: 50%;
   background: rgba(198,113,85,0.06); bottom: 60px; left: -60px; pointer-events: none;
 }
-.lif-contact-section__header {
-  text-align: center; margin-bottom: 48px; position: relative; z-index: 2;
-}
-.lif-contact-section__header .lif-label {
-  justify-content: center; color: rgba(211,226,192,0.7);
-}
-.lif-contact-section__header .lif-label::before { background: rgba(211,226,192,0.5); }
-.lif-contact-section__header h2 {
-  font-family: var(--font-accent); font-size: clamp(32px, 6vw, 52px);
+.contact-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; }
+.contact-headline { margin-bottom: 28px; }
+.contact-headline .lif-label { color: rgba(211,226,192,0.7); }
+.contact-headline .lif-label::before { background: rgba(211,226,192,0.5); }
+.contact-headline h2 {
+  font-family: var(--font-accent); font-size: clamp(32px, 6vw, 48px);
   font-weight: 400; line-height: 1.1; letter-spacing: -0.02em;
   margin-top: 18px; color: var(--white);
 }
-.lif-contact-section__header h2 em { font-style: italic; color: var(--soft-moss); }
-.lif-contact-section__header p {
-  font-size: 16px; color: rgba(255,255,255,0.5); line-height: 1.65;
-  max-width: 480px; margin: 16px auto 0; font-weight: 300;
+.contact-headline h2 em { font-style: italic; color: var(--soft-moss); }
+.contact-layout { display: grid; grid-template-columns: 2fr 3fr; gap: 60px; align-items: start; }
+.contact-sidebar { position: sticky; top: 100px; }
+.contact-process { display: flex; flex-direction: column; gap: 28px; margin-bottom: 32px; }
+.contact-process__step { display: flex; gap: 16px; align-items: flex-start; }
+.contact-process__num {
+  width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+  background: rgba(198,113,85,0.15); color: var(--terracotta);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; margin-top: 2px;
 }
+.contact-process__text h4 { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+.contact-process__text p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.55; font-weight: 300; }
+.contact-details {
+  border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.contact-details__item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 14px; color: rgba(255,255,255,0.45);
+}
+.contact-details__item a { color: rgba(255,255,255,0.6); transition: color 0.25s; }
+.contact-details__item a:hover { color: #fff; }
+.contact-details__item svg {
+  width: 16px; height: 16px; stroke: rgba(255,255,255,0.3);
+  fill: none; stroke-width: 1.5; flex-shrink: 0;
+}
+.contact-form-col { position: relative; }
 .lif-contact-section .lif-form-card {
-  max-width: 720px; margin: 0 auto; position: relative; z-index: 2;
+  width: 100%; position: relative; z-index: 2;
   background: var(--white); padding: 48px 40px;
   box-shadow: 0 24px 64px rgba(0,0,0,0.3);
 }
+.contact-cta { text-align: center; margin-top: 24px; }
+.contact-cta p { font-size: 14px; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
+.contact-cta a {
+  color: var(--soft-moss); font-weight: 600; font-size: 14px;
+  border-bottom: 1px solid rgba(211,226,192,0.3); transition: border-color 0.25s;
+}
+.contact-cta a:hover { border-color: var(--soft-moss); }
 .hp-progress {
   display: flex; align-items: center; justify-content: center;
   gap: 8px; margin-bottom: 40px;
@@ -682,28 +710,6 @@ function gtag_report_conversion(url) {
   transition: bottom 0.4s var(--ease); z-index: 99999;
 }
 .hp-toast.show { bottom: 32px; }
-.lif-contact-section__details {
-  max-width: 720px; margin: 40px auto 0; position: relative; z-index: 2;
-  display: flex; align-items: center; justify-content: center;
-  gap: 32px; flex-wrap: wrap;
-}
-.lif-contact-section__detail {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 14px; color: rgba(255,255,255,0.5);
-}
-.lif-contact-section__detail a { color: rgba(255,255,255,0.7); transition: color 0.25s; }
-.lif-contact-section__detail a:hover { color: #fff; }
-.lif-contact-section__detail svg {
-  width: 18px; height: 18px; stroke: rgba(255,255,255,0.4);
-  fill: none; stroke-width: 1.5; flex-shrink: 0;
-}
-.lif-contact-section__cta { text-align: center; margin-top: 32px; position: relative; z-index: 2; }
-.lif-contact-section__cta p { font-size: 14px; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
-.lif-contact-section__cta a {
-  color: var(--soft-moss); font-weight: 600; font-size: 14px;
-  border-bottom: 1px solid rgba(211,226,192,0.3); transition: border-color 0.25s;
-}
-.lif-contact-section__cta a:hover { border-color: var(--soft-moss); }
 
 /* ══════════════════════════════════════
    8. CTA — off-white bg, centered
@@ -740,6 +746,11 @@ function gtag_report_conversion(url) {
   .lif-story__image-wrap { max-width: 100%; }
   .lif-process__steps { grid-template-columns: 1fr; }
   .lif-process__steps::before { display: none; }
+  .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+  .contact-sidebar { position: static; order: 2; }
+  .contact-form-col { order: 1; }
+  .contact-process { flex-direction: row; gap: 20px; flex-wrap: wrap; }
+  .contact-process__step { flex: 1; min-width: 160px; }
 }
 @media (max-width: 700px) {
   .lif-services__grid { grid-template-columns: 1fr; }
@@ -763,6 +774,49 @@ function gtag_report_conversion(url) {
   .lif-cta__actions { flex-direction: column; width: 100%; }
   .lif-cta__actions .lif-btn { width: 100%; justify-content: center; }
   .lif-contact-section__details { flex-direction: column; gap: 16px; }
+}
+
+/* ══════════════════════════════════════
+   CONVERSION OPTIMIZATION — New Elements
+   ══════════════════════════════════════ */
+
+/* Hero proof badge */
+.lif-hero__proof {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(198, 113, 85, 0.2); border: 1px solid rgba(198, 113, 85, 0.4);
+  color: var(--white); font-size: 0.8rem; font-weight: 600;
+  padding: 6px 16px; border-radius: var(--radius-pill);
+  margin-bottom: 20px; letter-spacing: 0.02em;
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+}
+
+/* Hero phone link */
+.lif-hero__phone {
+  display: inline-block; margin-top: 24px;
+  font-size: 0.85rem; color: rgba(255,255,255,0.65);
+  transition: color 0.3s;
+}
+.lif-hero__phone:hover { color: var(--white); }
+
+/* Hero portfolio text link (de-emphasized) */
+.lif-hero__portfolio-link {
+  font-size: 0.85rem; color: rgba(255,255,255,0.65);
+  transition: color 0.3s; font-weight: 400;
+}
+.lif-hero__portfolio-link:hover { color: var(--white); }
+
+/* Response badge */
+.lif-response-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(198, 113, 85, 0.15); color: var(--terracotta);
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.03em;
+  padding: 6px 14px; border-radius: var(--radius-pill);
+  margin-top: 12px; text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .lif-hero__proof { font-size: 0.7rem; padding: 5px 12px; margin-bottom: 14px; }
+  .lif-hero__phone { font-size: 0.8rem; margin-top: 16px; }
 }
 </style>
 </head>
@@ -896,15 +950,14 @@ function gtag_report_conversion(url) {
     </p>
     <div class="lif-hero__actions lif-reveal lif-reveal-d3">
       <a href="#contact" class="lif-btn lif-btn--primary">
-        Get A Quote
+        Get Your Free Quote
         <span class="lif-btn__arrow"></span>
       </a>
-      <a href="./portfolio/" class="lif-btn lif-btn--outline-light">
-        View Portfolio
-        <span class="lif-btn__arrow"></span>
-      </a>
-      <a href="#story" class="lif-hero__scroll-hint">&#8595; Learn more</a>
+      <a href="./portfolio/" class="lif-hero__portfolio-link">View Our Work &rarr;</a>
     </div>
+    <a href="tel:+15066887043" onclick="return gtag_report_conversion('tel:+15066887043');" class="lif-hero__phone lif-reveal lif-reveal-d3">
+      Or call us: +1 (506) 688-7043
+    </a>
   </div>
 </section>
 
@@ -1053,6 +1106,115 @@ function gtag_report_conversion(url) {
 </section>
 
 <!-- ══════════════════════════════════════
+     CONTACT FORM — deep olive bg (after services for conversion)
+     ══════════════════════════════════════ -->
+<section class="lif-contact-section" id="contact">
+  <div class="lif-contact-section__bg"></div>
+  <div class="lif-contact-section__circle1"></div>
+  <div class="lif-contact-section__circle2"></div>
+
+  <div class="contact-inner">
+    <div class="contact-layout">
+      <!-- Left: How It Works -->
+      <div class="contact-sidebar lif-reveal">
+        <div class="contact-headline">
+          <div class="lif-label">Start Your Project</div>
+          <h2>Let's <em>Work</em> Together</h2>
+        </div>
+        <div class="contact-process">
+          <div class="contact-process__step">
+            <div class="contact-process__num">1</div>
+            <div class="contact-process__text">
+              <h4>Discovery &amp; Strategy</h4>
+              <p>We learn your goals, audience, and vision &mdash; then map out a plan.</p>
+            </div>
+          </div>
+          <div class="contact-process__step">
+            <div class="contact-process__num">2</div>
+            <div class="contact-process__text">
+              <h4>Production Day</h4>
+              <p>Efficient shoot days built around your schedule. No disruptions.</p>
+            </div>
+          </div>
+          <div class="contact-process__step">
+            <div class="contact-process__num">3</div>
+            <div class="contact-process__text">
+              <h4>Editing &amp; Delivery</h4>
+              <p>Fast turnaround, review rounds, and delivered ready to publish.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-details">
+          <div class="contact-details__item">
+            <svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <a href="mailto:contact@lifmedia.ca">contact@lifmedia.ca</a>
+          </div>
+          <div class="contact-details__item">
+            <svg viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <a href="tel:+15066887043" onclick="return gtag_report_conversion('tel:+15066887043');">+1 (506) 688-7043</a>
+          </div>
+          <div class="contact-details__item">
+            <svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            Moncton, New Brunswick
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="contact-form-col">
+        <div class="lif-form-card lif-reveal lif-reveal-d2" id="hpForm">
+          <div class="hp-progress" id="hpProgress">
+            <div class="hp-progress-step active" data-step="0"></div>
+            <div class="hp-progress-step" data-step="1"></div>
+          </div>
+          <div class="hp-steps-container" id="hpSteps">
+            <div class="hp-step active" data-step="0">
+              <div class="hp-step-label">Step 1 of 2</div>
+              <div class="hp-step-title">What type of <em>project</em> are you looking for?</div>
+              <div class="hp-service-grid">
+                <div class="hp-svc-card" data-service="commercial" onclick="hpSelectService(this)"><span class="card-icon">&#127916;</span><div class="card-title">Cinematic Commercial</div><div class="card-desc">High-production ads for TV, web, and digital campaigns.</div><div class="check-mark"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div></div>
+                <div class="hp-svc-card" data-service="social" onclick="hpSelectService(this)"><span class="card-icon">&#128241;</span><div class="card-title">Social Media Content</div><div class="card-desc">Scroll-stopping short-form video for your social channels.</div><div class="check-mark"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div></div>
+                <div class="hp-svc-card" data-service="documentary" onclick="hpSelectService(this)"><span class="card-icon">&#127902;&#65039;</span><div class="card-title">Brand Documentary</div><div class="card-desc">Tell your story through cinematic interviews and behind-the-scenes.</div><div class="check-mark"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div></div>
+                <div class="hp-svc-card" data-service="event" onclick="hpSelectService(this)"><span class="card-icon">&#127908;</span><div class="card-title">Event Coverage</div><div class="card-desc">Capture the energy and highlights of your next big event.</div><div class="check-mark"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div></div>
+              </div>
+            </div>
+            <div class="hp-step" data-step="1">
+              <div class="hp-step-label">Step 2 of 2</div>
+              <div class="hp-step-title">Almost there! Tell us <em>a bit about you</em></div>
+              <div class="hp-row">
+                <div class="hp-field"><label for="hp-name">Full name</label><input id="hp-name" type="text" data-field="name" placeholder="John Smith" required><div class="field-error">Please enter your name.</div></div>
+                <div class="hp-field"><label for="hp-email">Email address</label><input id="hp-email" type="email" data-field="email" placeholder="john@company.com" required><div class="field-error">Please enter a valid email.</div></div>
+              </div>
+              <div class="hp-row">
+                <div class="hp-field"><label for="hp-phone">Phone number <span class="optional">Optional</span></label><input id="hp-phone" type="tel" data-field="phone" placeholder="+1 (506) 000-0000"></div>
+                <div class="hp-field"><label for="hp-company">Company name <span class="optional">Optional</span></label><input id="hp-company" type="text" data-field="company" placeholder="Acme Inc."></div>
+              </div>
+              <div class="hp-field"><label>Estimated budget</label><div class="hp-chips" data-field="budget"><span class="hp-chip" onclick="hpToggleChip(this)">$500 - $1,500</span><span class="hp-chip" onclick="hpToggleChip(this)">$1,500 - $3,000</span><span class="hp-chip" onclick="hpToggleChip(this)">$3,000 - $6,000</span><span class="hp-chip" onclick="hpToggleChip(this)">$6,000+</span></div></div>
+              <div class="hp-field"><label>How did you find us?</label><div class="hp-chips" data-field="how_found"><span class="hp-chip" onclick="hpToggleChip(this)">Google</span><span class="hp-chip" onclick="hpToggleChip(this)">Instagram</span><span class="hp-chip" onclick="hpToggleChip(this)">Facebook</span><span class="hp-chip" onclick="hpToggleChip(this)">LinkedIn</span><span class="hp-chip" onclick="hpToggleChip(this)">Referral</span><span class="hp-chip" onclick="hpToggleChip(this)">Event</span><span class="hp-chip" onclick="hpToggleChip(this)">Other</span></div></div>
+              <div class="hp-field"><label for="hp-notes">Tell us about your project <span class="optional">Optional</span></label><textarea id="hp-notes" data-field="additional_notes" rows="2" placeholder="Share any details, references, or inspiration..."></textarea></div>
+              <div class="hp-nav">
+                <button class="hp-form-btn hp-form-btn--back" onclick="hpGoToStep(0)"><svg viewBox="0 0 16 16"><polyline points="10 3 5 8 10 13"/></svg> Back</button>
+                <button class="hp-form-btn hp-form-btn--primary" id="hpBtnSubmit" onclick="hpSubmitForm()">Get Your Free Quote <svg viewBox="0 0 16 16"><polyline points="6 3 11 8 6 13"/></svg></button>
+              </div>
+            </div>
+          </div>
+          <div class="hp-success" id="hpSuccess" style="display:none">
+            <div class="success-icon"><svg viewBox="0 0 24 24"><polyline points="4 12 9 17 20 6"/></svg></div>
+            <h3>We Got It!</h3>
+            <p>Thanks for reaching out. Our team will review your project details and get back to you within 24 hours.</p>
+          </div>
+        </div>
+        <div class="contact-cta">
+          <p>Prefer to talk? Book a free discovery call.</p>
+          <a href="https://calendly.com/contact-lifmedia/discovery-meeting" target="_blank" rel="noopener noreferrer">Book a Discovery Call</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
      5. TESTIMONIALS — warm cream
      ══════════════════════════════════════ -->
 <section class="lif-testimonials">
@@ -1176,108 +1338,6 @@ function gtag_report_conversion(url) {
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     7. CONTACT FORM — deep olive bg
-     ══════════════════════════════════════ -->
-<section class="lif-contact-section" id="contact">
-  <div class="lif-contact-section__bg"></div>
-  <div class="lif-contact-section__circle1"></div>
-  <div class="lif-contact-section__circle2"></div>
-  <div class="lif-contact-section__header">
-    <div class="lif-label lif-reveal">Start Your Project</div>
-    <h2 class="lif-reveal lif-reveal-d1">Let's <em>Work</em> Together</h2>
-    <p class="lif-reveal lif-reveal-d2">Tell us about your project and we'll get back to you within 24 hours.</p>
-  </div>
-
-  <div class="lif-form-card lif-reveal lif-reveal-d3" id="hpForm">
-    <div class="hp-progress" id="hpProgress">
-      <div class="hp-progress-step active" data-step="0"></div>
-      <div class="hp-progress-step" data-step="1"></div>
-      <div class="hp-progress-step" data-step="2"></div>
-      <div class="hp-progress-step" data-step="3"></div>
-    </div>
-    <div class="hp-steps-container" id="hpSteps">
-      <div class="hp-step active" data-step="0">
-        <div class="hp-step-label">Step 1 of 4</div>
-        <div class="hp-step-title">What type of <em>project</em> are you looking for?</div>
-        <div class="hp-service-grid">
-          <div class="hp-svc-card" data-service="commercial" onclick="hpSelectService(this)"><span class="card-icon">&#127916;</span><div class="card-title">Cinematic Commercial</div><div class="card-desc">High-production ads for TV, web, and digital campaigns.</div><div class="check-mark"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div></div>
-          <div class="hp-svc-card" data-service="social" onclick="hpSelectService(this)"><span class="card-icon">&#128241;</span><div class="card-title">Social Media Content</div><div class="card-desc">Scroll-stopping short-form video for your social channels.</div><div class="check-mark"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div></div>
-          <div class="hp-svc-card" data-service="documentary" onclick="hpSelectService(this)"><span class="card-icon">&#127902;&#65039;</span><div class="card-title">Brand Documentary</div><div class="card-desc">Tell your story through cinematic interviews and behind-the-scenes.</div><div class="check-mark"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div></div>
-          <div class="hp-svc-card" data-service="event" onclick="hpSelectService(this)"><span class="card-icon">&#127908;</span><div class="card-title">Event Coverage</div><div class="card-desc">Capture the energy and highlights of your next big event.</div><div class="check-mark"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div></div>
-        </div>
-        <div class="hp-nav"><div></div><button class="hp-form-btn hp-form-btn--primary" id="hpBtnStep0" disabled onclick="hpGoToStep(1)">Continue <svg viewBox="0 0 16 16"><polyline points="6 3 11 8 6 13"/></svg></button></div>
-      </div>
-      <div class="hp-step" data-step="1">
-        <div class="hp-step-label">Step 2 of 4</div>
-        <div class="hp-step-title" id="hpStep1Title">Tell us <em>more</em></div>
-        <div id="hpq-commercial" class="hp-service-questions" style="display:none">
-          <div class="hp-field"><label>What's the goal of this video?</label><div class="hp-chips" data-field="commercial_goal"><span class="hp-chip" onclick="hpToggleChip(this)">Brand Awareness</span><span class="hp-chip" onclick="hpToggleChip(this)">Product Launch</span><span class="hp-chip" onclick="hpToggleChip(this)">Promotional Campaign</span><span class="hp-chip" onclick="hpToggleChip(this)">Recruitment</span></div></div>
-          <div class="hp-field"><label>Desired duration</label><div class="hp-chips" data-field="commercial_duration"><span class="hp-chip" onclick="hpToggleChip(this)">15 seconds</span><span class="hp-chip" onclick="hpToggleChip(this)">30 seconds</span><span class="hp-chip" onclick="hpToggleChip(this)">60 seconds</span><span class="hp-chip" onclick="hpToggleChip(this)">60+ seconds</span></div></div>
-          <div class="hp-field"><label>Do you have a script or creative direction?</label><select data-field="commercial_script"><option value="">Select one...</option><option value="yes_script">Yes, we have a script ready</option><option value="some_ideas">We have some ideas, need help refining</option><option value="need_help">We need full creative direction</option></select></div>
-          <div class="hp-field"><label>Will actors or talent be needed?</label><div class="hp-chips" data-field="commercial_talent"><span class="hp-chip" onclick="hpToggleChip(this)">Yes</span><span class="hp-chip" onclick="hpToggleChip(this)">No</span><span class="hp-chip" onclick="hpToggleChip(this)">Not sure yet</span></div></div>
-        </div>
-        <div id="hpq-social" class="hp-service-questions" style="display:none">
-          <div class="hp-field"><label>Which platforms are you targeting?</label><div class="hp-chips" data-field="social_platforms"><span class="hp-chip" onclick="hpToggleChip(this)">Instagram</span><span class="hp-chip" onclick="hpToggleChip(this)">TikTok</span><span class="hp-chip" onclick="hpToggleChip(this)">Facebook</span><span class="hp-chip" onclick="hpToggleChip(this)">YouTube</span><span class="hp-chip" onclick="hpToggleChip(this)">LinkedIn</span></div></div>
-          <div class="hp-field"><label>How many videos do you need?</label><div class="hp-chips" data-field="social_quantity"><span class="hp-chip" onclick="hpToggleChip(this)">1-3 videos</span><span class="hp-chip" onclick="hpToggleChip(this)">4-8 videos</span><span class="hp-chip" onclick="hpToggleChip(this)">8+ videos</span><span class="hp-chip" onclick="hpToggleChip(this)">Monthly retainer</span></div></div>
-          <div class="hp-field"><label>Preferred format</label><div class="hp-chips" data-field="social_format"><span class="hp-chip" onclick="hpToggleChip(this)">Vertical (9:16)</span><span class="hp-chip" onclick="hpToggleChip(this)">Horizontal (16:9)</span><span class="hp-chip" onclick="hpToggleChip(this)">Both</span></div></div>
-        </div>
-        <div id="hpq-documentary" class="hp-service-questions" style="display:none">
-          <div class="hp-field"><label>What story do you want to tell?</label><textarea data-field="doc_story" placeholder="Briefly describe the heart of the story you'd like to share..."></textarea></div>
-          <div class="hp-field"><label>Estimated final duration</label><div class="hp-chips" data-field="doc_duration"><span class="hp-chip" onclick="hpToggleChip(this)">2-5 minutes</span><span class="hp-chip" onclick="hpToggleChip(this)">5-10 minutes</span><span class="hp-chip" onclick="hpToggleChip(this)">10+ minutes</span></div></div>
-          <div class="hp-row"><div class="hp-field"><label>Number of interviewees</label><select data-field="doc_interviewees"><option value="">Select...</option><option value="1-2">1-2 people</option><option value="3-5">3-5 people</option><option value="5+">5+ people</option></select></div><div class="hp-field"><label>Number of locations</label><select data-field="doc_locations"><option value="">Select...</option><option value="1">1 location</option><option value="2-3">2-3 locations</option><option value="4+">4+ locations</option></select></div></div>
-        </div>
-        <div id="hpq-event" class="hp-service-questions" style="display:none">
-          <div class="hp-field"><label>Type of event</label><div class="hp-chips" data-field="event_type"><span class="hp-chip" onclick="hpToggleChip(this)">Conference</span><span class="hp-chip" onclick="hpToggleChip(this)">Gala / Awards</span><span class="hp-chip" onclick="hpToggleChip(this)">Corporate Event</span><span class="hp-chip" onclick="hpToggleChip(this)">Grand Opening</span><span class="hp-chip" onclick="hpToggleChip(this)">Other</span></div></div>
-          <div class="hp-field"><label>Event duration</label><div class="hp-chips" data-field="event_duration"><span class="hp-chip" onclick="hpToggleChip(this)">Half day</span><span class="hp-chip" onclick="hpToggleChip(this)">Full day</span><span class="hp-chip" onclick="hpToggleChip(this)">Multiple days</span></div></div>
-          <div class="hp-field"><label>Do you need livestreaming?</label><div class="hp-chips" data-field="event_livestream"><span class="hp-chip" onclick="hpToggleChip(this)">Yes</span><span class="hp-chip" onclick="hpToggleChip(this)">No</span><span class="hp-chip" onclick="hpToggleChip(this)">Maybe</span></div></div>
-          <div class="hp-field"><label>Desired deliverable</label><div class="hp-chips" data-field="event_deliverable"><span class="hp-chip" onclick="hpToggleChip(this)">Highlight Reel</span><span class="hp-chip" onclick="hpToggleChip(this)">Full Coverage</span><span class="hp-chip" onclick="hpToggleChip(this)">Social Recap</span><span class="hp-chip" onclick="hpToggleChip(this)">All of the above</span></div></div>
-        </div>
-        <div class="hp-nav"><button class="hp-form-btn hp-form-btn--back" onclick="hpGoToStep(0)"><svg viewBox="0 0 16 16"><polyline points="10 3 5 8 10 13"/></svg> Back</button><button class="hp-form-btn hp-form-btn--primary" onclick="hpGoToStep(2)">Continue <svg viewBox="0 0 16 16"><polyline points="6 3 11 8 6 13"/></svg></button></div>
-      </div>
-      <div class="hp-step" data-step="2">
-        <div class="hp-step-label">Step 3 of 4</div>
-        <div class="hp-step-title">Project <em>details</em></div>
-        <div class="hp-field"><label>Estimated budget</label><div class="hp-chips" data-field="budget"><span class="hp-chip" onclick="hpToggleChip(this)">$500 - $1,500</span><span class="hp-chip" onclick="hpToggleChip(this)">$1,500 - $3,000</span><span class="hp-chip" onclick="hpToggleChip(this)">$3,000 - $6,000</span><span class="hp-chip" onclick="hpToggleChip(this)">$6,000+</span></div></div>
-        <div class="hp-row"><div class="hp-field"><label>Tentative project date</label><input type="date" data-field="project_date"></div><div class="hp-field"><label>How did you find us?</label><select data-field="how_found"><option value="">Select...</option><option value="google">Google Search</option><option value="instagram">Instagram</option><option value="facebook">Facebook</option><option value="linkedin">LinkedIn</option><option value="referral">Referral / Word of Mouth</option><option value="event">Saw us at an event</option><option value="other">Other</option></select></div></div>
-        <div class="hp-field"><label>Anything else you'd like us to know? <span class="optional">Optional</span></label><textarea data-field="additional_notes" placeholder="Share any details, references, inspiration, or links that would help us understand your vision..."></textarea></div>
-        <div class="hp-nav"><button class="hp-form-btn hp-form-btn--back" onclick="hpGoToStep(1)"><svg viewBox="0 0 16 16"><polyline points="10 3 5 8 10 13"/></svg> Back</button><button class="hp-form-btn hp-form-btn--primary" onclick="hpGoToStep(3)">Continue <svg viewBox="0 0 16 16"><polyline points="6 3 11 8 6 13"/></svg></button></div>
-      </div>
-      <div class="hp-step" data-step="3">
-        <div class="hp-step-label">Step 4 of 4</div>
-        <div class="hp-step-title">Your <em>info</em></div>
-        <div class="hp-row"><div class="hp-field"><label>Full name</label><input type="text" data-field="name" placeholder="John Smith" required><div class="field-error">Please enter your name.</div></div><div class="hp-field"><label>Company name</label><input type="text" data-field="company" placeholder="Acme Inc." required><div class="field-error">Please enter your company name.</div></div></div>
-        <div class="hp-row"><div class="hp-field"><label>Email address</label><input type="email" data-field="email" placeholder="john@company.com" required><div class="field-error">Please enter a valid email.</div></div><div class="hp-field"><label>Phone number <span class="optional">Optional</span></label><input type="tel" data-field="phone" placeholder="+1 (506) 000-0000"></div></div>
-        <div class="hp-field"><label>Company website <span class="optional">Optional</span></label><input type="url" data-field="website" placeholder="https://yourcompany.com"></div>
-        <div class="hp-nav"><button class="hp-form-btn hp-form-btn--back" onclick="hpGoToStep(2)"><svg viewBox="0 0 16 16"><polyline points="10 3 5 8 10 13"/></svg> Back</button><button class="hp-form-btn hp-form-btn--primary" id="hpBtnSubmit" onclick="hpSubmitForm()">Send Project Inquiry <svg viewBox="0 0 16 16"><polyline points="6 3 11 8 6 13"/></svg></button></div>
-      </div>
-    </div>
-    <div class="hp-success" id="hpSuccess" style="display:none">
-      <div class="success-icon"><svg viewBox="0 0 24 24"><polyline points="4 12 9 17 20 6"/></svg></div>
-      <h3>We Got It!</h3>
-      <p>Thanks for reaching out. Our team will review your project details and get back to you within 24 hours.</p>
-    </div>
-  </div>
-
-  <div class="lif-contact-section__details lif-reveal lif-reveal-d4">
-    <div class="lif-contact-section__detail">
-      <svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-      <a href="mailto:contact@lifmedia.ca">contact@lifmedia.ca</a>
-    </div>
-    <div class="lif-contact-section__detail">
-      <svg viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-      <a href="tel:+15066887043" onclick="return gtag_report_conversion('tel:+15066887043');">+1 (506) 688-7043</a>
-    </div>
-    <div class="lif-contact-section__detail">
-      <svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-      Moncton, New Brunswick
-    </div>
-  </div>
-  <div class="lif-contact-section__cta">
-    <p>Prefer to talk? Book a free discovery call.</p>
-    <a href="https://calendly.com/contact-lifmedia/discovery-meeting" target="_blank">Book a Discovery Call</a>
-  </div>
-</section>
 
 <!-- ══════════════════════════════════════
      8. CTA — off-white, centered
@@ -1294,7 +1354,7 @@ function gtag_report_conversion(url) {
     </p>
     <div class="lif-cta__actions lif-reveal lif-reveal-d3">
       <a href="#contact" class="lif-btn lif-btn--dark" style="padding: 20px 44px;">
-        Get a Quote
+        Get Your Free Quote
         <span class="lif-btn__arrow"></span>
       </a>
       <a href="https://calendly.com/contact-lifmedia/discovery-meeting" class="lif-btn lif-btn--outline" target="_blank" rel="noopener" style="padding: 20px 44px;">
@@ -1413,13 +1473,20 @@ function gtag_report_conversion(url) {
     cards.forEach(function(card) { cardObserver.observe(card); });
   }
 
-  // ── Homepage Contact Form (EmailJS) ──
+  // ── Homepage Contact Form (EmailJS) — Simplified 2-Step ──
   var EMAILJS_PUBLIC_KEY = 'Xp2dcCiComLf_F4S2';
   var EMAILJS_SERVICE_ID = 'service_46f4l2j';
   var EMAILJS_TEMPLATE_ID = 'template_w48s8hd';
-  emailjs.init(EMAILJS_PUBLIC_KEY);
+  var emailjsReady = false;
+  function ensureEmailJS() {
+    if (!emailjsReady && typeof emailjs !== 'undefined') {
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+      emailjsReady = true;
+    }
+  }
+  // Init now if already loaded, otherwise it inits on first submit
+  ensureEmailJS();
 
-  var hpCurrentStep = 0;
   var hpSelectedService = null;
 
   function hpShowToast(message, duration) {
@@ -1434,24 +1501,17 @@ function gtag_report_conversion(url) {
     document.querySelectorAll('.hp-svc-card').forEach(function(c) { c.classList.remove('selected'); });
     card.classList.add('selected');
     hpSelectedService = card.dataset.service;
-    document.getElementById('hpBtnStep0').disabled = false;
+    // Auto-advance to step 2 after a brief moment
+    setTimeout(function() { hpGoToStep(1); }, 350);
   };
 
   window.hpToggleChip = function(chip) {
     var parent = chip.parentElement;
-    var isMulti = parent.dataset.field === 'social_platforms' || parent.dataset.field === 'event_deliverable';
-    if (isMulti) { chip.classList.toggle('selected'); }
-    else { parent.querySelectorAll('.hp-chip').forEach(function(c) { c.classList.remove('selected'); }); chip.classList.toggle('selected'); }
+    parent.querySelectorAll('.hp-chip').forEach(function(c) { c.classList.remove('selected'); });
+    chip.classList.toggle('selected');
   };
 
   window.hpGoToStep = function(step) {
-    if (step === 1 && hpSelectedService) {
-      document.querySelectorAll('.hp-service-questions').forEach(function(q) { q.style.display = 'none'; });
-      var target = document.getElementById('hpq-' + hpSelectedService);
-      if (target) target.style.display = 'block';
-      var titles = { commercial: 'About your <em>commercial</em>', social: 'About your <em>social content</em>', documentary: 'About your <em>documentary</em>', event: 'About your <em>event</em>' };
-      document.getElementById('hpStep1Title').innerHTML = titles[hpSelectedService] || 'Tell us <em>more</em>';
-    }
     var currentEl = document.querySelector('.hp-step.active');
     if (currentEl) currentEl.classList.remove('active');
     setTimeout(function() {
@@ -1463,7 +1523,6 @@ function gtag_report_conversion(url) {
         if (pStep === step) p.classList.add('active');
         if (pStep < step) p.classList.add('completed');
       });
-      hpCurrentStep = step;
       var formEl = document.getElementById('hpForm');
       if (formEl) formEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 100);
@@ -1471,11 +1530,11 @@ function gtag_report_conversion(url) {
 
   function hpCollectFormData() {
     var data = { service: hpSelectedService };
-    document.querySelectorAll('.hp-step input, .hp-step select, .hp-step textarea').forEach(function(el) {
+    document.querySelectorAll('.hp-step[data-step="1"] input, .hp-step[data-step="1"] textarea').forEach(function(el) {
       var field = el.dataset.field;
       if (field && el.value) data[field] = el.value;
     });
-    document.querySelectorAll('.hp-chips').forEach(function(group) {
+    document.querySelectorAll('.hp-step[data-step="1"] .hp-chips').forEach(function(group) {
       var field = group.dataset.field;
       var selected = Array.from(group.querySelectorAll('.hp-chip.selected')).map(function(c) { return c.textContent.trim(); });
       if (selected.length) data[field] = selected.join(', ');
@@ -1485,13 +1544,11 @@ function gtag_report_conversion(url) {
 
   function hpValidateContact() {
     var valid = true;
-    var step3 = document.querySelector('.hp-step[data-step="3"]');
-    var name = step3.querySelector('[data-field="name"]');
-    var email = step3.querySelector('[data-field="email"]');
-    var company = step3.querySelector('[data-field="company"]');
-    step3.querySelectorAll('.hp-field').forEach(function(f) { f.classList.remove('error'); });
+    var step = document.querySelector('.hp-step[data-step="1"]');
+    var name = step.querySelector('[data-field="name"]');
+    var email = step.querySelector('[data-field="email"]');
+    step.querySelectorAll('.hp-field').forEach(function(f) { f.classList.remove('error'); });
     if (!name.value.trim()) { name.closest('.hp-field').classList.add('error'); valid = false; }
-    if (!company.value.trim()) { company.closest('.hp-field').classList.add('error'); valid = false; }
     if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { email.closest('.hp-field').classList.add('error'); valid = false; }
     return valid;
   }
@@ -1504,21 +1561,28 @@ function gtag_report_conversion(url) {
     btn.disabled = true;
     var data = hpCollectFormData();
     var serviceNames = { commercial: 'Cinematic Commercial', social: 'Social Media Content', documentary: 'Brand Documentary', event: 'Event Coverage' };
-    var skipFields = ['name', 'company', 'email', 'phone', 'website', 'service'];
     var projectDetails = '';
-    for (var key in data) {
-      if (skipFields.indexOf(key) > -1) continue;
-      var label = key.replace(/_/g, ' ').replace(/\b\w/g, function(l) { return l.toUpperCase(); });
-      projectDetails += label + ': ' + data[key] + '\n';
-    }
+    if (data.budget) projectDetails += 'Budget: ' + data.budget + '\n';
+    if (data.how_found) projectDetails += 'How They Found Us: ' + data.how_found + '\n';
+    if (data.additional_notes) projectDetails += 'Notes: ' + data.additional_notes + '\n';
     var templateParams = {
       from_name: data.name || '', from_email: data.email || '',
-      company: data.company || '', phone: data.phone || 'N/A',
-      website: data.website || 'N/A', service: serviceNames[data.service] || data.service,
+      company: data.company || 'N/A', phone: data.phone || 'N/A',
+      website: 'N/A', service: serviceNames[data.service] || data.service,
       project_details: projectDetails || 'No additional details provided.'
     };
+    ensureEmailJS();
     emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams).then(function() {
-      window.location.href = '/thank-you/';
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17933483390/qHYXCJLw-JYcEP76rOdC',
+        'value': 1.0,
+        'currency': 'CAD',
+        'event_callback': function() {
+          window.location.href = '/thank-you/';
+        }
+      });
+      // Fallback redirect in case gtag callback doesn't fire
+      setTimeout(function() { window.location.href = '/thank-you/'; }, 1500);
     }).catch(function(error) {
       console.error('EmailJS Error:', error);
       btn.innerHTML = originalHTML;
@@ -1526,8 +1590,10 @@ function gtag_report_conversion(url) {
       hpShowToast('Something went wrong. Please try again or email us directly at contact@lifmedia.ca');
     });
   };
+
 })();
 </script>
+
 
 </body>
 </html>

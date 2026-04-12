@@ -113,7 +113,7 @@ body::before {
    HEADER
    ══════════════════════════════════════ */
 #lif-hdr {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 10002;
   padding: 20px 40px; display: flex; align-items: center;
   justify-content: space-between; background: transparent;
   transition: background 0.45s var(--ease), padding 0.35s var(--ease), box-shadow 0.45s var(--ease);
@@ -203,7 +203,7 @@ body::before {
 
 /* Full-screen overlay */
 #lif-mob {
-  display: none; position: fixed; inset: 0; z-index: 2000;
+  display: none; position: fixed; inset: 0; z-index: 10003;
   background: #0a0a0a; overflow-y: auto; font-family: var(--font-body);
 }
 #lif-mob.mob-open { display: block; }
@@ -333,7 +333,7 @@ body::before {
 /* Floating Action Button (all pages) */
 .lif-fab {
   display: flex; position: fixed;
-  bottom: 24px; right: 20px; z-index: 900;
+  bottom: 24px; right: 20px; z-index: 10001;
   width: 56px; height: 56px; border-radius: 50%;
   background: var(--terracotta); color: var(--white);
   align-items: center; justify-content: center;

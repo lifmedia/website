@@ -439,7 +439,7 @@ a.ind { text-decoration: none; }
 <section class="s s--dk">
   <div class="s-hd lif-reveal"><div class="lif-label" style="justify-content:center;color:rgba(255,255,255,0.5)">Industries We Serve</div><h2 class="s-t">Cinematic Video for Every Industry</h2><p class="s-d">From construction sites to corporate boardrooms, we bring cinematic quality to every project across New Brunswick.</p></div>
   <div class="inds lif-reveal">
-    <a href="../industries/construction/" class="ind">Construction & Trades</a><span class="ind">Architecture & Design</span><a href="../industries/real-estate/" class="ind">Real Estate</a><span class="ind">Professional Services</span><a href="../industries/healthcare-dental/" class="ind">Healthcare & Wellness</a><a href="../industries/restaurants-hospitality/" class="ind">Hospitality & Tourism</a><span class="ind">Retail & E-Commerce</span><a href="../industries/government-political/" class="ind">Government & Innovation</a><a href="../industries/non-profit/" class="ind">Education & Non-Profit</a><span class="ind">Technology & SaaS</span><a href="../industries/restaurants-hospitality/" class="ind">Restaurants & Food</a><span class="ind">Events & Conferences</span>
+    <a href="../industries/construction/" class="ind">Construction & Trades</a><a href="../industries/industrial/" class="ind">Industrial</a><a href="../industries/real-estate/" class="ind">Real Estate</a><a href="../industries/marketing-agencies/" class="ind">Marketing Agencies</a><a href="../industries/healthcare-dental/" class="ind">Healthcare & Wellness</a><a href="../industries/restaurants-hospitality/" class="ind">Hospitality & Tourism</a><span class="ind">Retail & E-Commerce</span><a href="../industries/government-political/" class="ind">Government & Innovation</a><a href="../industries/non-profit/" class="ind">Education & Non-Profit</a><span class="ind">Technology & SaaS</span><a href="../industries/restaurants-hospitality/" class="ind">Restaurants & Food</a><span class="ind">Events & Conferences</span>
   </div>
 </section>
 
@@ -643,17 +643,19 @@ a.ind { text-decoration: none; }
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Cinematic Commercial Production",
-  "description": "Cinema-grade commercial video production for businesses in Moncton, NB and across New Brunswick. From concept to final cut.",
+  "description": "Cinema-grade commercial video production for businesses in Moncton, NB and across Atlantic Canada. From concept to final cut.",
   "provider": {
     "@type": "VideoProductionCompany",
     "name": "LIF Media",
-    "url": "https://www.lifmedia.ca"
+    "url": "https://www.lifmedia.ca",
+    "@id": "https://www.lifmedia.ca/#business"
   },
-  "areaServed": {
-    "@type": "Province",
-    "name": "New Brunswick"
-  },
-  "serviceType": "Video Production"
+  "areaServed": [
+    {"@type": "AdministrativeArea", "name": "New Brunswick"},
+    {"@type": "AdministrativeArea", "name": "Atlantic Canada"}
+  ],
+  "serviceType": "Commercial Video Production",
+  "url": "https://www.lifmedia.ca/cinematic-commercials/"
 }
 </script>
 </body>

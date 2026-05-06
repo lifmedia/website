@@ -583,6 +583,22 @@ function gtag_report_conversion(url) {
 </section>
 
 <!-- ══════════════════════════════════════
+     INDUSTRIES WE SERVE
+     ══════════════════════════════════════ -->
+<section class="doc-section doc-section--moss">
+  <div class="doc-section__header lif-reveal">
+    <p class="lif-label lif-label--center">Industries We Serve</p>
+    <h2 class="doc-section__title">Brand Documentaries Across Industries</h2>
+    <p class="doc-section__desc">From non-profit impact stories to political profiles and healthcare provider films. We tell brand stories for organizations across Moncton, New Brunswick, and Atlantic Canada.</p>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:900px;margin:32px auto 0;padding:0 24px;">
+    <a href="../industries/non-profit/" style="padding:14px 24px;background:rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.1);color:var(--obsidian);text-decoration:none;font-size:14px;font-weight:500;">Non-Profit Stories</a>
+    <a href="../industries/government-political/" style="padding:14px 24px;background:rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.1);color:var(--obsidian);text-decoration:none;font-size:14px;font-weight:500;">Government &amp; Political</a>
+    <a href="../industries/healthcare-dental/" style="padding:14px 24px;background:rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.1);color:var(--obsidian);text-decoration:none;font-size:14px;font-weight:500;">Healthcare &amp; Dental</a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
      FAQ
      ══════════════════════════════════════ -->
 <section class="doc-section doc-section--white">
@@ -760,17 +776,19 @@ function gtag_report_conversion(url) {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Brand Documentary & Interview Production",
-  "description": "Brand documentaries and interview films for businesses in Moncton, NB. Founder profiles, client case studies, and culture films across New Brunswick.",
+  "description": "Brand documentaries and interview films for businesses in Moncton, NB and across Atlantic Canada. Founder profiles, client case studies, and culture films.",
   "provider": {
     "@type": "VideoProductionCompany",
     "name": "LIF Media",
-    "url": "https://www.lifmedia.ca"
+    "url": "https://www.lifmedia.ca",
+    "@id": "https://www.lifmedia.ca/#business"
   },
-  "areaServed": {
-    "@type": "Province",
-    "name": "New Brunswick"
-  },
-  "serviceType": "Video Production"
+  "areaServed": [
+    {"@type": "AdministrativeArea", "name": "New Brunswick"},
+    {"@type": "AdministrativeArea", "name": "Atlantic Canada"}
+  ],
+  "serviceType": "Documentary Video Production",
+  "url": "https://www.lifmedia.ca/documentaries-interviews/"
 }
 </script>
 </body>

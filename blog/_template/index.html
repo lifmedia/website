@@ -1,22 +1,37 @@
 <!DOCTYPE html>
+<!--
+  TEMPLATE — Copy this folder to /blog/<slug>/ and replace all
+  TODO markers. Do NOT link to this template in the listing.
+
+  Hero variants:
+    - Image: use the <div class="blog-hero blog-hero--image"> block below
+    - Video: comment out the image hero and uncomment the video hero block
+-->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Page Not Found | LIF Media</title>
-<meta name="description" content="The page you're looking for doesn't exist. Return to LIF Media | cinematic video production in Moncton, NB.">
-<meta name="robots" content="noindex, follow">
-<meta property="og:title" content="Page Not Found | LIF Media">
-<meta property="og:description" content="The page you're looking for doesn't exist. Return to LIF Media | cinematic video production in Moncton, NB.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.lifmedia.ca/404">
+<meta name="robots" content="index, follow">
+<title><!-- TODO: Post Title --> | LIF Media</title>
+<meta name="description" content="<!-- TODO: 150-160 char description -->">
+<link rel="canonical" href="https://www.lifmedia.ca/blog/<!-- TODO: slug -->/">
+<meta property="og:title" content="<!-- TODO: Post Title --> | LIF Media">
+<meta property="og:description" content="<!-- TODO: short OG description -->">
+<meta property="og:image" content="<!-- TODO: hero image absolute URL -->">
+<meta property="og:url" content="https://www.lifmedia.ca/blog/<!-- TODO: slug -->/">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="en_CA">
 <meta property="og:site_name" content="LIF Media">
-<meta property="og:image" content="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331346/Brand_lifmedia_logo_light_no_background_fb0qu9.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Page Not Found | LIF Media">
-<meta name="twitter:description" content="The page you're looking for doesn't exist. Return to LIF Media | cinematic video production in Moncton, NB.">
-<meta name="twitter:image" content="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331346/Brand_lifmedia_logo_light_no_background_fb0qu9.png">
+<meta name="twitter:title" content="<!-- TODO: Post Title --> | LIF Media">
+<meta name="twitter:description" content="<!-- TODO: short OG description -->">
+<meta name="twitter:image" content="<!-- TODO: hero image absolute URL -->">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"TODO: Post Title","description":"TODO: Short description.","image":"TODO: hero image URL","datePublished":"TODO: YYYY-MM-DD","dateModified":"TODO: YYYY-MM-DD","author":{"@type":"Person","name":"TODO: Author Name"},"publisher":{"@type":"Organization","name":"LIF Media","logo":{"@type":"ImageObject","url":"https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775352486/Brand_lifmedia_logo_white_background_suoky0.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.lifmedia.ca/blog/TODO-slug/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.lifmedia.ca/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.lifmedia.ca/blog/"},{"@type":"ListItem","position":3,"name":"TODO: Post Title","item":"https://www.lifmedia.ca/blog/TODO-slug/"}]}
+</script>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -26,7 +41,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="../../css/blog.css">
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4RGQTNSQS"></script>
 <script>
@@ -36,7 +52,6 @@
   gtag('config', 'G-R4RGQTNSQS');
   gtag('config', 'AW-17933483390');
 </script>
-
 <!-- Google Ads Click-to-Call Conversion -->
 <script>
 function gtag_report_conversion(url) {
@@ -54,128 +69,46 @@ function gtag_report_conversion(url) {
   return false;
 }
 </script>
-<style>
-:root {
-  --gray-200: #E5E3DF;
-  --gray-400: #9B978F;
-}
-
-.e404-page {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background: var(--obsidian);
-  color: var(--white);
-}
-
-/* ── Main ── */
-.e404-main {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 120px 24px 80px;
-  position: relative;
-  overflow: hidden;
-}
-
-.e404-main::before {
-  content: '404';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: var(--font-accent);
-  font-size: clamp(160px, 30vw, 400px);
-  color: rgba(255,255,255,0.03);
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
-  white-space: nowrap;
-}
-
-.e404-content {
-  text-align: center;
-  max-width: 560px;
-  position: relative;
-  z-index: 1;
-}
-
-.e404-label {
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--terracotta);
-  margin-bottom: 24px;
-}
-
-.e404-heading {
-  font-family: var(--font-accent);
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
-  line-height: 1.15;
-  margin-bottom: 20px;
-  color: var(--white);
-}
-
-.e404-heading em {
-  font-style: italic;
-  color: var(--soft-moss);
-}
-
-.e404-text {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.55);
-  margin-bottom: 40px;
-}
-
-.e404-actions {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-</style>
 </head>
-<body class="e404-page">
+<body>
 
-<!-- ── Navigation ── -->
+<!-- ══════════════════════════════════════
+     HEADER — paths use ../../ from /blog/<slug>/
+     ══════════════════════════════════════ -->
 <div id="lif-hdr">
-  <a href="./" class="hdr-logo" aria-label="LIF Media Home">
+  <a href="../../" class="hdr-logo" aria-label="LIF Media Home">
     <img class="logo-w" src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331352/Brand_lifmedia_white_logo_1_vdztdx.png" alt="LIF Media" width="200" height="80">
     <img class="logo-d" src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331346/Brand_lifmedia_logo_light_no_background_fb0qu9.png" alt="LIF Media" width="200" height="80">
   </a>
   <div class="hdr-right">
     <ul class="hdr-nav">
-      <li><a href="./">Home</a></li>
+      <li><a href="../../">Home</a></li>
       <li class="hdr-drop">
         <a href="#">Services <span class="hdr-chev"></span></a>
         <div class="hdr-drop-menu">
-          <a href="./cinematic-commercials/">Cinematic Commercials</a>
-          <a href="./documentaries-interviews/">Brand Documentaries &amp; Interviews</a>
-          <a href="./events/">Event Highlight Films</a>
-          <a href="./social-media/">Social Media Content</a>
+          <a href="../../cinematic-commercials/">Cinematic Commercials</a>
+          <a href="../../documentaries-interviews/">Brand Documentaries &amp; Interviews</a>
+          <a href="../../events/">Event Highlight Films</a>
+          <a href="../../social-media/">Social Media Content</a>
         </div>
       </li>
       <li class="hdr-drop">
         <a href="#">Industries <span class="hdr-chev"></span></a>
         <div class="hdr-drop-menu">
-          <a href="./industries/construction/">Construction</a>
-          <a href="./industries/industrial/">Industrial</a>
-          <a href="./industries/marketing-agencies/">Marketing Agencies</a>
-          <a href="./industries/real-estate/">Real Estate</a>
-          <a href="./industries/restaurants-hospitality/">Restaurants &amp; Hospitality</a>
-          <a href="./industries/healthcare-dental/">Healthcare &amp; Dental</a>
-          <a href="./industries/non-profit/">Non-Profit</a>
-          <a href="./industries/government-political/">Government &amp; Political</a>
+          <a href="../../industries/construction/">Construction</a>
+          <a href="../../industries/industrial/">Industrial</a>
+          <a href="../../industries/marketing-agencies/">Marketing Agencies</a>
+          <a href="../../industries/real-estate/">Real Estate</a>
+          <a href="../../industries/restaurants-hospitality/">Restaurants &amp; Hospitality</a>
+          <a href="../../industries/healthcare-dental/">Healthcare &amp; Dental</a>
+          <a href="../../industries/non-profit/">Non-Profit</a>
+          <a href="../../industries/government-political/">Government &amp; Political</a>
         </div>
       </li>
-      <li><a href="./portfolio/">Portfolio</a></li>
-      <li><a href="./blog/">Blog</a></li>
-      <li><a href="./about-us/">About Us</a></li>
-      <li><a href="./contact/">Contact</a></li>
+      <li><a href="../../portfolio/">Portfolio</a></li>
+      <li><a href="../../blog/">Blog</a></li>
+      <li><a href="../../about-us/">About Us</a></li>
+      <li><a href="../../contact/">Contact</a></li>
     </ul>
     <span class="hdr-divider"></span>
     <div class="hdr-socials">
@@ -201,29 +134,29 @@ function gtag_report_conversion(url) {
   </div>
   <div class="mob-inner">
     <div class="mob-left">
-      <a href="./" class="mob-link">Home</a>
+      <a href="../../" class="mob-link">Home</a>
       <a href="#" class="mob-link">Services</a>
       <div class="mob-services">
-        <a href="./cinematic-commercials/">Cinematic Commercials</a>
-        <a href="./documentaries-interviews/">Documentaries &amp; Interviews</a>
-        <a href="./events/">Event Highlight Films</a>
-        <a href="./social-media/">Social Media Content</a>
+        <a href="../../cinematic-commercials/">Cinematic Commercials</a>
+        <a href="../../documentaries-interviews/">Documentaries &amp; Interviews</a>
+        <a href="../../events/">Event Highlight Films</a>
+        <a href="../../social-media/">Social Media Content</a>
       </div>
       <a href="#" class="mob-link">Industries</a>
       <div class="mob-services">
-        <a href="./industries/construction/">Construction</a>
-        <a href="./industries/industrial/">Industrial</a>
-        <a href="./industries/marketing-agencies/">Marketing Agencies</a>
-        <a href="./industries/real-estate/">Real Estate</a>
-        <a href="./industries/restaurants-hospitality/">Restaurants &amp; Hospitality</a>
-        <a href="./industries/healthcare-dental/">Healthcare &amp; Dental</a>
-        <a href="./industries/non-profit/">Non-Profit</a>
-        <a href="./industries/government-political/">Government &amp; Political</a>
+        <a href="../../industries/construction/">Construction</a>
+        <a href="../../industries/industrial/">Industrial</a>
+        <a href="../../industries/marketing-agencies/">Marketing Agencies</a>
+        <a href="../../industries/real-estate/">Real Estate</a>
+        <a href="../../industries/restaurants-hospitality/">Restaurants &amp; Hospitality</a>
+        <a href="../../industries/healthcare-dental/">Healthcare &amp; Dental</a>
+        <a href="../../industries/non-profit/">Non-Profit</a>
+        <a href="../../industries/government-political/">Government &amp; Political</a>
       </div>
-      <a href="./portfolio/" class="mob-link">Portfolio</a>
-      <a href="./blog/" class="mob-link">Blog</a>
-      <a href="./about-us/" class="mob-link">About Us</a>
-      <a href="./contact/" class="mob-link">Contact</a>
+      <a href="../../portfolio/" class="mob-link">Portfolio</a>
+      <a href="../../blog/" class="mob-link">Blog</a>
+      <a href="../../about-us/" class="mob-link">About Us</a>
+      <a href="../../contact/" class="mob-link">Contact</a>
     </div>
     <div class="mob-right">
       <div class="mob-info-block">
@@ -251,28 +184,93 @@ function gtag_report_conversion(url) {
   </div>
 </div>
 
-<!-- ── 404 Content ── -->
-<main class="e404-main">
-  <div class="e404-content">
-    <div class="e404-label">Error 404</div>
-    <h1 class="e404-heading">This frame<br>didn't make <em>the cut.</em></h1>
-    <p class="e404-text">
-      The page you're looking for doesn't exist or may have been moved.<br>
-      Let's get you back to the good stuff.
-    </p>
-    <div class="e404-actions">
-      <a href="https://www.lifmedia.ca/" class="lif-btn lif-btn--primary">
-        Back to Home
-        <span class="lif-btn__arrow"></span>
-      </a>
-      <a href="https://www.lifmedia.ca/contact/" class="lif-btn lif-btn--outline-light">
-        Get in Touch
-        <span class="lif-btn__arrow"></span>
-      </a>
+<!-- ══════════════════════════════════════
+     HERO — image variant (default)
+     ══════════════════════════════════════ -->
+<section class="blog-hero blog-hero--image">
+  <div class="blog-hero__bg" style="background-image: url('<!-- TODO: hero image URL -->');"></div>
+  <div class="blog-hero__overlay"></div>
+  <div class="blog-hero__inner">
+    <div class="lif-label lif-reveal">Story</div>
+    <h1 class="blog-hero__title lif-reveal lif-reveal-d1"><!-- TODO: Post Title --></h1>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     HERO — video variant (uncomment + swap)
+     ══════════════════════════════════════
+<section class="blog-hero blog-hero--video">
+  <div class="blog-hero__video">
+    <iframe src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=VIDEO_ID&controls=0&showinfo=0&modestbranding=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+  <div class="blog-hero__overlay"></div>
+  <div class="blog-hero__inner">
+    <div class="lif-label lif-reveal">Story</div>
+    <h1 class="blog-hero__title lif-reveal lif-reveal-d1">TODO: Post Title</h1>
+  </div>
+</section>
+-->
+
+<!-- ══════════════════════════════════════
+     META STRIP
+     ══════════════════════════════════════ -->
+<div class="blog-meta">
+  <span class="blog-meta__author">By <!-- TODO: Author Name --></span>
+  <span class="dot"></span>
+  <time datetime="<!-- TODO: YYYY-MM-DD -->"><!-- TODO: Month DD, YYYY --></time>
+  <span class="dot"></span>
+  <span><!-- TODO: X --> min read</span>
+</div>
+
+<!-- ══════════════════════════════════════
+     ARTICLE BODY
+     ══════════════════════════════════════ -->
+<article class="blog-article">
+  <p><!-- TODO: opening paragraph — set the scene, hook the reader. --></p>
+
+  <h2><!-- TODO: First section heading --></h2>
+  <p><!-- TODO: body --></p>
+
+  <figure>
+    <img src="<!-- TODO: image URL -->" alt="<!-- TODO: alt -->" loading="lazy" width="1200" height="700">
+    <figcaption><!-- TODO: optional caption --></figcaption>
+  </figure>
+
+  <h2><!-- TODO: Second section heading --></h2>
+  <p><!-- TODO: body --></p>
+
+  <blockquote><!-- TODO: optional pull quote --></blockquote>
+
+  <p><!-- TODO: closing paragraph --></p>
+</article>
+
+<!-- ══════════════════════════════════════
+     RELATED POSTS — pick 2-3 manually
+     ══════════════════════════════════════ -->
+<section class="blog-related">
+  <div class="blog-related__inner">
+    <h2>More <em>stories</em></h2>
+    <div class="blog-grid">
+      <!-- TODO: copy 2-3 .blog-card blocks from /blog/index.html, with hrefs like "../other-slug/" -->
     </div>
   </div>
-</main>
+</section>
 
+<!-- ══════════════════════════════════════
+     CTA BAND
+     ══════════════════════════════════════ -->
+<section class="blog-cta">
+  <div class="blog-cta__inner">
+    <div class="lif-label">Let's collaborate</div>
+    <h2>Ready to tell your <em>story</em>?</h2>
+    <p>Whether it's a commercial, a documentary, or a social campaign — we'd love to hear what you're building.</p>
+    <a href="../../contact/" class="lif-btn lif-btn--white">Book a Discovery Call <span class="lif-btn__arrow"></span></a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════ -->
 <footer class="lif-footer">
   <div class="footer-inner">
     <div class="footer-brand">
@@ -288,33 +286,33 @@ function gtag_report_conversion(url) {
     <div class="footer-nav-col">
       <h5>Services</h5>
       <ul>
-        <li><a href="./cinematic-commercials/">Cinematic Commercials</a></li>
-        <li><a href="./documentaries-interviews/">Brand Documentaries</a></li>
-        <li><a href="./events/">Event Highlight Films</a></li>
-        <li><a href="./social-media/">Social Media Content</a></li>
+        <li><a href="../../cinematic-commercials/">Cinematic Commercials</a></li>
+        <li><a href="../../documentaries-interviews/">Brand Documentaries</a></li>
+        <li><a href="../../events/">Event Highlight Films</a></li>
+        <li><a href="../../social-media/">Social Media Content</a></li>
       </ul>
     </div>
     <div class="footer-nav-col">
       <h5>Company</h5>
       <ul>
-        <li><a href="./">Home</a></li>
-        <li><a href="./about-us/">About Us</a></li>
-        <li><a href="./portfolio/">Portfolio</a></li>
-        <li><a href="./blog/">Blog</a></li>
-        <li><a href="./contact/">Contact</a></li>
+        <li><a href="../../">Home</a></li>
+        <li><a href="../../about-us/">About Us</a></li>
+        <li><a href="../../portfolio/">Portfolio</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../contact/">Contact</a></li>
       </ul>
     </div>
     <div class="footer-nav-col">
       <h5>Industries</h5>
       <ul>
-        <li><a href="./industries/construction/">Construction</a></li>
-        <li><a href="./industries/industrial/">Industrial</a></li>
-        <li><a href="./industries/marketing-agencies/">Marketing Agencies</a></li>
-        <li><a href="./industries/real-estate/">Real Estate</a></li>
-        <li><a href="./industries/restaurants-hospitality/">Restaurants &amp; Hospitality</a></li>
-        <li><a href="./industries/healthcare-dental/">Healthcare &amp; Dental</a></li>
-        <li><a href="./industries/non-profit/">Non-Profit</a></li>
-        <li><a href="./industries/government-political/">Government &amp; Political</a></li>
+        <li><a href="../../industries/construction/">Construction</a></li>
+        <li><a href="../../industries/industrial/">Industrial</a></li>
+        <li><a href="../../industries/marketing-agencies/">Marketing Agencies</a></li>
+        <li><a href="../../industries/real-estate/">Real Estate</a></li>
+        <li><a href="../../industries/restaurants-hospitality/">Restaurants &amp; Hospitality</a></li>
+        <li><a href="../../industries/healthcare-dental/">Healthcare &amp; Dental</a></li>
+        <li><a href="../../industries/non-profit/">Non-Profit</a></li>
+        <li><a href="../../industries/government-political/">Government &amp; Political</a></li>
       </ul>
     </div>
   </div>
@@ -324,6 +322,6 @@ function gtag_report_conversion(url) {
   </div>
 </footer>
 
-<script src="./js/main.js"></script>
+<script src="../../js/main.js"></script>
 </body>
 </html>

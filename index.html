@@ -228,6 +228,7 @@ function gtag_report_conversion(url) {
   padding: 0 24px 80px; overflow: hidden; background: #000;
 }
 .lif-hero__video { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.lif-hero__video video,
 .lif-hero__video iframe,
 .lif-hero__video #heroYTPlayer {
   position: absolute; top: 50%; left: 50%;
@@ -235,6 +236,7 @@ function gtag_report_conversion(url) {
   min-width: 100%; min-height: 100%;
   transform: translate(-50%, -50%) scale(1.2);
   pointer-events: none; border: 0;
+  object-fit: cover;
 }
 .lif-hero__overlay {
   position: absolute; inset: 0; z-index: 2;
@@ -1005,7 +1007,13 @@ function gtag_report_conversion(url) {
      ══════════════════════════════════════ -->
 <section class="lif-hero">
   <div class="lif-hero__video">
-    <div id="heroYTPlayer"></div>
+    <video
+      id="heroVideo"
+      autoplay muted loop playsinline preload="auto"
+      poster="https://res.cloudinary.com/dsqbqhqvf/video/upload/so_0,f_auto,q_auto/v1778521835/showreelforwebsite_kxfbgl.jpg"
+      aria-hidden="true">
+      <source src="https://res.cloudinary.com/dsqbqhqvf/video/upload/f_auto,q_auto/v1778521835/showreelforwebsite_kxfbgl.mp4" type="video/mp4">
+    </video>
   </div>
   <div class="lif-hero__overlay"></div>
   <div class="lif-hero__content">
@@ -1338,28 +1346,6 @@ function gtag_report_conversion(url) {
      SCRIPTS
      ══════════════════════════════════════ -->
 <script src="./js/main.js"></script>
-<script>
-  var tag = document.createElement('script');
-  tag.src = 'https://www.youtube.com/iframe_api';
-  document.head.appendChild(tag);
-  function onYouTubeIframeAPIReady() {
-    new YT.Player('heroYTPlayer', {
-      videoId: 'b8RDtRjx8wo',
-      playerVars: {
-        autoplay: 1, mute: 1, controls: 0, showinfo: 0,
-        modestbranding: 1, rel: 0, disablekb: 1, fs: 0,
-        iv_load_policy: 3, playsinline: 1, cc_load_policy: 0,
-        origin: location.origin
-      },
-      events: {
-        onReady: function(e) { e.target.mute(); e.target.playVideo(); },
-        onStateChange: function(e) {
-          if (e.data === YT.PlayerState.ENDED) { e.target.seekTo(0); e.target.playVideo(); }
-        }
-      }
-    });
-  }
-</script>
 <script>
 (function() {
   'use strict';

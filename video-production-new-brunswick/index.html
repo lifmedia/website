@@ -7,12 +7,12 @@
 <!-- Standalone Google Ads landing page — intentionally NOT indexed and NOT in sitemap.xml -->
 <meta name="robots" content="noindex, follow">
 
-<title>Video Production New Brunswick | Get a Free Quote | LIF Media</title>
-<meta name="description" content="Premium video production for New Brunswick businesses. Cinematic commercials, social content, brand films & event coverage. Get a free quote from LIF Media.">
+<title>Video Production New Brunswick | LIF Media</title>
+<meta name="description" content="Premium video production for New Brunswick businesses. Cinematic commercials, social content, brand films & event coverage. Get started with LIF Media.">
 <link rel="canonical" href="https://www.lifmedia.ca/video-production-new-brunswick/">
 
 <meta property="og:title" content="Video Production New Brunswick | LIF Media">
-<meta property="og:description" content="Premium video production for New Brunswick businesses. Get a free quote from LIF Media.">
+<meta property="og:description" content="Premium video production for New Brunswick businesses. Get started with LIF Media.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.lifmedia.ca/video-production-new-brunswick/">
 <meta property="og:locale" content="en_CA">
@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://images.squarespace-cdn.com/content/6661bebfa1db887ebcd616d5/5be624f6-b14c-4453-9e4d-a575d85e41c1/the-film-set-professional-camera-crew-2026-01-05-23-00-17-utc.jpg?content-type=image%2Fjpeg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Video Production New Brunswick | LIF Media">
-<meta name="twitter:description" content="Premium video production for New Brunswick businesses. Get a free quote from LIF Media.">
+<meta name="twitter:description" content="Premium video production for New Brunswick businesses. Get started with LIF Media.">
 <meta name="twitter:image" content="https://images.squarespace-cdn.com/content/6661bebfa1db887ebcd616d5/5be624f6-b14c-4453-9e4d-a575d85e41c1/the-film-set-professional-camera-crew-2026-01-05-23-00-17-utc.jpg?content-type=image%2Fjpeg">
 
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -274,23 +274,26 @@ body { background: var(--obsidian); }
 }
 .lp-value p { font-size: 0.95rem; line-height: 1.6; color: var(--lp-gray); }
 
+/* ── Recent work (video strip) ── */
+.lp-work { background: var(--off-white); }
+.lp-work .lp-section__title em { color: var(--deep-olive); }
+.lp-work__grid { display: grid; grid-template-columns: 1fr; gap: 22px; }
+.lp-work__video {
+  position: relative; padding-bottom: 56.25%; height: 0;
+  overflow: hidden; border-radius: 4px; background: #000;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+.lp-work__video iframe {
+  position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+}
+.lp-work__caption {
+  margin-top: 12px; font-size: 0.9rem; font-weight: 600; color: var(--obsidian);
+}
+
 /* ── Social proof ── */
 .lp-proof { background: var(--obsidian); color: #fff; }
 .lp-proof .lp-section__title { color: #fff; }
 .lp-proof .lp-section__title em { color: var(--soft-moss); }
-.lp-stats {
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
-  max-width: 720px; margin: 0 auto 48px;
-}
-.lp-stat { text-align: center; }
-.lp-stat__num {
-  font-family: var(--font-accent); font-weight: 400;
-  font-size: clamp(2rem, 7vw, 2.8rem); color: var(--soft-moss); line-height: 1;
-}
-.lp-stat__label {
-  font-size: 0.8rem; color: rgba(255,255,255,0.6);
-  margin-top: 6px; letter-spacing: 0.02em;
-}
 .lp-testimonials {
   display: grid; grid-template-columns: 1fr; gap: 20px;
 }
@@ -420,7 +423,7 @@ body { background: var(--obsidian); }
   .lp-form-card { padding: 34px 32px; }
   .lp-section { padding: 88px 40px; }
   .lp-values__grid { grid-template-columns: repeat(3, 1fr); }
-  .lp-stats { grid-template-columns: repeat(4, 1fr); }
+  .lp-work__grid { grid-template-columns: repeat(3, 1fr); }
   .lp-testimonials { grid-template-columns: repeat(3, 1fr); }
   .lp-process__steps { grid-template-columns: repeat(3, 1fr); }
   .lp-marquee-item img { height: 52px; }
@@ -466,17 +469,17 @@ body { background: var(--obsidian); }
       <h1 data-swap="headline">Premium Video Production for <em>New Brunswick</em> Businesses</h1>
       <p class="lp-hero__sub" data-swap="subheadline">
         Cinematic commercials, social content, brand films &amp; event coverage &mdash;
-        800K+ views generated for clients like ResearchNB, TSN &amp; Atlantic Superstore.
+        trusted by clients like ResearchNB, TSN &amp; Atlantic Superstore.
       </p>
       <div class="lp-trust" data-swap="trustline">
         <svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg>
-        Trusted by 50+ New Brunswick businesses &middot; 5.0 rating
+        Trusted by 50+ New Brunswick businesses &amp; organizations
       </div>
     </div>
 
     <!-- ── Lead form (hero instance) ── -->
     <div class="lp-form-card">
-      <div class="lp-form-card__title">Get a <em>Free Quote</em></div>
+      <div class="lp-form-card__title">Get <em>started</em></div>
       <p class="lp-form-card__note">Tell us what you need &mdash; we reply within 24 hours.</p>
       <form class="lp-form" novalidate>
         <div class="lp-field">
@@ -505,7 +508,7 @@ body { background: var(--obsidian); }
             <option value="Not sure yet">Not sure yet</option>
           </select>
         </div>
-        <button type="submit" class="lp-submit">Get My Free Quote</button>
+        <button type="submit" class="lp-submit">Get Started</button>
         <p class="lp-form-card__fineprint">No obligation. We'll never share your details.</p>
       </form>
     </div>
@@ -577,17 +580,39 @@ body { background: var(--obsidian); }
   </div>
 </section>
 
-<!-- ════════════ 4. SOCIAL PROOF ════════════ -->
+<!-- ════════════ 4. RECENT WORK (tight 3-video strip — no portfolio link) ════════════ -->
+<section class="lp-section lp-work">
+  <div class="lp-section__inner">
+    <div class="lp-section__label">Recent Work</div>
+    <h2 class="lp-section__title">See it for <em>yourself</em></h2>
+    <div class="lp-work__grid">
+      <div class="lp-work__item">
+        <div class="lp-work__video">
+          <iframe src="https://www.youtube.com/embed/7wiZB4ZBJSE?rel=0&modestbranding=1&playsinline=1" title="Cinematic commercial sample — LIF Media" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="lp-work__caption">Cinematic Commercial</div>
+      </div>
+      <div class="lp-work__item">
+        <div class="lp-work__video">
+          <iframe src="https://www.youtube.com/embed/VRQBDRS_Spg?rel=0&modestbranding=1&playsinline=1" title="Brand documentary sample — LIF Media" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="lp-work__caption">Brand Documentary</div>
+      </div>
+      <div class="lp-work__item">
+        <div class="lp-work__video">
+          <iframe src="https://www.youtube.com/embed/Y0vMtEfOiqg?rel=0&modestbranding=1&playsinline=1" title="Event highlight film sample — LIF Media" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="lp-work__caption">Event Highlight Film</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ 5. SOCIAL PROOF ════════════ -->
 <section class="lp-section lp-proof">
   <div class="lp-section__inner">
     <div class="lp-section__label" style="color:var(--soft-moss)">The Proof</div>
-    <h2 class="lp-section__title">Real results for <em>real brands</em></h2>
-    <div class="lp-stats">
-      <div class="lp-stat"><div class="lp-stat__num">800K+</div><div class="lp-stat__label">Views generated</div></div>
-      <div class="lp-stat"><div class="lp-stat__num">50+</div><div class="lp-stat__label">Projects delivered</div></div>
-      <div class="lp-stat"><div class="lp-stat__num">100%</div><div class="lp-stat__label">Client retention</div></div>
-      <div class="lp-stat"><div class="lp-stat__num">5.0</div><div class="lp-stat__label">Average rating</div></div>
-    </div>
+    <h2 class="lp-section__title">Trusted by <em>50+</em> New Brunswick businesses &amp; organizations</h2>
     <div class="lp-testimonials">
       <div class="lp-test-card">
         <div class="lp-test-stars">
@@ -644,7 +669,7 @@ body { background: var(--obsidian); }
   </div>
 </section>
 
-<!-- ════════════ 5. HOW IT WORKS ════════════ -->
+<!-- ════════════ 6. HOW IT WORKS ════════════ -->
 <section class="lp-section lp-process">
   <div class="lp-section__inner">
     <div class="lp-section__label">How It Works</div>
@@ -669,7 +694,7 @@ body { background: var(--obsidian); }
   </div>
 </section>
 
-<!-- ════════════ 6. FAQ ════════════ -->
+<!-- ════════════ 7. FAQ ════════════ -->
 <section class="lp-section lp-faq">
   <div class="lp-section__inner">
     <div class="lp-section__label">Questions</div>
@@ -699,7 +724,7 @@ body { background: var(--obsidian); }
   </div>
 </section>
 
-<!-- ════════════ 7. FINAL CTA + FORM REPEAT ════════════ -->
+<!-- ════════════ 8. FINAL CTA + FORM REPEAT ════════════ -->
 <section class="lp-final">
   <div class="lp-final__inner">
     <div class="lp-final__label">Let's Get Started</div>
@@ -734,7 +759,7 @@ body { background: var(--obsidian); }
             <option value="Not sure yet">Not sure yet</option>
           </select>
         </div>
-        <button type="submit" class="lp-submit">Get My Free Quote</button>
+        <button type="submit" class="lp-submit">Get Started</button>
         <p class="lp-form-card__fineprint">No obligation. We'll never share your details.</p>
       </form>
     </div>

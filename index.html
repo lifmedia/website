@@ -322,76 +322,15 @@ function gtag_report_conversion(url) {
 .lif-areas {
   padding: 72px 24px; background: var(--white); text-align: center;
 }
-.lif-areas__inner {
-  max-width: var(--max-w); margin: 0 auto;
-  display: grid; gap: 48px; align-items: center;
-}
-@media (min-width: 900px) {
-  .lif-areas { text-align: left; }
-  .lif-areas__inner { grid-template-columns: 1fr 1fr; gap: 64px; }
-  .lif-areas__text .lif-label { justify-content: flex-start !important; }
-  .lif-areas__text .lif-areas__sub { margin-left: 0; margin-right: 0; }
-  .lif-areas__list { justify-content: flex-start !important; }
-}
+.lif-areas__inner { max-width: var(--max-w); margin: 0 auto; }
 .lif-areas h2 {
   font-family: var(--font-accent); font-size: clamp(1.5rem, 2.5vw, 2rem);
   line-height: 1.3; color: var(--obsidian); margin-top: 14px; margin-bottom: 10px;
 }
 .lif-areas__sub {
   font-size: 0.95rem; color: var(--muted-sage); font-weight: 300;
-  max-width: 640px; margin: 0 auto 28px; line-height: 1.8;
+  max-width: 640px; margin: 0 auto 36px; line-height: 1.8;
 }
-.lif-areas__map {
-  position: relative; width: 100%; max-width: 520px; margin: 0 auto;
-  aspect-ratio: 1210 / 945;
-}
-.lif-areas__map-img {
-  width: 100%; height: 100%; display: block;
-}
-.lif-area-pin {
-  position: absolute; transform: translate(-50%, -50%);
-  background: transparent; border: 0; padding: 0; cursor: pointer;
-  width: 14px; height: 14px;
-}
-.lif-area-pin__dot {
-  display: block; width: 10px; height: 10px; border-radius: 50%;
-  background: var(--deep-olive); border: 2px solid var(--white);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.25); transition: all 0.25s;
-}
-.lif-area-pin--hq .lif-area-pin__dot {
-  width: 14px; height: 14px; background: var(--terracotta);
-  box-shadow: 0 0 0 4px rgba(204,107,79,0.18), 0 1px 3px rgba(0,0,0,0.25);
-  animation: lif-pin-pulse 2.4s ease-out infinite;
-}
-@keyframes lif-pin-pulse {
-  0% { box-shadow: 0 0 0 0 rgba(204,107,79,0.45), 0 1px 3px rgba(0,0,0,0.25); }
-  70% { box-shadow: 0 0 0 14px rgba(204,107,79,0), 0 1px 3px rgba(0,0,0,0.25); }
-  100% { box-shadow: 0 0 0 0 rgba(204,107,79,0), 0 1px 3px rgba(0,0,0,0.25); }
-}
-.lif-area-pin__label {
-  position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
-  font-size: 0.72rem; font-weight: 600; color: var(--white);
-  background: var(--obsidian); padding: 4px 9px; border-radius: 3px;
-  white-space: nowrap; opacity: 0; pointer-events: none;
-  transition: opacity 0.2s, transform 0.2s;
-  letter-spacing: 0.02em;
-}
-.lif-area-pin__label::after {
-  content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-  border: 4px solid transparent; border-top-color: var(--obsidian);
-}
-.lif-area-pin:hover .lif-area-pin__dot,
-.lif-area-pin:focus-visible .lif-area-pin__dot {
-  transform: scale(1.4); background: var(--terracotta);
-}
-.lif-area-pin:hover .lif-area-pin__label,
-.lif-area-pin:focus-visible .lif-area-pin__label {
-  opacity: 1; transform: translateX(-50%) translateY(-2px);
-}
-.lif-area-pin--hq .lif-area-pin__label {
-  opacity: 1; background: var(--terracotta);
-}
-.lif-area-pin--hq .lif-area-pin__label::after { border-top-color: var(--terracotta); }
 .lif-areas__list {
   display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
 }
@@ -402,10 +341,6 @@ function gtag_report_conversion(url) {
 }
 .lif-area-tag:hover {
   background: var(--deep-olive); color: var(--white); border-color: var(--deep-olive);
-}
-@media (max-width: 600px) {
-  .lif-areas__map { max-width: 100%; margin-bottom: 28px; }
-  .lif-area-pin__label { font-size: 0.65rem; padding: 3px 7px; }
 }
 
 /* ══════════════════════════════════════
@@ -1287,38 +1222,22 @@ function gtag_report_conversion(url) {
      ══════════════════════════════════════ -->
 <section class="lif-areas" id="where-we-work">
   <div class="lif-areas__inner lif-reveal">
-    <div class="lif-areas__text">
-      <div class="lif-label" style="justify-content: center;">Where We Work</div>
-      <h2>Video Production Across Greater Moncton &amp; All of New Brunswick</h2>
-      <p class="lif-areas__sub">Based in Moncton, LIF Media produces cinematic commercials, brand documentaries, social media content, and event coverage for businesses throughout New Brunswick and Atlantic Canada. From Moncton, Dieppe, and Riverview to Fredericton, Saint John, and beyond, we travel across the province to tell the stories that matter to your brand. Wherever your story needs to be told, we'll be there.</p>
-      <div class="lif-areas__list">
-        <span class="lif-area-tag">Moncton</span>
-        <span class="lif-area-tag">Dieppe</span>
-        <span class="lif-area-tag">Riverview</span>
-        <span class="lif-area-tag">Fredericton</span>
-        <span class="lif-area-tag">Saint John</span>
-        <span class="lif-area-tag">Miramichi</span>
-        <span class="lif-area-tag">Bathurst</span>
-        <span class="lif-area-tag">Edmundston</span>
-        <span class="lif-area-tag">Shediac</span>
-        <span class="lif-area-tag">Sussex</span>
-        <span class="lif-area-tag">Sackville</span>
-        <span class="lif-area-tag">Atlantic Canada</span>
-      </div>
-    </div>
-    <div class="lif-areas__map" aria-hidden="true">
-      <img src="/img/nb-map.svg" alt="" class="lif-areas__map-img" loading="lazy">
-      <button type="button" class="lif-area-pin lif-area-pin--hq" style="left:79%; top:56%"><span class="lif-area-pin__dot"></span><span class="lif-area-pin__label">Moncton · HQ</span></button>
-      <button type="button" class="lif-area-pin" style="left:81%; top:55%"><span class="lif-area-pin__dot"></span><span class="lif-area-pin__label">Dieppe</span></button>
-      <button type="button" class="lif-area-pin" style="left:78%; top:57%"><span class="lif-area-pin__dot"></span><span class="lif-area-pin__label">Riverview</span></button>
-      <button type="button" class="lif-area-pin" style="left:83%; top:52%"><span class="lif-area-pin__dot"></span><span class="lif-area-pin__label">Shediac</span></button>
-      <button type="button" class="lif-area-pin" style="left:86%; top:62%"><span class="lif-area-pin__dot"></span><span class="lif-area-pin__label">Sackville</span></button>
-      <button type="button" class="lif-area-pin" style="left:55%; top:80%"><span class="lif-area-pin__dot"></span><span class="lif-area-pin__label">Saint John</span></button>
-      <button type="button" class="lif-area-pin" style="left:65%; top:67%"><span class="lif-area-pin__dot"></span><span class="lif-area-pin__label">Sussex</span></button>
-      <button type="button" class="lif-area-pin" style="left:44%; top:60%"><span class="lif-area-pin__dot"></span><span class="lif-area-pin__label">Fredericton</span></button>
-      <button type="button" class="lif-area-pin" style="left:65%; top:30%"><span class="lif-area-pin__dot"></span><span class="lif-area-pin__label">Miramichi</span></button>
-      <button type="button" class="lif-area-pin" style="left:62%; top:13%"><span class="lif-area-pin__dot"></span><span class="lif-area-pin__label">Bathurst</span></button>
-      <button type="button" class="lif-area-pin" style="left:14%; top:20%"><span class="lif-area-pin__dot"></span><span class="lif-area-pin__label">Edmundston</span></button>
+    <div class="lif-label" style="justify-content: center;">Where We Work</div>
+    <h2>Video Production Across Greater Moncton &amp; All of New Brunswick</h2>
+    <p class="lif-areas__sub">Based in Moncton, LIF Media produces cinematic commercials, brand documentaries, social media content, and event coverage for businesses throughout New Brunswick and Atlantic Canada. From Moncton, Dieppe, and Riverview to Fredericton, Saint John, and beyond, we travel across the province to tell the stories that matter to your brand. Wherever your story needs to be told, we'll be there.</p>
+    <div class="lif-areas__list">
+      <span class="lif-area-tag">Moncton</span>
+      <span class="lif-area-tag">Dieppe</span>
+      <span class="lif-area-tag">Riverview</span>
+      <span class="lif-area-tag">Fredericton</span>
+      <span class="lif-area-tag">Saint John</span>
+      <span class="lif-area-tag">Miramichi</span>
+      <span class="lif-area-tag">Bathurst</span>
+      <span class="lif-area-tag">Edmundston</span>
+      <span class="lif-area-tag">Shediac</span>
+      <span class="lif-area-tag">Sussex</span>
+      <span class="lif-area-tag">Sackville</span>
+      <span class="lif-area-tag">Atlantic Canada</span>
     </div>
   </div>
 </section>

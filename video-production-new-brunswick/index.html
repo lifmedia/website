@@ -162,7 +162,7 @@ body { background: var(--obsidian); }
   display: block; font-size: 0.8rem; font-weight: 600;
   margin-bottom: 6px; color: var(--obsidian);
 }
-.lp-field input, .lp-field select {
+.lp-field input, .lp-field select, .lp-field textarea {
   width: 100%; padding: 13px 14px;
   border: 1.5px solid var(--warm-cream); border-radius: 3px;
   font-family: var(--font-body); font-size: 16px; /* 16px = no iOS zoom */
@@ -170,11 +170,12 @@ body { background: var(--obsidian); }
   transition: border-color 0.2s, box-shadow 0.2s;
   outline: none; -webkit-appearance: none; appearance: none;
 }
+.lp-field textarea { resize: vertical; min-height: 92px; line-height: 1.5; }
 .lp-field select {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239b978f' fill='none' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat; background-position: right 14px center; padding-right: 38px;
 }
-.lp-field input:focus, .lp-field select:focus {
+.lp-field input:focus, .lp-field select:focus, .lp-field textarea:focus {
   border-color: var(--deep-olive); box-shadow: 0 0 0 3px rgba(66,104,46,0.1);
 }
 .lp-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -508,6 +509,10 @@ body { background: var(--obsidian); }
             <option value="Not sure yet">Not sure yet</option>
           </select>
         </div>
+        <div class="lp-field">
+          <label for="he-details">Tell us more about your project</label>
+          <textarea id="he-details" data-field="details" rows="3" placeholder="Goals, timeline, budget, or anything else we should know (optional)"></textarea>
+        </div>
         <button type="submit" class="lp-submit">Get Started</button>
         <p class="lp-form-card__fineprint">No obligation. We'll never share your details.</p>
       </form>
@@ -759,6 +764,10 @@ body { background: var(--obsidian); }
             <option value="Not sure yet">Not sure yet</option>
           </select>
         </div>
+        <div class="lp-field">
+          <label for="fn-details">Tell us more about your project</label>
+          <textarea id="fn-details" data-field="details" rows="3" placeholder="Goals, timeline, budget, or anything else we should know (optional)"></textarea>
+        </div>
         <button type="submit" class="lp-submit">Get Started</button>
         <p class="lp-form-card__fineprint">No obligation. We'll never share your details.</p>
       </form>
@@ -879,7 +888,7 @@ body { background: var(--obsidian); }
       company: 'N/A',
       website: 'N/A',
       service: val('service') || 'Not specified',
-      project_details: 'Lead from ' + CONFIG.LEAD_SOURCE
+      project_details: (val('details') || 'No additional details provided') + '\n\n— Lead from ' + CONFIG.LEAD_SOURCE
     };
 
     if (!ensureEmailJS()) {
@@ -912,7 +921,7 @@ body { background: var(--obsidian); }
     ensureEmailJS();
     document.querySelectorAll('.lp-form').forEach(function (form) {
       form.addEventListener('submit', handleSubmit);
-      form.querySelectorAll('input, select').forEach(function (el) {
+      form.querySelectorAll('input, select, textarea').forEach(function (el) {
         el.addEventListener('input', function () {
           var f = fieldOf(el);
           if (f) f.classList.remove('lp-field--error');

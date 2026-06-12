@@ -304,6 +304,8 @@ body::before {
 }
 .lif-footer .footer-bottom-row img { height: 150px; width: auto; opacity: 0.7; }
 .lif-footer .footer-copyright { font-size: 12px; color: rgba(255,255,255,0.35); }
+.lif-footer .footer-copyright a { color: rgba(255,255,255,0.35); text-decoration: none; }
+.lif-footer .footer-copyright a:hover { color: rgba(255,255,255,0.65); }
 
 /* ══════════════════════════════════════
    RESPONSIVE — Shared

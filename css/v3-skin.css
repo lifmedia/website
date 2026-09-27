@@ -1,0 +1,288 @@
+/* ══════════════════════════════════════
+   V3 SKIN — puts legacy page layouts on the v3 look
+   (dark, editorial, no boxes or shadows) without editing
+   their markup. Used with body.v3.v3-skin, loaded after
+   each page's own <style> so it wins the cascade.
+   The first <section> is the page hero; the contact
+   section keeps its olive treatment and white form card.
+   ══════════════════════════════════════ */
+
+.v3-skin { --skin-pad: clamp(88px, 11vw, 160px); }
+
+/* ── Sections: one ink background, hairline separators ── */
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) {
+  background-color: var(--ink) !important;
+  background-image: none !important;
+  color: var(--paper) !important;
+  border-top: 1px solid var(--line);
+  padding-top: var(--skin-pad) !important;
+  padding-bottom: var(--skin-pad) !important;
+}
+.v3-skin > section::before,
+.v3-skin > section::after { display: none !important; } /* decorative stripes, dots, grain */
+.v3-skin > section.lif-contact-section .lif-contact-section__bg,
+.v3-skin > section.lif-contact-section [class*="__circle"] { display: none; }
+
+/* ── Hero: keep its imagery, set v3 type ── */
+.v3-skin > section:first-of-type { background-color: var(--ink); }
+.v3-skin > section:first-of-type h1 {
+  font-family: var(--font-accent) !important; font-weight: 400 !important;
+  font-size: clamp(3rem, 7.5vw, 7rem) !important; line-height: 0.96 !important; letter-spacing: -0.025em !important;
+  color: var(--paper) !important; text-shadow: none !important; max-width: 11em;
+}
+.v3-skin > section:first-of-type h1 em { color: var(--soft-moss) !important; font-style: italic; }
+.v3-skin > section:first-of-type p:not(.lp-form-card p) { color: rgba(245,243,239,0.72) !important; text-shadow: none !important; }
+
+/* ── Type ── */
+.v3-skin > :is(section, .lif-portfolio):not(.lif-contact-section):not(.lp-final) :is(h2, h3, h4) {
+  font-family: var(--font-accent) !important; font-weight: 400 !important;
+  color: var(--paper) !important; letter-spacing: -0.015em;
+}
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) h2 {
+  font-size: clamp(2.2rem, 4.4vw, 4rem) !important; line-height: 1.04 !important;
+}
+.v3-skin > :is(section, .lif-portfolio):not(.lif-contact-section):not(.lp-final) :is(h2, h3, h4) em { color: var(--soft-moss) !important; }
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) :is(p, li, dd, span:not([class*="btn"])) {
+  color: var(--dim);
+}
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) :is(strong, b, .hl) { color: var(--paper) !important; background: none !important; }
+.v3-skin .lif-label {
+  color: var(--dim) !important; font-size: 11px !important; letter-spacing: 0.2em !important;
+}
+.v3-skin .lif-label::before { background: var(--terracotta) !important; }
+
+/* ── Cards, tiles, pills: no fills or shadows, hairlines only ── */
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) div:not([class*="__ov"]):not([class*="overlay"]):not([class*="__bg"]):not([class*="gradient"]):not([class*="img"]):not([class*="photo"]):not([class*="play"]):not([class*="video"]):not([class*="frame"]):not([class*="thumb"]):not([class*="media"]),
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) :is(article, details, li, span[class*="pill"], span[class*="tag"], a[class*="ind"], a[class*="pill"], a[class*="tag"]) {
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) :is([class*="card"], [class*="step"], [class*="svc"], [class*="faq__item"], [class*="pc"], [class*="value"], [class*="item"], details) {
+  border-color: var(--line) !important;
+}
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) :is([class*="pill"]:not([class*="pills"]), [class*="tag"]:not([class*="tags"]), a[class*="ind"]) {
+  border: 1px solid var(--line) !important; color: var(--soft-moss) !important; border-radius: 9999px;
+}
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) :is([class$="__i"], [class*="__i "], [class*="icon"]):not(img):not([class*="faq"]) {
+  background: none !important; border: 1px solid var(--line) !important; color: var(--terracotta) !important;
+}
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) svg { stroke: currentColor; }
+
+/* Numbers in process steps */
+.v3-skin :is([class*="step__n"], [class*="step-num"], [class*="__num"]) { color: var(--terracotta) !important; background: none !important; }
+
+/* FAQ rows: a clean list, hairline between rows, no boxes */
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) :is(.faq, .doc-faq, .vm-faq__inner, [class$="faq__list"]) {
+  border: 0 !important; border-radius: 0 !important; background: none !important; box-shadow: none !important;
+}
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) :is(.faq__item, .doc-faq__item, .vm-faq__item, details) {
+  border: 0 !important; border-bottom: 1px solid var(--line) !important; border-radius: 0 !important;
+  margin: 0 !important; padding: 0 !important;
+}
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) :is(.faq__item, .doc-faq__item, .vm-faq__item, details):first-of-type { border-top: 1px solid var(--line) !important; }
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) :is(.faq__q, .doc-faq__q, .vm-faq__q, summary) {
+  color: var(--paper) !important; font-family: var(--font-accent) !important; font-size: clamp(1.15rem, 1.7vw, 1.45rem) !important;
+  background: none !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important;
+  padding: 28px 0 !important; outline: none !important; transition: color 0.3s;
+}
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) :is(.faq__q, .doc-faq__q, .vm-faq__q, summary):hover { color: var(--soft-moss) !important; }
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) :is(.faq__q, .doc-faq__q, .vm-faq__q, summary):focus-visible { color: var(--soft-moss) !important; text-decoration: underline; text-underline-offset: 6px; }
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) :is(.faq__a, .doc-faq__a, .vm-faq__a) { background: none !important; border: 0 !important; }
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) :is(.faq__a, .doc-faq__a, .vm-faq__a) p { padding: 0 0 28px !important; margin: 0 !important; max-width: 720px; }
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) :is(.faq__ic, .doc-faq__icon) {
+  border: 0 !important; background: none !important; color: var(--terracotta) !important; width: auto !important; height: auto !important;
+}
+
+/* ── Buttons ── */
+.v3-skin .lif-btn {
+  border-radius: 9999px; font-size: 12px !important; letter-spacing: 0.14em !important;
+}
+.v3-skin .lif-btn--primary { background: var(--paper) !important; color: var(--ink) !important; }
+.v3-skin .lif-btn--primary:hover { background: var(--soft-moss) !important; }
+.v3-skin .lif-btn--primary .lif-btn__arrow,
+.v3-skin .lif-btn--primary .lif-btn__arrow::after { background: var(--ink); border-color: var(--ink); }
+.v3-skin :is(.lif-btn--outline, .lif-btn--outline-light, .lif-btn--dark) {
+  background: transparent !important; color: var(--paper) !important; border: 1px solid rgba(245,243,239,0.35) !important;
+}
+
+/* ── Media stays crisp ── */
+.v3-skin > section img { border-radius: 4px; }
+.v3-skin iframe { border-radius: 4px; }
+
+/* ── Contact: v3 olive block ── */
+.v3-skin .lif-contact-section { background: var(--deep-olive) !important; }
+.v3-skin .lif-contact-section .contact-form-header h2 {
+  font-family: var(--font-accent); font-size: clamp(2.6rem, 6vw, 5rem) !important; line-height: 1 !important; letter-spacing: -0.02em;
+}
+
+/* Header nav visible on all widths handled by v3.css; keep old header bits hidden if any remain */
+.v3-skin .hdr-socials, .v3-skin .hdr-divider { display: none; }
+
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) :is([class*="pills"], [class*="tags"]) { border: 0 !important; }
+/* Embedded Google Maps: dark */
+.v3-skin iframe[src*="google.com/maps"] { filter: grayscale(1) invert(0.9) contrast(0.85) brightness(0.95); }
+
+/* ── Contact page: light form card on ink ── */
+.v3-skin > .lif-contact { background: var(--ink) !important; padding: 0 var(--gutter) var(--skin-pad) !important; }
+.v3-skin .lif-form-wrapper {
+  background: var(--paper) !important; border-radius: 4px; max-width: 860px; margin: 0 auto !important;
+  padding: clamp(28px, 4.5vw, 64px) !important; box-shadow: none !important;
+}
+.v3-skin .lif-contact-bottom, .v3-skin .lif-contact-bottom-inner { background: transparent !important; color: var(--paper); }
+.v3-skin :is(.lif-contact-details, .lif-contact-cta) :is(h3, h4) { color: var(--paper) !important; font-family: var(--font-accent); font-weight: 400; }
+.v3-skin :is(.lif-contact-details, .lif-contact-cta) :is(p, span, li) { color: var(--dim) !important; }
+.v3-skin :is(.lif-contact-details, .lif-contact-cta) a:not(.cta-book) { color: var(--paper) !important; }
+.v3-skin .lif-contact-cta { background: transparent !important; border: 1px solid var(--line) !important; box-shadow: none !important; border-radius: 4px; }
+.v3-skin .lif-contact-cta .cta-book { background: var(--paper) !important; color: var(--ink) !important; border-radius: 9999px; }
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) :is([class*="author"], [class*="name"]):not(input) { color: var(--paper) !important; }
+/* Inline labels/chips (spans) never keep a light fill on ink */
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) span:not(.lif-btn *):not([class*="arrow"]):not([class*="play"]):not([class*="dot"]):not([class*="head"]) {
+  background-color: transparent !important;
+}
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) [class*="dest"]:not([class*="dests"]):not([class*="destinations"]) {
+  border: 1px solid var(--line) !important; color: var(--soft-moss) !important; border-radius: 9999px;
+}
+
+/* ══════════════════════════════════════
+   BLOG — listing, post meta, long-form article
+   ══════════════════════════════════════ */
+.v3-skin > :is(.blog-grid-wrap, .blog-meta, .blog-article) { background: var(--ink) !important; color: var(--paper); }
+.v3-skin .blog-grid-wrap { padding-top: clamp(72px, 9vw, 120px) !important; padding-bottom: clamp(72px, 9vw, 120px) !important; }
+.v3-skin .blog-card {
+  background: transparent !important; border: 0 !important; border-top: 1px solid var(--line) !important;
+  border-radius: 0 !important; box-shadow: none !important; padding-top: 20px;
+}
+.v3-skin .blog-card__media { border-radius: 4px; overflow: hidden; background: var(--ink-2) !important; }
+.v3-skin .blog-card__body { background: transparent !important; padding-left: 0 !important; padding-right: 0 !important; }
+.v3-skin .blog-card__title { font-family: var(--font-accent) !important; font-weight: 400 !important; color: var(--paper) !important; }
+.v3-skin .blog-card__excerpt { color: var(--dim) !important; }
+.v3-skin :is(.blog-card__meta, .blog-meta) { color: var(--dim) !important; }
+.v3-skin :is(.blog-card__meta, .blog-meta) .dot { background: var(--line) !important; }
+.v3-skin .blog-card__more { color: var(--soft-moss) !important; }
+.v3-skin .blog-card:hover .blog-card__title { color: var(--soft-moss) !important; }
+.v3-skin .blog-meta { border-bottom: 1px solid var(--line); }
+.v3-skin .blog-meta :is(a, strong, .blog-meta__author) { color: var(--paper) !important; }
+
+.v3-skin .blog-article { font-size: 1.08rem; }
+.v3-skin .blog-article :is(p, li, dd, td) { color: rgba(245,243,239,0.78) !important; line-height: 1.85; }
+.v3-skin .blog-article :is(h2, h3, h4) { font-family: var(--font-accent) !important; font-weight: 400 !important; color: var(--paper) !important; letter-spacing: -0.01em; }
+.v3-skin .blog-article h2 { font-size: clamp(1.8rem, 3vw, 2.5rem) !important; line-height: 1.12 !important; }
+.v3-skin .blog-article :is(h2, h3, h4) em { color: var(--soft-moss) !important; }
+.v3-skin .blog-article :is(strong, b) { color: var(--paper) !important; }
+.v3-skin .blog-article a { color: var(--soft-moss) !important; text-decoration: underline; text-decoration-color: rgba(211,226,192,0.35); text-underline-offset: 4px; }
+.v3-skin .blog-article a:hover { text-decoration-color: var(--soft-moss); }
+.v3-skin .blog-article blockquote {
+  background: none !important; border: 0 !important; border-left: 2px solid var(--terracotta) !important;
+  padding: 4px 0 4px 28px !important; font-family: var(--font-accent); font-style: italic; font-size: 1.4rem; color: var(--paper) !important;
+}
+.v3-skin .blog-article blockquote p { color: var(--paper) !important; }
+.v3-skin .blog-article :is(hr) { border: 0; border-top: 1px solid var(--line); }
+.v3-skin .blog-article :is(figcaption, small) { color: var(--dim) !important; }
+.v3-skin .blog-article :is(table, th, td) { border-color: var(--line) !important; background: transparent !important; }
+.v3-skin .blog-article th { color: var(--paper) !important; }
+.v3-skin .blog-article :is(div, aside, section, figure, ul, ol) {
+  background-color: transparent !important; background-image: none !important; box-shadow: none !important; border-color: var(--line) !important;
+}
+.v3-skin .blog-article :is(div, aside)[style*="background"] { border: 1px solid var(--line) !important; border-radius: 4px; }
+.v3-skin .blog-article :is(img, iframe, video) { border-radius: 4px; }
+.v3-skin .blog-article .lif-btn--primary { color: var(--ink) !important; text-decoration: none; }
+
+/* Blog closing CTA keeps the olive block, like contact sections */
+body.v3-skin > section.blog-cta.blog-cta { background: var(--deep-olive) !important; border-top: 0; }
+body.v3-skin > section.blog-cta.blog-cta :is(p, span:not([class*="btn"])) { color: rgba(255,255,255,0.75); }
+
+/* Client logo strips on ink: white silhouettes */
+.v3-skin > :is(section, .lif-portfolio) :is([class*="logo"], [class*="marquee"]) img { filter: brightness(0) invert(1); opacity: 0.55; }
+
+/* ══════════════════════════════════════
+   LANDING PAGES (body.v3-lp): v3 look, conversion structure intact
+   ══════════════════════════════════════ */
+.v3-lp .lp-form-card { box-shadow: none !important; border-radius: 4px; }
+.v3-lp .lp-form-card :is(.lp-form-card__title) { font-family: var(--font-accent); color: var(--ink) !important; }
+.v3-lp .lp-submit { border-radius: 9999px !important; letter-spacing: 0.12em; }
+.v3-lp .lp-eyebrow { color: var(--dim) !important; letter-spacing: 0.2em; }
+body.v3-lp > section.lp-final.lp-final { background: var(--deep-olive) !important; }
+.v3-lp .lp-final h2 { font-family: var(--font-accent); font-weight: 400; font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.04; }
+.v3-lp .lp-footer { background: var(--ink) !important; border-top: 1px solid var(--line); }
+.v3-lp .lp-section__label { color: var(--dim) !important; letter-spacing: 0.2em; }
+.v3-lp .lp-test-card { border: 1px solid var(--line) !important; }
+.v3-lp .lp-local__facts dd { color: var(--paper) !important; }
+.v3-lp .lp-local__facts dt { color: var(--terracotta) !important; }
+.v3-lp .lp-local__more a { color: var(--soft-moss) !important; border-color: var(--line) !important; }
+.v3-lp .lp-local__more a:hover { background: var(--deep-olive) !important; color: #fff !important; }
+.v3-lp .lp-local .lp-local__fr { color: var(--soft-moss) !important; }
+
+/* Base text colour for anything the page styled dark (divs, bare links, labels).
+   Declared without !important so the explicit accents above still win. */
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) :is(div, label, small, time, cite, figcaption) { color: var(--paper); }
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) a:not([class*="btn"]):not([class*="cta"]):not([class*="card"]):not([class]) { color: var(--soft-moss) !important; }
+.v3-skin > :is(section:not(:first-of-type), .lif-portfolio):not(.lif-contact-section):not(.lp-final) a[class=""], .v3-skin > :is(section:not(:first-of-type)):not(.lif-contact-section):not(.lp-final) a:not([class]) { border-color: var(--line); }
+
+/* ── Thank-you page: its inline CSS forces a light header; restore v3 ── */
+body.v3-skin #lif-hdr { background: transparent !important; box-shadow: none !important; }
+body.v3-skin #lif-hdr.hdr-scrolled { background: rgba(13,13,13,0.82) !important; box-shadow: 0 1px 0 var(--line) !important; }
+body.v3-skin #lif-hdr .hdr-logo .logo-w { display: block !important; }
+body.v3-skin #lif-hdr .hdr-logo .logo-d { display: none !important; }
+body.v3-skin #lif-hdr :is(.hdr-menu-btn, .v3-nav a) { color: #fff !important; }
+body.v3-skin #lif-hdr .hdr-menu-btn .menu-lines span { background: #fff !important; }
+.v3-skin .ty-page { background: var(--ink) !important; }
+.v3-skin .ty-page h1 { font-family: var(--font-accent); font-weight: 400; color: var(--paper) !important; }
+.v3-skin .ty-page h1 em { color: var(--soft-moss) !important; }
+.v3-skin .ty-page p { color: var(--dim) !important; }
+.v3-skin .ty-btn { border-radius: 9999px !important; }
+.v3-skin .ty-btn-secondary { background: transparent !important; color: var(--paper) !important; border: 1px solid rgba(245,243,239,0.35) !important; }
+
+/* Centered heroes (contact): keep the capped headline centered */
+.v3-skin .contact-hero h1 { margin-left: auto !important; margin-right: auto !important; }
+.v3-skin .contact-hero p { margin-left: auto; margin-right: auto; }
+.v3-skin .lif-contact-cta .cta-book { white-space: nowrap; padding: 14px 26px !important; font-size: 12px !important; letter-spacing: 0.12em; }
+.v3-skin .lif-contact-cta .cta-book svg { stroke: var(--ink) !important; }
+.v3-skin .lif-contact-cta .cta-book :is(.lif-btn__arrow, .lif-btn__arrow::after, [class*="arrow"]) { background: var(--ink) !important; border-color: var(--ink) !important; color: var(--ink) !important; }
+
+/* ══════════════════════════════════════
+   CONTACT PAGE — form integrated on ink (no light card, no stray lines)
+   ══════════════════════════════════════ */
+.v3-skin .lif-contact-bottom { border: 0 !important; }
+.v3-skin .lif-contact .lif-form-wrapper {
+  background: transparent !important; color: var(--paper) !important; padding: 0 !important;
+  max-width: 820px; border: 0 !important;
+}
+.v3-skin .lif-contact .lif-progress-step { background: rgba(245,243,239,0.14) !important; }
+.v3-skin .lif-contact .lif-progress-step:is(.active, .completed) { background: var(--soft-moss) !important; }
+.v3-skin .lif-contact .lif-step-label { color: var(--terracotta) !important; }
+.v3-skin .lif-contact .lif-step-title { color: var(--paper) !important; font-family: var(--font-accent); font-size: clamp(1.8rem, 3vw, 2.6rem) !important; line-height: 1.15; }
+.v3-skin .lif-contact .lif-step-title em { color: var(--soft-moss) !important; }
+.v3-skin .lif-contact .lif-service-card { border-color: var(--line) !important; }
+.v3-skin .lif-contact .lif-service-card:hover { border-color: rgba(245,243,239,0.4) !important; background: rgba(245,243,239,0.03) !important; }
+.v3-skin .lif-contact .lif-service-card.selected { border-color: var(--soft-moss) !important; background: rgba(66,104,46,0.18) !important; box-shadow: inset 0 0 0 1px var(--soft-moss) !important; }
+.v3-skin .lif-contact .lif-service-card .card-title { color: var(--paper) !important; }
+.v3-skin .lif-contact .lif-service-card .card-desc { color: var(--dim) !important; }
+.v3-skin .lif-contact .lif-field label { color: var(--paper) !important; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+.v3-skin .lif-contact .lif-field label .optional { color: var(--dim) !important; text-transform: none; letter-spacing: 0; font-weight: 400; }
+.v3-skin .lif-contact .lif-field :is(input, textarea, select) {
+  background: transparent !important; color: var(--paper) !important;
+  border: 0 !important; border-bottom: 1px solid rgba(245,243,239,0.25) !important; border-radius: 0 !important;
+  padding: 12px 0 !important; box-shadow: none !important;
+}
+.v3-skin .lif-contact .lif-field :is(input, textarea)::placeholder { color: rgba(245,243,239,0.3); }
+.v3-skin .lif-contact .lif-field :is(input, textarea, select):focus { border-bottom-color: var(--soft-moss) !important; outline: none; }
+.v3-skin .lif-contact .lif-chip { background: transparent !important; color: var(--dim) !important; border-color: var(--line) !important; }
+.v3-skin .lif-contact .lif-chip:hover { color: var(--paper) !important; border-color: rgba(245,243,239,0.4) !important; }
+.v3-skin .lif-contact .lif-chip.selected { background: var(--paper) !important; color: var(--ink) !important; border-color: var(--paper) !important; }
+.v3-skin .lif-contact .lif-field.error :is(input, textarea) { border-bottom-color: #E07A5F !important; }
+.v3-skin .lif-contact .field-error { color: #E07A5F !important; }
+.v3-skin .lif-contact .lif-form-btn--primary { background: var(--paper) !important; color: var(--ink) !important; border-radius: 9999px !important; }
+.v3-skin .lif-contact .lif-form-btn--primary:hover:not(:disabled) { background: var(--soft-moss) !important; }
+.v3-skin .lif-contact .lif-form-btn--back { background: transparent !important; color: var(--paper) !important; border: 1px solid rgba(245,243,239,0.3) !important; border-radius: 9999px !important; }
+.v3-skin .lif-contact :is(.lif-success h3) { color: var(--paper) !important; }
+.v3-skin .lif-contact :is(.lif-success p) { color: var(--dim) !important; }
+/* Contact page: same form affordances on ink */
+.v3-skin .lif-contact .lif-form-wrapper {
+  background: rgba(245,243,239,0.03) !important; border: 1px solid var(--line) !important;
+  border-radius: 6px !important; padding: clamp(28px, 4vw, 52px) !important;
+}
+.v3-skin .lif-contact .lif-form-wrapper::before { color: var(--dim); }
+.v3-skin .lif-contact .lif-progress { justify-content: flex-start; }
+.v3-skin .lif-contact .lif-service-card { color: var(--paper); }
+.v3-skin .lif-contact .lif-service-card.selected::before { box-shadow: inset 0 0 0 4px var(--ink), inset 0 0 0 9px var(--soft-moss); border-color: var(--soft-moss); }

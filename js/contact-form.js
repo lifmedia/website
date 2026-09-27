@@ -57,7 +57,11 @@
         if (pStep < step) p.classList.add('completed');
       });
       var formEl = document.getElementById('hpForm');
-      if (formEl) formEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Only nudge the page when the form's top has scrolled out of view; otherwise keep the reader's place
+      if (formEl) {
+        var top = formEl.getBoundingClientRect().top;
+        if (top < 80) window.scrollTo({ top: window.scrollY + top - 110, behavior: 'smooth' });
+      }
     }, 100);
   };
 
@@ -83,6 +87,8 @@
     step.querySelectorAll('.hp-field').forEach(function(f) { f.classList.remove('error'); });
     if (!name.value.trim()) { name.closest('.hp-field').classList.add('error'); valid = false; }
     if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { email.closest('.hp-field').classList.add('error'); valid = false; }
+    var budget = step.querySelector('[data-field="budget"]');
+    if (budget && !budget.querySelector('.hp-chip.selected')) { budget.closest('.hp-field').classList.add('error'); valid = false; }
     return valid;
   }
 

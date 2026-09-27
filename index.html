@@ -215,717 +215,18 @@ function gtag_report_conversion(url) {
 }
 </script>
 
+<link rel="stylesheet" href="./css/contact-form.css">
+<link rel="stylesheet" href="./css/v3.css">
 <style>
-/* ══════════════════════════════════════
-   PAGE-SPECIFIC VARIABLES
-   ══════════════════════════════════════ */
-:root {
-  --error: #c0392b;
-  --gray-200: #E5E3DF;
-  --gray-400: #9B978F;
-  --gray-500: #6E6A62;
-}
-
-/* ══════════════════════════════════════
-   1. HERO — video bg, bottom-left aligned
-   ══════════════════════════════════════ */
-.lif-hero {
-  min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column;
-  justify-content: flex-end; position: relative;
-  padding: 0 24px 80px; overflow: hidden; background: #000;
-}
-.lif-hero__video { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
-.lif-hero__video video,
-.lif-hero__video iframe,
-.lif-hero__video #heroYTPlayer {
-  position: absolute; top: 50%; left: 50%;
-  width: 177.78vh; height: 100vh;
-  min-width: 100%; min-height: 100%;
-  transform: translate(-50%, -50%) scale(1.2);
-  pointer-events: none; border: 0;
-  object-fit: cover;
-}
-.lif-hero__overlay {
-  position: absolute; inset: 0; z-index: 2;
-  background: rgba(0,0,0,0.5);
-}
-.lif-hero__content {
-  position: relative; z-index: 5; max-width: var(--max-w); margin: 0 auto; width: 100%;
-}
-.lif-hero__headline {
-  font-family: var(--font-accent); font-size: clamp(2.8rem, 7vw, 6rem);
-  line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 24px;
-  color: var(--white);
-  text-shadow: 0 4px 40px rgba(0,0,0,0.6);
-}
-.lif-hero__headline em { font-style: italic; font-weight: 400; color: var(--white); }
-.lif-hero__sub {
-  font-size: clamp(1rem, 1.5vw, 1.15rem); font-weight: 300;
-  color: rgba(255,255,255,0.8); max-width: 520px; line-height: 1.75;
-  margin-bottom: 40px; text-shadow: 0 2px 16px rgba(0,0,0,0.5);
-}
-.lif-hero__actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-.lif-hero__scroll-hint {
-  font-size: 0.75rem; color: rgba(255,255,255,0.55);
-  transition: color 0.3s; margin-left: 16px;
-}
-.lif-hero__scroll-hint:hover { color: var(--white); }
-@media (max-width: 768px) {
-  .lif-hero { padding: 0 20px 32px; }
-  .lif-hero__headline { font-size: clamp(2rem, 8.5vw, 3rem); margin-bottom: 12px; }
-  .lif-hero__sub { font-size: 0.85rem; margin-bottom: 16px; line-height: 1.5; }
-  .lif-hero__actions { gap: 10px; }
-  .lif-hero__content .lif-label { font-size: 0.6rem; margin-bottom: 8px; }
-}
-
-/* ══════════════════════════════════════
-   2. LOGO MARQUEE — obsidian bg
-   ══════════════════════════════════════ */
-.lif-logos {
-  padding: 48px 24px; overflow: hidden; position: relative;
-  background: var(--off-white);
-}
-.lif-logos::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: linear-gradient(90deg, var(--deep-olive), var(--terracotta));
-}
-.lif-logos__header { text-align: center; margin-bottom: 20px; padding: 0 24px; }
-.lif-logos__header .eyebrow {
-  font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em;
-  color: rgba(26,26,26,0.4); font-weight: 600;
-}
-.marquee-viewport { position: relative; width: 100%; overflow: hidden; }
-.marquee-track {
-  display: flex; align-items: center; width: max-content;
-  animation: marqueeScroll 35s linear infinite;
-}
-.marquee-track:hover { animation-play-state: paused; }
-@keyframes marqueeScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-.logo-item {
-  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
-  padding: 0 44px; height: 100px; opacity: 0.55; transition: opacity 0.4s ease; cursor: default;
-}
-.logo-item:hover { opacity: 0.9; }
-.logo-img {
-  max-height: 95px; max-width: 260px; width: auto; height: auto; object-fit: contain;
-  filter: grayscale(1) brightness(0.8); transition: filter 0.4s ease;
-}
-.logo-item:hover .logo-img { filter: grayscale(0) brightness(1); }
-.logo-sep { width: 4px; height: 4px; border-radius: 50%; background: rgba(26,26,26,0.15); flex-shrink: 0; opacity: 0.5; }
-.lif-logos__bottom {
-  display: flex; align-items: center; justify-content: center;
-  gap: 12px; margin-top: 20px; padding: 0 24px;
-}
-.lif-logos__bottom::before,
-.lif-logos__bottom::after { content: ''; flex: 1; max-width: 80px; height: 1px; background: rgba(26,26,26,0.1); }
-.lif-logos__bottom span {
-  font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em;
-  color: rgba(26,26,26,0.45); font-weight: 600; white-space: nowrap;
-}
-
-/* ══════════════════════════════════════
-   WHERE WE WORK — service areas
-   ══════════════════════════════════════ */
-.lif-areas {
-  padding: 72px 24px; background: var(--white); text-align: center;
-}
-.lif-areas__inner { max-width: var(--max-w); margin: 0 auto; }
-.lif-areas h2 {
-  font-family: var(--font-accent); font-size: clamp(1.5rem, 2.5vw, 2rem);
-  line-height: 1.3; color: var(--obsidian); margin-top: 14px; margin-bottom: 10px;
-}
-.lif-areas__sub {
-  font-size: 0.95rem; color: var(--muted-sage); font-weight: 300;
-  max-width: 640px; margin: 0 auto 36px; line-height: 1.8;
-}
-.lif-areas__list {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
-}
-.lif-area-tag {
-  padding: 9px 20px; background: var(--white);
-  font-size: 0.83rem; font-weight: 500; color: var(--deep-olive);
-  border: 1px solid var(--soft-moss); transition: all 0.3s; cursor: default;
-}
-.lif-area-tag:hover {
-  background: var(--deep-olive); color: var(--white); border-color: var(--deep-olive);
-}
-
-/* ══════════════════════════════════════
-   3. STORY — off-white bg, 2-col grid
-   ══════════════════════════════════════ */
-.lif-story {
-  padding: var(--section-pad); background: var(--off-white);
-  color: var(--obsidian); position: relative;
-}
-.lif-story::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: linear-gradient(90deg, var(--deep-olive), var(--terracotta));
-}
-.lif-story__grid {
-  max-width: var(--max-w); margin: 0 auto;
-  display: grid; grid-template-columns: 0.85fr 1.15fr;
-  gap: 80px; align-items: center;
-}
-.lif-story__image-wrap {
-  position: relative; width: 100%; max-width: 440px;
-  overflow: hidden; border-radius: 2px;
-}
-.lif-story__image-wrap img { width: 100%; height: auto; display: block; }
-.lif-story__image-wrap::after {
-  content: ''; position: absolute; bottom: -12px; right: -12px;
-  width: 100%; height: 100%;
-  border: 2px solid var(--deep-olive); z-index: -1; opacity: 0.25;
-}
-.lif-story__heading {
-  font-family: var(--font-accent); font-size: clamp(2rem, 3.5vw, 3rem);
-  line-height: 1.1; margin: 20px 0 28px; color: var(--obsidian);
-}
-.lif-story__heading em { font-style: italic; color: var(--deep-olive); }
-.lif-story__text {
-  font-size: 1rem; font-weight: 300; line-height: 1.85; color: #444; margin-bottom: 20px;
-}
-.lif-story__footer {
-  display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: 28px;
-}
-.lif-story__location {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--muted-sage);
-}
-.lif-story__location::before { content: ''; width: 20px; height: 1px; background: var(--muted-sage); }
-
-/* ══════════════════════════════════════
-   4. SERVICES — obsidian bg, 2x2 grid
-   ══════════════════════════════════════ */
-.lif-services {
-  position: relative; overflow: hidden; color: var(--white);
-  padding: clamp(72px, 10vw, 120px) 24px;
-  background:
-    linear-gradient(rgba(18,18,18,0.78), rgba(18,18,18,0.88)),
-    url('https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775348458/C6721.00_00_29_08.Imagen_fija001_iset0k.jpg') center/cover no-repeat;
-}
-.lif-services__header {
-  max-width: var(--max-w); margin: 0 auto 56px; text-align: center;
-}
-.lif-services__heading {
-  font-family: var(--font-accent); font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 1.1; margin: 16px 0 16px; color: var(--white);
-}
-.lif-services__heading em { font-style: italic; color: var(--soft-moss); }
-.lif-services__intro {
-  font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.72);
-  line-height: 1.7; max-width: 620px; margin: 0 auto;
-}
-.lif-services__grid {
-  max-width: var(--max-w); margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 36px 28px;
-}
-.lif-service-card {
-  position: relative; display: flex; align-items: stretch;
-  color: var(--white); text-decoration: none;
-  transition: transform 0.35s var(--ease);
-  min-height: 320px;
-}
-.lif-service-card:hover { transform: translateY(-4px); }
-.lif-service-card__visual {
-  position: relative; flex: 0 0 54%;
-  border-radius: var(--radius-lg); overflow: hidden;
-  background: #000; z-index: 2;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.45);
-  align-self: stretch;
-}
-.lif-service-card__visual iframe {
-  position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
-}
-.lif-service-card__visual.is-vertical iframe {
-  top: 50%; left: 50%;
-  width: 240%; height: 180%; transform: translate(-50%, -50%);
-}
-.lif-service-card__body {
-  flex: 1; min-width: 0;
-  margin-left: -32px; padding: 24px 20px 24px 52px;
-  background: rgba(20,20,20,0.88); backdrop-filter: blur(6px);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: var(--radius-lg);
-  display: flex; flex-direction: column; justify-content: center;
-}
-.lif-service-card__problem {
-  font-family: var(--font-accent); font-style: italic;
-  font-size: 1.05rem; color: var(--terracotta);
-  line-height: 1.3; margin-bottom: 8px; font-weight: 400;
-}
-.lif-service-card__title {
-  font-family: var(--font-accent); font-size: 1.35rem;
-  font-weight: 400; line-height: 1.2; margin-bottom: 10px;
-  letter-spacing: -0.01em; color: var(--white);
-}
-.lif-service-card__title em { font-style: italic; color: var(--soft-moss); }
-.lif-service-card__desc {
-  font-size: 14px; color: rgba(255,255,255,0.65);
-  line-height: 1.6; margin-bottom: 16px; font-weight: 300;
-}
-.lif-service-card__cta {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--soft-moss);
-  transition: gap 0.3s var(--ease);
-}
-.lif-service-card:hover .lif-service-card__cta { gap: 10px; }
-.lif-services__bottom {
-  max-width: var(--max-w); margin: 56px auto 0; text-align: center;
-}
-.lif-services__bottom p {
-  font-family: var(--font-accent); font-style: italic;
-  font-size: 1.15rem; color: rgba(255,255,255,0.78);
-  margin-bottom: 20px; line-height: 1.5; font-weight: 400;
-}
-@media (max-width: 960px) {
-  .lif-services__grid { grid-template-columns: 1fr; gap: 28px; max-width: 640px; }
-}
-@media (max-width: 560px) {
-  .lif-services { padding: 64px 16px; }
-  .lif-service-card { flex-direction: column; min-height: 0; }
-  .lif-service-card__visual { flex: 0 0 auto; aspect-ratio: 16 / 9; width: 100%; }
-  .lif-service-card__body { margin-left: 0; margin-top: -24px; padding: 40px 22px 24px; }
-}
-
-/* ══════════════════════════════════════
-   5. TESTIMONIALS — warm cream bg
-   ══════════════════════════════════════ */
-.lif-testimonials {
-  padding: 100px 0 80px; position: relative; overflow: hidden;
-  background: var(--warm-cream);
-}
-.lif-testimonials::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: linear-gradient(90deg, var(--terracotta), var(--deep-olive));
-}
-.lif-testimonials__header { text-align: center; margin-bottom: 40px; padding: 0 24px; }
-.lif-testimonials__header .lif-label { justify-content: center; color: var(--terracotta); }
-.lif-testimonials__header h2 {
-  font-family: var(--font-accent); font-size: clamp(2rem, 3.5vw, 3rem);
-  font-weight: 400; line-height: 1.1; margin-top: 20px; color: var(--obsidian);
-}
-.lif-testimonials__header h2 em { font-style: italic; color: var(--deep-olive); }
-.carousel-viewport { position: relative; width: 100%; overflow: hidden; }
-.carousel-viewport::before,
-.carousel-viewport::after {
-  content: ''; position: absolute; top: 0; bottom: 0; width: 80px;
-  z-index: 2; pointer-events: none;
-}
-.carousel-viewport::before { left: 0; background: linear-gradient(to right, var(--warm-cream) 0%, transparent 100%); }
-.carousel-viewport::after { right: 0; background: linear-gradient(to left, var(--warm-cream) 0%, transparent 100%); }
-.carousel-track { display: flex; gap: 24px; animation: carouselScroll 24s linear infinite; width: max-content; }
-.carousel-track:hover { animation-play-state: paused; }
-@keyframes carouselScroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-50% - 12px)); } }
-.test-card {
-  flex-shrink: 0; width: 420px; background: var(--white);
-  border: 1px solid rgba(26,26,26,0.08); padding: 40px 36px 36px;
-  position: relative; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
-  display: flex; flex-direction: column;
-}
-.test-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: var(--terracotta);
-}
-.test-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
-.test-card .quote-mark {
-  font-family: var(--font-accent); font-size: 64px; line-height: 1;
-  color: var(--warm-cream); position: absolute; top: 16px; left: 32px;
-  user-select: none; pointer-events: none; z-index: 0;
-}
-.test-stars { display: flex; gap: 3px; margin-bottom: 20px; margin-top: 28px; position: relative; z-index: 1; }
-.test-stars svg { width: 16px; height: 16px; fill: var(--obsidian); }
-.test-quote {
-  font-family: var(--font-accent); font-size: 17px; font-weight: 400;
-  font-style: italic; line-height: 1.65; color: var(--obsidian);
-  margin-bottom: 28px; position: relative; z-index: 1; flex-grow: 1;
-}
-.test-divider { width: 40px; height: 2px; background: var(--terracotta); margin-bottom: 20px; }
-.test-author { display: flex; align-items: center; gap: 14px; margin-top: auto; }
-.test-avatar {
-  width: 44px; height: 44px; min-width: 44px; min-height: 44px;
-  border-radius: 50%; overflow: hidden; flex-shrink: 0; position: relative;
-}
-.test-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; position: absolute; top: 0; left: 0; }
-.test-author-info { display: flex; flex-direction: column; gap: 2px; }
-.test-author-name { font-weight: 600; font-size: 14px; color: var(--obsidian); letter-spacing: 0.01em; }
-.test-author-role { font-size: 13px; color: var(--muted-sage); font-weight: 400; }
-.lif-testimonials__bottom {
-  display: flex; align-items: center; justify-content: center;
-  gap: 12px; margin-top: 32px; padding: 0 24px;
-}
-.lif-testimonials__bottom span {
-  font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em;
-  color: var(--muted-sage); font-weight: 600; white-space: nowrap;
-}
-.lif-testimonials__bottom::before,
-.lif-testimonials__bottom::after { content: ''; flex: 1; max-width: 120px; height: 1px; background: rgba(26,26,26,0.1); }
-
-/* ══════════════════════════════════════
-   6. PROCESS — obsidian bg, 3-col steps
-   ══════════════════════════════════════ */
-.lif-process {
-  padding: var(--section-pad); background: var(--obsidian); color: var(--white); position: relative;
-}
-.lif-process__header { max-width: var(--max-w); margin: 0 auto 64px; }
-.lif-process__heading {
-  font-family: var(--font-accent); font-size: clamp(2rem, 3.5vw, 3rem);
-  line-height: 1.1; margin-top: 20px; max-width: 600px; color: var(--white);
-}
-.lif-process__heading em { font-style: italic; color: var(--soft-moss); }
-.lif-process__steps {
-  max-width: var(--max-w); margin: 0 auto;
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; position: relative;
-}
-.lif-process__steps::before {
-  content: ''; position: absolute; top: 40px; left: 16.66%; right: 16.66%;
-  height: 1px; background: linear-gradient(90deg, var(--deep-olive), var(--terracotta), var(--deep-olive));
-}
-.lif-process__step {
-  background: #111; padding: 48px 36px;
-  border: 1px solid rgba(255,255,255,0.06); transition: border-color 0.3s;
-}
-.lif-process__step:hover { border-color: rgba(66,104,46,0.4); }
-.lif-process__step-num {
-  font-family: var(--font-accent); font-size: 0.85rem; color: var(--terracotta);
-  margin-bottom: 28px; display: flex; align-items: center; gap: 12px;
-}
-.lif-process__step-num::before {
-  content: ''; width: 8px; height: 8px; background: var(--terracotta);
-  border-radius: 50%; flex-shrink: 0; position: relative; z-index: 1;
-}
-.lif-process__step-title {
-  font-family: var(--font-accent); font-size: 1.5rem; margin-bottom: 16px; color: var(--white);
-}
-.lif-process__step-body {
-  font-size: 0.9rem; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.8;
-}
-
-/* ══════════════════════════════════════
-   7. CONTACT FORM — deep olive bg
-   ══════════════════════════════════════ */
-.lif-contact-section {
-  background: var(--deep-olive); color: var(--white);
-  padding: 120px 24px 100px; position: relative;
-  scroll-margin-top: 80px; overflow: hidden;
-}
-.lif-contact-section__bg {
-  position: absolute; inset: 0; pointer-events: none;
-  background:
-    radial-gradient(ellipse 50% 60% at 90% 50%, rgba(0,0,0,0.3) 0%, transparent 70%),
-    repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(0,0,0,0.04) 40px, rgba(0,0,0,0.04) 41px);
-}
-.lif-contact-section__circle1 {
-  position: absolute; width: 400px; height: 400px; border-radius: 50%;
-  background: rgba(211,226,192,0.05); top: -100px; right: -100px; pointer-events: none;
-}
-.lif-contact-section__circle2 {
-  position: absolute; width: 200px; height: 200px; border-radius: 50%;
-  background: rgba(198,113,85,0.06); bottom: 60px; left: -60px; pointer-events: none;
-}
-.contact-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; }
-.contact-headline { margin-bottom: 28px; }
-.contact-headline .lif-label { color: rgba(211,226,192,0.7); }
-.contact-headline .lif-label::before { background: rgba(211,226,192,0.5); }
-.contact-headline h2 {
-  font-family: var(--font-accent); font-size: clamp(32px, 6vw, 48px);
-  font-weight: 400; line-height: 1.1; letter-spacing: -0.02em;
-  margin-top: 18px; color: var(--white);
-}
-.contact-headline h2 em { font-style: italic; color: var(--soft-moss); }
-.contact-layout { display: grid; grid-template-columns: 2fr 3fr; gap: 60px; align-items: start; }
-.contact-layout--solo { grid-template-columns: 1fr; max-width: 720px; margin: 0 auto; }
-.contact-sidebar { position: sticky; top: 100px; }
-.contact-process { display: flex; flex-direction: column; gap: 28px; margin-bottom: 32px; }
-.contact-process__step { display: flex; gap: 16px; align-items: flex-start; }
-.contact-process__num {
-  width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
-  background: rgba(198,113,85,0.15); color: var(--terracotta);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 700; margin-top: 2px;
-}
-.contact-process__text h4 { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
-.contact-process__text p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.55; font-weight: 300; }
-.contact-details {
-  border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px;
-  display: flex; flex-direction: column; gap: 12px;
-}
-.contact-details__item {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 14px; color: rgba(255,255,255,0.45);
-}
-.contact-details__item a { color: rgba(255,255,255,0.6); transition: color 0.25s; }
-.contact-details__item a:hover { color: #fff; }
-.contact-details__item svg {
-  width: 16px; height: 16px; stroke: rgba(255,255,255,0.3);
-  fill: none; stroke-width: 1.5; flex-shrink: 0;
-}
-.contact-form-col { position: relative; }
-.lif-contact-section .lif-form-card {
-  width: 100%; position: relative; z-index: 2;
-  background: var(--white); padding: 48px 40px;
-  box-shadow: 0 24px 64px rgba(0,0,0,0.3);
-}
-.contact-cta { text-align: center; margin-top: 24px; }
-.contact-cta p { font-size: 14px; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
-.contact-cta a {
-  color: var(--soft-moss); font-weight: 600; font-size: 14px;
-  border-bottom: 1px solid rgba(211,226,192,0.3); transition: border-color 0.25s;
-}
-.contact-cta a:hover { border-color: var(--soft-moss); }
-.hp-progress {
-  display: flex; align-items: center; justify-content: center;
-  gap: 8px; margin-bottom: 40px;
-}
-.hp-progress-step {
-  width: 48px; height: 3px; background: var(--warm-cream);
-  border-radius: var(--radius-pill);
-  transition: background 0.5s var(--ease), width 0.5s var(--ease);
-}
-.hp-progress-step.active { background: var(--deep-olive); width: 64px; }
-.hp-progress-step.completed { background: var(--deep-olive); }
-.hp-steps-container { position: relative; }
-.hp-step {
-  opacity: 0; transform: translateY(20px);
-  transition: all 0.5s var(--ease);
-  pointer-events: none; display: none; width: 100%; visibility: hidden;
-}
-.hp-step.active {
-  opacity: 1; transform: translateY(0);
-  pointer-events: all; display: block; visibility: visible;
-}
-.hp-step-label {
-  font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em;
-  color: var(--terracotta); font-weight: 600; margin-bottom: 8px;
-}
-.hp-step-title {
-  font-family: var(--font-accent); font-size: clamp(22px, 4vw, 28px);
-  font-weight: 400; margin-bottom: 32px; line-height: 1.25; color: var(--obsidian);
-}
-.hp-step-title em { font-style: italic; color: var(--deep-olive); }
-.hp-service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.hp-svc-card {
-  border: 1.5px solid var(--warm-cream); border-radius: var(--radius-md);
-  padding: 24px 20px; cursor: pointer; transition: all 0.3s var(--ease);
-  position: relative; background: var(--white);
-}
-.hp-svc-card:hover { border-color: var(--muted-sage); background: var(--off-white); }
-.hp-svc-card.selected {
-  border-color: var(--deep-olive); background: rgba(211,226,192,0.2);
-  box-shadow: 0 0 0 1px var(--deep-olive);
-}
-.hp-svc-card .card-icon { font-size: 28px; margin-bottom: 12px; display: block; }
-.hp-svc-card .card-title { font-weight: 600; font-size: 15px; margin-bottom: 4px; color: var(--obsidian); }
-.hp-svc-card .card-desc { font-size: 13px; color: var(--gray-500); line-height: 1.5; }
-.hp-svc-card .check-mark {
-  position: absolute; top: 12px; right: 12px; width: 22px; height: 22px;
-  border-radius: 50%; background: var(--deep-olive);
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; transform: scale(0.5); transition: all 0.3s var(--ease);
-}
-.hp-svc-card.selected .check-mark { opacity: 1; transform: scale(1); }
-.hp-svc-card .check-mark svg { width: 12px; height: 12px; stroke: #fff; stroke-width: 3; fill: none; }
-.hp-field { margin-bottom: 24px; }
-.hp-field label {
-  display: block; font-size: 13px; font-weight: 600;
-  color: var(--obsidian); margin-bottom: 8px; letter-spacing: 0.01em;
-}
-.hp-field label .optional { font-weight: 400; color: var(--gray-400); font-size: 12px; }
-.hp-field input[type="text"],
-.hp-field input[type="email"],
-.hp-field input[type="tel"],
-.hp-field input[type="url"],
-.hp-field input[type="date"],
-.hp-field textarea,
-.hp-field select {
-  width: 100%; padding: 14px 16px;
-  border: 1.5px solid var(--warm-cream); border-radius: var(--radius-md);
-  font-family: var(--font-body); font-size: 15px; color: var(--obsidian);
-  background: var(--white); transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
-  outline: none; appearance: none; -webkit-appearance: none;
-}
-.hp-field input:focus,
-.hp-field textarea:focus,
-.hp-field select:focus {
-  border-color: var(--deep-olive);
-  box-shadow: 0 0 0 3px rgba(66,104,46,0.08);
-}
-.hp-field textarea { resize: vertical; min-height: 100px; }
-.hp-field select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239b978f' fill='none' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px;
-}
-.hp-field .field-error { font-size: 12px; color: var(--error); margin-top: 6px; display: none; }
-.hp-field.error input, .hp-field.error textarea, .hp-field.error select { border-color: var(--error); }
-.hp-field.error .field-error { display: block; }
-.hp-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.hp-chip {
-  padding: 10px 18px; border: 1.5px solid var(--warm-cream);
-  border-radius: var(--radius-pill); font-size: 14px; font-family: var(--font-body);
-  cursor: pointer; transition: all 0.25s var(--ease); user-select: none;
-  color: var(--gray-500); background: var(--white);
-}
-.hp-chip:hover { border-color: var(--muted-sage); color: var(--obsidian); }
-.hp-chip.selected { background: var(--deep-olive); color: var(--white); border-color: var(--deep-olive); }
-.hp-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.hp-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; }
-.hp-form-btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 14px 28px; font-size: 14px; font-weight: 600;
-  font-family: var(--font-body); cursor: pointer;
-  border: none; transition: all 0.3s var(--ease);
-  border-radius: var(--radius-pill);
-}
-.hp-form-btn--primary { background: var(--deep-olive); color: var(--white); }
-.hp-form-btn--primary:hover:not(:disabled) { background: #527a38; }
-.hp-form-btn--primary:disabled { opacity: 0.4; cursor: not-allowed; }
-.hp-form-btn--primary svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
-.hp-form-btn--back { background: transparent; color: var(--gray-500); border: 1px solid var(--warm-cream); }
-.hp-form-btn--back:hover { border-color: var(--obsidian); color: var(--obsidian); }
-.hp-form-btn--back svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
-.hp-success { text-align: center; padding: 48px 24px; }
-.hp-success .success-icon {
-  width: 64px; height: 64px; margin: 0 auto 24px;
-  background: var(--deep-olive); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-}
-.hp-success .success-icon svg { width: 28px; height: 28px; stroke: #fff; fill: none; stroke-width: 2.5; }
-.hp-success h3 {
-  font-family: var(--font-accent); font-size: 28px; font-weight: 400;
-  color: var(--obsidian); margin-bottom: 12px;
-}
-.hp-success p { font-size: 15px; color: var(--gray-500); line-height: 1.6; max-width: 400px; margin: 0 auto; }
-.hp-spinner {
-  display: inline-block; width: 16px; height: 16px;
-  border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff;
-  border-radius: 50%; animation: hpSpin 0.6s linear infinite;
-}
-@keyframes hpSpin { to { transform: rotate(360deg); } }
-.hp-toast {
-  position: fixed; bottom: -80px; left: 50%; transform: translateX(-50%);
-  background: var(--obsidian); color: var(--white);
-  padding: 14px 28px; border-radius: var(--radius-pill);
-  font-size: 14px; font-weight: 500;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-  transition: bottom 0.4s var(--ease); z-index: 99999;
-}
-.hp-toast.show { bottom: 32px; }
-
-/* ══════════════════════════════════════
-   8. CTA — off-white bg, centered
-   ══════════════════════════════════════ */
-.lif-cta {
-  padding: 100px 24px 80px; background: var(--off-white);
-  color: var(--obsidian); position: relative; overflow: hidden;
-}
-.lif-cta__bg-text {
-  position: absolute; bottom: -20px; right: -20px;
-  font-family: var(--font-accent); font-size: 18vw;
-  color: rgba(66,104,46,0.05); line-height: 1; pointer-events: none; white-space: nowrap;
-}
-.lif-cta__inner {
-  max-width: 760px; margin: 0 auto; text-align: center; position: relative; z-index: 2;
-}
-.lif-cta__heading {
-  font-family: var(--font-accent); font-size: clamp(2.2rem, 4.5vw, 3.8rem);
-  line-height: 1.1; margin: 20px 0 24px; color: var(--obsidian);
-}
-.lif-cta__heading span { color: var(--deep-olive); }
-.lif-cta__body {
-  font-size: 1rem; font-weight: 300; color: #555; line-height: 1.85;
-  margin-bottom: 48px; max-width: 540px; margin-left: auto; margin-right: auto;
-}
-.lif-cta__actions { display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap; }
-.lif-cta__micro { font-size: 0.78rem; color: #999; margin-top: 16px; }
-
-/* ══════════════════════════════════════
-   RESPONSIVE
-   ══════════════════════════════════════ */
-@media (max-width: 900px) {
-  .lif-story__grid { grid-template-columns: 1fr; gap: 40px; }
-  .lif-story__image-wrap { max-width: 100%; }
-  .lif-process__steps { grid-template-columns: 1fr; }
-  .lif-process__steps::before { display: none; }
-  .contact-layout { grid-template-columns: 1fr; gap: 40px; }
-  .contact-sidebar { position: static; order: 2; }
-  .contact-form-col { order: 1; }
-  .contact-process { flex-direction: row; gap: 20px; flex-wrap: wrap; }
-  .contact-process__step { flex: 1; min-width: 160px; }
-}
-@media (max-width: 700px) {
-  .lif-services__grid { grid-template-columns: 1fr; }
-  .lif-service-card__content { padding: 24px 20px 28px; }
-  .hp-service-grid { grid-template-columns: 1fr; }
-  .hp-row { grid-template-columns: 1fr; }
-  .lif-contact-section .lif-form-card { padding: 32px 20px; }
-}
-@media (max-width: 640px) {
-  .logo-item { padding: 0 28px; height: 80px; }
-  .logo-img { max-height: 55px; max-width: 160px; }
-}
-@media (max-width: 600px) {
-  .lif-hero__actions { flex-direction: column; align-items: flex-start; }
-}
-@media (max-width: 500px) {
-  .test-card { width: 320px; padding: 32px 28px 28px; }
-  .test-card .quote-mark { font-size: 52px; left: 24px; top: 12px; }
-}
-@media (max-width: 480px) {
-  .lif-cta__actions { flex-direction: column; width: 100%; }
-  .lif-cta__actions .lif-btn { width: 100%; justify-content: center; }
-  .lif-contact-section__details { flex-direction: column; gap: 16px; }
-}
-
-/* ══════════════════════════════════════
-   CONVERSION OPTIMIZATION — New Elements
-   ══════════════════════════════════════ */
-
-/* Hero proof badge */
-.lif-hero__proof {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(198, 113, 85, 0.2); border: 1px solid rgba(198, 113, 85, 0.4);
-  color: var(--white); font-size: 0.8rem; font-weight: 600;
-  padding: 6px 16px; border-radius: var(--radius-pill);
-  margin-bottom: 20px; letter-spacing: 0.02em;
-  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-}
-
-/* Hero phone link */
-.lif-hero__phone {
-  display: inline-block; margin-top: 24px;
-  font-size: 0.85rem; color: rgba(255,255,255,0.65);
-  transition: color 0.3s;
-}
-.lif-hero__phone:hover { color: var(--white); }
-
-/* Hero portfolio text link (de-emphasized) */
-.lif-hero__portfolio-link {
-  font-size: 0.85rem; color: rgba(255,255,255,0.65);
-  transition: color 0.3s; font-weight: 400;
-}
-.lif-hero__portfolio-link:hover { color: var(--white); }
-
-/* Response badge */
-.lif-response-badge {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: rgba(198, 113, 85, 0.15); color: var(--terracotta);
-  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.03em;
-  padding: 6px 14px; border-radius: var(--radius-pill);
-  margin-top: 12px; text-transform: uppercase;
-}
-
-@media (max-width: 768px) {
-  .lif-hero__proof { font-size: 0.7rem; padding: 5px 12px; margin-bottom: 14px; }
-  .lif-hero__phone { font-size: 0.8rem; margin-top: 16px; }
-}
+.v3-contact__areas { margin-top: 14px; max-width: 760px; line-height: 1.8; }
+.v3-contact__areas a { color: rgba(255,255,255,0.8); border-bottom: 1px solid rgba(255,255,255,0.25); }
+.v3-contact__areas a:hover { color: #fff; border-color: #fff; }
 </style>
-<link rel="stylesheet" href="css/contact-form.css">
 </head>
-<body>
+<body class="v3">
 
 <!-- ══════════════════════════════════════
-     HEADER
+     HEADER — logo, three links, one action
      ══════════════════════════════════════ -->
 <div id="lif-hdr">
   <a href="./" class="hdr-logo" aria-label="LIF Media Home">
@@ -933,44 +234,12 @@ function gtag_report_conversion(url) {
     <img class="logo-d" src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331346/Brand_lifmedia_logo_light_no_background_fb0qu9.png" alt="LIF Media" width="200" height="80">
   </a>
   <div class="hdr-right">
-    <ul class="hdr-nav">
-      <li><a href="./">Home</a></li>
-      <li class="hdr-drop">
-        <a href="#">Services <span class="hdr-chev"></span></a>
-        <div class="hdr-drop-menu">
-          <a href="./video-marketing/">Video Marketing</a>
-          <a href="./cinematic-commercials/">Cinematic Commercials</a>
-          <a href="./documentaries-interviews/">Brand Documentaries &amp; Interviews</a>
-          <a href="./events/">Event Highlight Films</a>
-          <a href="./social-media/">Social Media Content</a>
-        </div>
-      </li>
-      <li class="hdr-drop">
-        <a href="#">Industries <span class="hdr-chev"></span></a>
-        <div class="hdr-drop-menu">
-          <a href="./industries/construction/">Construction</a>
-          <a href="./industries/industrial/">Industrial</a>
-          <a href="./industries/marketing-agencies/">Marketing Agencies</a>
-          <a href="./industries/real-estate/">Real Estate</a>
-          <a href="./industries/restaurants-hospitality/">Restaurants &amp; Hospitality</a>
-          <a href="./industries/healthcare-dental/">Healthcare &amp; Dental</a>
-          <a href="./industries/non-profit/">Non-Profit</a>
-          <a href="./industries/government-political/">Government &amp; Political</a>
-        </div>
-      </li>
-      <li><a href="./portfolio/">Portfolio</a></li>
-      <li><a href="./blog/">Blog</a></li>
-      <li><a href="./about-us/">About Us</a></li>
-      <li><a href="./contact/">Contact</a></li>
+    <ul class="v3-nav">
+      <li><a href="#work">Work</a></li>
+      <li><a href="./about-us/">Studio</a></li>
+      <li><a href="./blog/">Journal</a></li>
+      <li><a href="#contact" class="v3-nav__cta">Start a project</a></li>
     </ul>
-    <span class="hdr-divider"></span>
-    <div class="hdr-socials">
-      <a href="https://www.instagram.com/lifmedia/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-      <a href="https://www.facebook.com/lifmediaca/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-      <a href="https://www.tiktok.com/@lifmedia" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
-      <a href="https://www.linkedin.com/company/lif-media/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-    </div>
-    <span class="hdr-divider"></span>
     <button class="hdr-menu-btn" id="lifMenuBtn" aria-label="Open menu">
       <span>Menu</span>
       <span class="menu-lines"><span></span><span></span></span>
@@ -1038,276 +307,248 @@ function gtag_report_conversion(url) {
   </div>
 </div>
 
+
+<main>
+
 <!-- ══════════════════════════════════════
-     1. HERO
+     1. HERO — one line, one reel
      ══════════════════════════════════════ -->
-<section class="lif-hero">
-  <div class="lif-hero__video">
-    <video
-      id="heroVideo"
-      autoplay muted loop playsinline preload="auto"
-      poster="https://res.cloudinary.com/dsqbqhqvf/video/upload/so_0,f_auto,q_auto/v1778521835/showreelforwebsite_kxfbgl.jpg"
-      aria-hidden="true">
-      <source src="https://res.cloudinary.com/dsqbqhqvf/video/upload/f_auto,q_auto/v1778521835/showreelforwebsite_kxfbgl.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="lif-hero__overlay"></div>
-  <div class="lif-hero__content">
-    <div class="lif-label lif-reveal" style="color: rgba(255,255,255,0.5);">Video Production Agency &middot; Moncton, NB</div>
-    <h1 class="lif-hero__headline lif-reveal lif-reveal-d1">
-      Videos That<br><em>Grow</em> Your Business
-    </h1>
-    <p class="lif-hero__sub lif-reveal lif-reveal-d2">
-      Cinematic commercials, social content, documentaries &amp; event films, crafted for ambitious brands across New Brunswick.
-    </p>
-    <div class="lif-hero__actions lif-reveal lif-reveal-d3">
-      <a href="#contact" class="lif-btn lif-btn--primary">
-        Get a Quote
-        <span class="lif-btn__arrow"></span>
-      </a>
-      <a href="./portfolio/" class="lif-hero__portfolio-link">View Our Work &rarr;</a>
+<section class="v3-hero">
+  <div class="v3-wrap">
+    <div class="v3-kicker lif-reveal">Video Production &middot; Moncton, New Brunswick</div>
+    <h1 class="lif-reveal lif-reveal-d1" style="margin-top: 28px;">Films people <em>choose</em> to watch.</h1>
+    <div class="v3-hero__row">
+      <p class="v3-hero__sub lif-reveal lif-reveal-d2">Your video growth partner in Atlantic Canada. We plan, film and distribute content that moves the numbers you care about.</p>
+      <a href="#work" class="v3-link lif-reveal lif-reveal-d3">Selected work &darr;</a>
     </div>
-    <a href="tel:+15066887043" onclick="return gtag_report_conversion('tel:+15066887043');" class="lif-hero__phone lif-reveal lif-reveal-d3">
-      Or call us: +1 (506) 688-7043
-    </a>
+    <button type="button" class="v3-reel lif-reveal lif-reveal-d3" data-reel="https://res.cloudinary.com/dsqbqhqvf/video/upload/f_auto,q_auto/v1778521835/showreelforwebsite_kxfbgl.mp4" aria-label="Play the LIF Media reel with sound">
+      <video autoplay muted loop playsinline preload="metadata" aria-hidden="true"
+        poster="https://res.cloudinary.com/dsqbqhqvf/video/upload/so_0,f_auto,q_auto/v1778521835/showreelforwebsite_kxfbgl.jpg">
+        <source src="https://res.cloudinary.com/dsqbqhqvf/video/upload/f_auto,q_auto/v1778521835/showreelforwebsite_kxfbgl.mp4" type="video/mp4">
+      </video>
+      <span class="v3-reel__label"><span class="v3-play"></span>Watch the reel</span>
+    </button>
+    <ul class="v3-proof lif-reveal" aria-label="LIF Media at a glance">
+      <li><strong>300+</strong><span>videos delivered since 2024</span></li>
+      <li><strong>30,000+</strong><span>views on our TSN broadcast feature</span></li>
+      <li><strong>Platinum</strong><span>Video Production Agency, Moncton &middot; Community Votes 2026</span></li>
+      <li><strong>Nominee</strong><span>Newcomer Entrepreneur of the Year &middot; Moncton Chamber of Commerce</span></li>
+    </ul>
   </div>
 </section>
 
 <!-- ══════════════════════════════════════
-     2. LOGO MARQUEE
+     2. SELECTED WORK — the heart of the page
+     RESULT lines: replace/extend with real numbers when available
+     (views, leads, attendance, sales). Never publish estimates.
      ══════════════════════════════════════ -->
-<section class="lif-logos">
-  <div class="lif-logos__header">
-    <span class="eyebrow">Trusted by Leading Brands in Atlantic Canada</span>
-  </div>
-  <div class="marquee-viewport">
-    <div class="marquee-track" id="marqueeTrack">
-      <div class="logo-item"><img width="160" height="80" src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331736/1_rvnerq.png" alt="TSN" class="logo-img"></div><div class="logo-sep"></div>
-      <div class="logo-item"><img width="160" height="80" src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331737/2_h7cypj.png" alt="ResearchNB" class="logo-img"></div><div class="logo-sep"></div>
-      <div class="logo-item"><img width="160" height="80" src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331737/3_qfmbgk.png" alt="JA Kelly Contracting" class="logo-img"></div><div class="logo-sep"></div>
-      <div class="logo-item"><img width="160" height="80" src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331738/6_ec1zmf.png" alt="Atlantic Superstore" class="logo-img"></div><div class="logo-sep"></div>
-      <div class="logo-item"><img width="160" height="80" src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331739/7_ejpjgi.png" alt="Hub City Property Management" class="logo-img"></div><div class="logo-sep"></div>
-      <div class="logo-item"><img width="160" height="80" src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331739/8_mhdf6g.png" alt="Firehouse Subs" class="logo-img"></div><div class="logo-sep"></div>
-      <div class="logo-item"><img width="160" height="80" src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331740/9_m5jasi.png" alt="The Paint Shop" class="logo-img"></div><div class="logo-sep"></div>
-      <div class="logo-item"><img width="160" height="80" src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331740/10_gqtajc.png" alt="LIF Media client logo" class="logo-img"></div><div class="logo-sep"></div>
-      <div class="logo-item"><img width="160" height="80" src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331741/11_dvkrbf.png" alt="InspireFM" class="logo-img"></div><div class="logo-sep"></div>
-      <div class="logo-item"><img width="160" height="80" src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331742/14_qgzhpl.png" alt="LIF Media client logo" class="logo-img"></div><div class="logo-sep"></div>
-      <div class="logo-item"><img width="160" height="80" src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1784480233/Trusted_By_1_oqki2n.png" alt="Pond-Deshpande Centre" class="logo-img"></div><div class="logo-sep"></div>
+<section class="v3-work" id="work">
+  <div class="v3-wrap">
+    <div class="v3-head">
+      <div>
+        <div class="v3-kicker lif-reveal">Selected work</div>
+        <h2 class="lif-reveal lif-reveal-d1">Stories worth <em style="color: var(--soft-moss);">the frame</em>.</h2>
+      </div>
+      <a href="./portfolio/" class="v3-link lif-reveal">All work &rarr;</a>
     </div>
-  </div>
-  <div class="lif-logos__bottom"><span>Trusted Across Atlantic Canada</span></div>
-</section>
 
-<!-- ══════════════════════════════════════
-     4. SERVICES — obsidian bg, 2x2 grid
-     ══════════════════════════════════════ -->
-<section class="lif-services" id="services">
-  <div class="lif-services__header">
-    <div class="lif-label lif-reveal" style="justify-content: center;">The Problems We Solve</div>
-    <h2 class="lif-services__heading lif-reveal lif-reveal-d1">Video that <em>moves the needle</em>.</h2>
-    <p class="lif-services__intro lif-reveal lif-reveal-d2">Every service below exists to fix a real business problem, whether you're invisible online, blending in with competitors, or struggling to tell your story.</p>
-  </div>
-  <div class="lif-services__grid">
-    <a href="./cinematic-commercials/" class="lif-service-card lif-reveal lif-reveal-d1" data-service="commercials">
-      <div class="lif-service-card__visual">
-        <iframe src="https://www.youtube.com/embed/7wiZB4ZBJSE?si=3hRj4wqjKPo0tBER&controls=1&mute=1&loop=1&playlist=7wiZB4ZBJSE&rel=0&playsinline=1" title="Cinematic Commercials Reel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-      </div>
-      <div class="lif-service-card__body">
-        <div class="lif-service-card__problem">Look like every other ad?</div>
-        <h3 class="lif-service-card__title"><em>Cinematic</em> Commercials</h3>
-        <p class="lif-service-card__desc">Broadcast-quality films that make your brand impossible to scroll past, not just another forgettable ad in the feed.</p>
-        <span class="lif-service-card__cta">Explore &#8594;</span>
-      </div>
-    </a>
-    <a href="./documentaries-interviews/" class="lif-service-card lif-reveal lif-reveal-d2" data-service="documentaries">
-      <div class="lif-service-card__visual">
-        <iframe src="https://www.youtube.com/embed/VRQBDRS_Spg?mute=1&loop=1&playlist=VRQBDRS_Spg&rel=0&controls=1&modestbranding=1&playsinline=1&showinfo=0" title="Brand Documentaries Reel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-      </div>
-      <div class="lif-service-card__body">
-        <div class="lif-service-card__problem">Story untold?</div>
-        <h3 class="lif-service-card__title">Brand <em>Documentaries</em></h3>
-        <p class="lif-service-card__desc">Cinematic interviews and behind-the-scenes films that reveal the heart and humans behind your business.</p>
-        <span class="lif-service-card__cta">Explore &#8594;</span>
-      </div>
-    </a>
-    <a href="./events/" class="lif-service-card lif-reveal lif-reveal-d3" data-service="events">
-      <div class="lif-service-card__visual">
-        <iframe src="https://www.youtube.com/embed/Y0vMtEfOiqg?mute=1&loop=1&playlist=Y0vMtEfOiqg&rel=0&controls=1&modestbranding=1&playsinline=1&showinfo=0" title="Event Highlight Films Reel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-      </div>
-      <div class="lif-service-card__body">
-        <div class="lif-service-card__problem">Event ended too fast?</div>
-        <h3 class="lif-service-card__title">Event <em>Highlight</em> Films</h3>
-        <p class="lif-service-card__desc">Aftermovies and live coverage that extend the energy of your event into months of marketing fuel.</p>
-        <span class="lif-service-card__cta">Explore &#8594;</span>
-      </div>
-    </a>
-    <a href="./social-media/" class="lif-service-card lif-reveal" data-service="social">
-      <div class="lif-service-card__visual is-vertical">
-        <iframe src="https://www.youtube.com/embed/mD59ghMvH3w?loop=1&playlist=mD59ghMvH3w&rel=0&controls=1&modestbranding=1&playsinline=1&showinfo=0" title="LIF Media | Social Media Content Reel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-      </div>
-      <div class="lif-service-card__body">
-        <div class="lif-service-card__problem">Invisible online?</div>
-        <h3 class="lif-service-card__title">Social Media <em>Content</em></h3>
-        <p class="lif-service-card__desc">Scroll-stopping Reels, TikToks, and Shorts that keep your brand in front of the right audience, every week.</p>
-        <span class="lif-service-card__cta">Explore &#8594;</span>
-      </div>
-    </a>
-  </div>
-  <div class="lif-services__bottom lif-reveal">
-    <p>Not sure which service fits? Let's map it out together.</p>
-    <a href="#contact" class="lif-btn lif-btn--primary">
-      Get a Quote
-      <span class="lif-btn__arrow"></span>
-    </a>
-  </div>
-</section>
+    <div class="v3-grid">
+      <article class="v3-card v3-card--wide lif-reveal">
+        <button type="button" class="v3-card__media" data-id="ZqlZGaC8x7o" aria-label="Play: TSN broadcast feature">
+          <img src="https://i.ytimg.com/vi/ZqlZGaC8x7o/maxresdefault.jpg" alt="Curler on the ice during the TSN broadcast feature filmed in Fredericton" width="1280" height="720" loading="lazy">
+          <span class="v3-play" aria-hidden="true"></span>
+        </button>
+        <div class="v3-card__meta">
+          <div class="v3-card__client">TSN</div>
+          <div class="v3-card__tags">Broadcast feature &middot; Fredericton</div>
+          <h3 class="v3-card__title">Carly Smith, the first amputee in Canadian history to compete at a national curling event. Hired directly by TSN for national broadcast.</h3>
+          <div class="v3-card__result">Aired December 2024 &middot; 30,000+ views</div>
+          <div class="v3-card__story"><a href="./blog/tsn-broadcast-feature-fredericton-amputee-curling/">Read the story &rarr;</a></div>
+        </div>
+      </article>
 
-<!-- ══════════════════════════════════════
-     5. TESTIMONIALS — warm cream
-     ══════════════════════════════════════ -->
-<section class="lif-testimonials">
-  <div class="lif-testimonials__header">
-    <div class="lif-label lif-reveal" style="color: var(--terracotta); justify-content: center;">What Our Clients Say</div>
-    <h2 class="lif-reveal lif-reveal-d1">Trusted by <em>Great Brands</em></h2>
-  </div>
-  <div class="carousel-viewport">
-    <div class="carousel-track" id="carouselTrack">
-      <div class="test-card">
-        <span class="quote-mark">&ldquo;</span>
-        <div class="test-stars"><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg></div>
-        <p class="test-quote">Having worked with other videographers previously, I can say that LIF Media produce top-notch work and are easy to collaborate with.</p>
-        <div class="test-divider"></div>
-        <div class="test-author">
-          <div class="test-avatar"><img width="800" height="533" src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775332357/DSCF5813_kqiavg.webp" alt="Dawn Henwood" loading="lazy"></div>
-          <div class="test-author-info"><span class="test-author-name">Dawn Henwood, PhD</span><span class="test-author-role">Clarity Connect</span></div>
+      <article class="v3-card v3-card--tall lif-reveal">
+        <a class="v3-card__media" href="./blog/un-more-than-a-game-soccer-nb-moncton/" aria-label="Read: UNHCR Canada, More Than a Game">
+          <img src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto,w_1200/v1778516087/1774300815426_pfkhdh.jpg" alt="Filming Soccer New Brunswick in Moncton for UNHCR Canada" width="1200" height="1500" loading="lazy" style="--focus: 50% 15%;">
+        </a>
+        <div class="v3-card__meta">
+          <div class="v3-card__client">UNHCR Canada &times; Soccer NB</div>
+          <div class="v3-card__tags">Documentary</div>
+          <h3 class="v3-card__title">&ldquo;More Than a Game&rdquo;: H&eacute;ritier Masimengo and Soccer New Brunswick, for UNHCR Canada&rsquo;s campaign around the 2026 World Cup.</h3>
+          <div class="v3-card__result">Published on UNHCR Canada&rsquo;s channel</div>
+          <div class="v3-card__story"><a href="./blog/un-more-than-a-game-soccer-nb-moncton/">Read the story &rarr;</a></div>
         </div>
-      </div>
-      <div class="test-card">
-        <span class="quote-mark">&ldquo;</span>
-        <div class="test-stars"><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg></div>
-        <p class="test-quote">I'm always impressed and satisfied with the work LIF Media does. They consistently deliver beyond expectations.</p>
-        <div class="test-divider"></div>
-        <div class="test-author">
-          <div class="test-avatar"><img width="800" height="533" src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775332450/laura_y9779w.webp" alt="Laura Steckly" loading="lazy"></div>
-          <div class="test-author-info"><span class="test-author-name">Laura Steckly</span><span class="test-author-role">Hillside Church</span></div>
-        </div>
-      </div>
-      <div class="test-card">
-        <span class="quote-mark">&ldquo;</span>
-        <div class="test-stars"><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg></div>
-        <p class="test-quote">Working with Jorge Melgar and LIF Media at One Conference was an exceptional experience. Professional, creative, and a joy to work with.</p>
-        <div class="test-divider"></div>
-        <div class="test-author">
-          <div class="test-avatar"><img width="800" height="533" src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775332447/IMG_F26922B71E4E-1_pso82b.webp" alt="Spencer Conway" loading="lazy"></div>
-          <div class="test-author-info"><span class="test-author-name">Spencer Conway</span><span class="test-author-role">OneCon</span></div>
-        </div>
-      </div>
-      <div class="test-card">
-        <span class="quote-mark">&ldquo;</span>
-        <div class="test-stars"><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg></div>
-        <p class="test-quote">LIF Media has a fantastic ability to tell stories through visuals. Deadlines are always met, communication is always open, and they consistently go above and beyond to elevate the quality of each project.</p>
-        <div class="test-divider"></div>
-        <div class="test-author">
-          <div class="test-avatar"><img width="800" height="533" src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775332274/Disen%CC%83o_sin_ti%CC%81tulo_10_2_jmjuoa.webp" alt="Sébastien Soucy" loading="lazy"></div>
-          <div class="test-author-info"><span class="test-author-name">Sébastien Soucy</span><span class="test-author-role">ResearchNB</span></div>
-        </div>
-      </div>
-      <div class="test-card">
-        <span class="quote-mark">&ldquo;</span>
-        <div class="test-stars"><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg></div>
-        <p class="test-quote">Hired LIF Media for my lifestyle shoot, headshots and to make a reel for social media and they exceeded my expectations! I'm so happy with the results that I want to post them all at once!</p>
-        <div class="test-divider"></div>
-        <div class="test-author">
-          <div class="test-avatar"><img width="800" height="533" src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775348645/DSC08738_rrun8z.jpg" alt="Rena Sammut" loading="lazy"></div>
-          <div class="test-author-info"><span class="test-author-name">Rena Sammut</span><span class="test-author-role"></span></div>
-        </div>
-      </div>
-      <div class="test-card">
-        <span class="quote-mark">&ldquo;</span>
-        <div class="test-stars"><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg><svg viewBox="0 0 16 16"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg></div>
-        <p class="test-quote">Jorge did a fantastic job capturing the energy, atmosphere, and key moments of our Social Enterprise Symposium. The photos truly exceeded our expectations and made a meaningful difference in how we share the story of the event.</p>
-        <div class="test-divider"></div>
-        <div class="test-author">
-          <div class="test-avatar"><img width="160" height="160" src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1784480233/Trusted_By_1_oqki2n.png" alt="Pond-Deshpande Centre" loading="lazy"></div>
-          <div class="test-author-info"><span class="test-author-name">Pond-Deshpande Centre</span><span class="test-author-role">Social Enterprise Symposium</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="lif-testimonials__bottom"><span>World-Class Video for World-Class Brands</span></div>
-</section>
+      </article>
 
-<!-- ══════════════════════════════════════
-     WHERE WE WORK — service areas (SEO)
-     ══════════════════════════════════════ -->
-<section class="lif-areas" id="where-we-work">
-  <div class="lif-areas__inner lif-reveal">
-    <div class="lif-label" style="justify-content: center;">Where We Work</div>
-    <h2>Video Production Across Greater Moncton &amp; All of New Brunswick</h2>
-    <p class="lif-areas__sub">Based in Moncton, LIF Media produces cinematic commercials, brand documentaries, social media content, and event coverage for businesses throughout New Brunswick and Atlantic Canada. From Moncton, Dieppe, and Riverview to Fredericton, Saint John, and beyond, we travel across the province to tell the stories that matter to your brand. Wherever your story needs to be told, we'll be there.</p>
-    <div class="lif-areas__list">
-      <span class="lif-area-tag">Moncton</span>
-      <span class="lif-area-tag">Dieppe</span>
-      <span class="lif-area-tag">Riverview</span>
-      <span class="lif-area-tag">Fredericton</span>
-      <span class="lif-area-tag">Saint John</span>
-      <span class="lif-area-tag">Miramichi</span>
-      <span class="lif-area-tag">Bathurst</span>
-      <span class="lif-area-tag">Edmundston</span>
-      <span class="lif-area-tag">Shediac</span>
-      <span class="lif-area-tag">Sussex</span>
-      <span class="lif-area-tag">Sackville</span>
-      <span class="lif-area-tag">Atlantic Canada</span>
+      <article class="v3-card v3-card--offset lif-reveal">
+        <button type="button" class="v3-card__media" data-id="Y0vMtEfOiqg" aria-label="Play: Forum CAPBLEU BLUESHIFT 2025 highlight film">
+          <img src="https://i.ytimg.com/vi/Y0vMtEfOiqg/maxresdefault.jpg" alt="Delegates at the Canada-Africa Forum CAPBLEU BLUESHIFT 2025 in Moncton" width="1280" height="720" loading="lazy">
+          <span class="v3-play" aria-hidden="true"></span>
+        </button>
+        <div class="v3-card__meta">
+          <div class="v3-card__client">Forum CAPBLEU &middot; BLUESHIFT 2025</div>
+          <div class="v3-card__tags">Event film &middot; French</div>
+          <h3 class="v3-card__title">A French-language highlight film of the Canada-Africa Forum, delivered before the closing remarks.</h3>
+          <div class="v3-card__story"><a href="./blog/event-highlight-video-moncton-capbleu-blueshift-2025/">Read the story &rarr;</a></div>
+        </div>
+      </article>
+
+      <article class="v3-card lif-reveal">
+        <button type="button" class="v3-card__media" data-id="ylyEkfldXw0" aria-label="Play: Moncton Wildcats jersey night">
+          <img src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto,w_1400/v1778517685/DSC01267_mn0b6w.jpg" alt="Moncton Wildcats wearing Jack Livingstone's Acadian-inspired jersey" width="1400" height="875" loading="lazy">
+          <span class="v3-play" aria-hidden="true"></span>
+        </button>
+        <div class="v3-card__meta">
+          <div class="v3-card__client">Real Atlantic Superstore &times; Moncton Wildcats</div>
+          <div class="v3-card__tags">Brand story</div>
+          <h3 class="v3-card__title">A kid&rsquo;s Acadian-inspired jersey, on the ice for PC Children&rsquo;s Charity.</h3>
+          <div class="v3-card__story"><a href="./blog/moncton-wildcats-jersey-jack-livingstone/">Read the story &rarr;</a></div>
+        </div>
+      </article>
+
+      <article class="v3-card lif-reveal lif-reveal-d1">
+        <button type="button" class="v3-card__media" data-id="VRQBDRS_Spg" aria-label="Play: Research and Productivity Council documentary">
+          <img src="https://i.ytimg.com/vi/VRQBDRS_Spg/maxresdefault.jpg" alt="Interview from the Research and Productivity Council brand documentary" width="1280" height="720" loading="lazy">
+          <span class="v3-play" aria-hidden="true"></span>
+        </button>
+        <div class="v3-card__meta">
+          <div class="v3-card__client">Research &amp; Productivity Council</div>
+          <div class="v3-card__tags">Brand documentary</div>
+          <h3 class="v3-card__title">Innovation in service of the public good.</h3>
+        </div>
+      </article>
+
+      <article class="v3-card v3-card--wide lif-reveal">
+        <button type="button" class="v3-card__media" data-id="7wiZB4ZBJSE" aria-label="Play: Three Sisters commercial for Lafford Properties">
+          <img src="https://i.ytimg.com/vi/7wiZB4ZBJSE/maxresdefault.jpg" alt="Still from the Three Sisters commercial for Lafford Properties" width="1280" height="720" loading="lazy">
+          <span class="v3-play" aria-hidden="true"></span>
+        </button>
+        <div class="v3-card__meta">
+          <div class="v3-card__client">Lafford Properties</div>
+          <div class="v3-card__tags">Commercial</div>
+          <h3 class="v3-card__title">Three Sisters: a real estate launch told like a short film.</h3>
+          <!-- RESULT: e.g. units leased / inquiries after launch -->
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
 <!-- ══════════════════════════════════════
-     6. PROCESS — 3-column steps
+     3. POINT OF VIEW
      ══════════════════════════════════════ -->
-<section class="lif-process">
-  <div class="lif-process__header">
-    <div class="lif-label lif-reveal">How It Works</div>
-    <h2 class="lif-process__heading lif-reveal lif-reveal-d1">
-      Simple. Predictable.<br><em>Built around your schedule.</em>
-    </h2>
-  </div>
-  <div class="lif-process__steps">
-    <div class="lif-process__step lif-reveal">
-      <div class="lif-process__step-num">01</div>
-      <h3 class="lif-process__step-title">Discovery &amp; Strategy</h3>
-      <p class="lif-process__step-body">Before we touch a camera, we sit down together. We learn what you're building, who you're trying to reach, and what kind of content actually makes sense for your goals. Then we map out a plan.</p>
+<section class="v3-pov">
+  <div class="v3-wrap v3-pov__grid">
+    <!-- TODO: swap for an on-set photo of Jorge when available -->
+    <figure class="v3-pov__photo lif-reveal">
+      <img src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto,w_800/v1775332040/Jorge_Melgar_bk2svg.png" alt="Jorge Melgar, Founder and Creative Director of LIF Media" width="400" height="500" loading="lazy">
+    </figure>
+    <div class="v3-pov__text">
+    <div class="v3-kicker lif-reveal">How we think</div>
+    <blockquote class="lif-reveal lif-reveal-d1" style="margin-top: 28px;">Video isn&rsquo;t content. It&rsquo;s how people decide <em>who to trust</em>.</blockquote>
+    <div class="v3-pov__body">
+      <p class="lif-reveal">Every film starts with one question: what should this make people do? Book the call, visit the site, apply for the job, remember the name. We plan, shoot and edit around that answer.</p>
+      <div class="lif-reveal lif-reveal-d1">
+        <p>From a national broadcast to the shop down the street, the job is the same: tell the true story, beautifully, and make it work for the business.</p>
+        <p style="margin-top: 16px;">We are a founder-led team of four. We film on the Sony FX3, a camera on Netflix&rsquo;s approved list, and aerial drone coverage is part of every production. Most of our clients work with us month after month.</p>
+        <p class="v3-pov__sign" style="margin-top: 28px;">Jorge Melgar<span>Founder &amp; Creative Director</span></p>
+      </div>
     </div>
-    <div class="lif-process__step lif-reveal lif-reveal-d1">
-      <div class="lif-process__step-num">02</div>
-      <h3 class="lif-process__step-title">Production Day</h3>
-      <p class="lif-process__step-body">Focused, efficient production days built around your schedule, not ours. We capture everything needed for your content in one visit. No wasted time, no disruptions to your operations.</p>
-    </div>
-    <div class="lif-process__step lif-reveal lif-reveal-d2">
-      <div class="lif-process__step-num">03</div>
-      <h3 class="lif-process__step-title">Editing &amp; Delivery</h3>
-      <p class="lif-process__step-body">Fast turnaround, reviewed once, and delivered ready to publish. Whether it's a one-time project or ongoing partnership, you walk away with professional video content that works.</p>
     </div>
   </div>
 </section>
 
 <!-- ══════════════════════════════════════
-     CONTACT FORM — deep olive bg (before footer)
+     4. CAPABILITIES — one line each
      ══════════════════════════════════════ -->
-<section class="lif-contact-section lif-contact-section--solo" id="contact">
-  <div class="lif-contact-section__bg"></div>
-  <div class="lif-contact-section__circle1"></div>
-  <div class="lif-contact-section__circle2"></div>
+<section>
+  <div class="v3-wrap">
+    <div class="v3-kicker lif-reveal" style="margin-bottom: 40px;">What we make</div>
+    <div class="v3-caps">
+      <a class="v3-cap lif-reveal" href="./cinematic-commercials/"><span class="v3-cap__num">01</span><span class="v3-cap__name">Commercials</span><span class="v3-cap__arrow">&rarr;</span></a>
+      <a class="v3-cap lif-reveal" href="./documentaries-interviews/"><span class="v3-cap__num">02</span><span class="v3-cap__name">Brand documentaries</span><span class="v3-cap__arrow">&rarr;</span></a>
+      <a class="v3-cap lif-reveal" href="./social-media/"><span class="v3-cap__num">03</span><span class="v3-cap__name">Social content</span><span class="v3-cap__arrow">&rarr;</span></a>
+      <a class="v3-cap lif-reveal" href="./events/"><span class="v3-cap__num">04</span><span class="v3-cap__name">Event films</span><span class="v3-cap__arrow">&rarr;</span></a>
+      <a class="v3-cap lif-reveal" href="./video-marketing/"><span class="v3-cap__num">05</span><span class="v3-cap__name">Monthly partnerships</span><span class="v3-cap__arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
 
-  <div class="contact-inner">
-    <div class="contact-layout contact-layout--solo">
-      <div class="contact-form-col">
-        <div class="contact-form-header lif-reveal">
-          <div class="lif-label" style="color: rgba(211,226,192,0.7);">Let's Talk</div>
-          <h2>Let's create <em>something special</em>.</h2>
-          <p>Tell us a bit about your project and we'll get back to you within 24 hours.</p>
-        </div>
-        <div class="lif-form-card lif-reveal lif-reveal-d2" id="hpForm">
+<!-- ══════════════════════════════════════
+     5. CLIENTS + ONE VOICE
+     ══════════════════════════════════════ -->
+<section class="v3-clients">
+  <div class="v3-wrap">
+    <div class="v3-kicker lif-reveal">Trusted by</div>
+    <div class="v3-logos lif-reveal lif-reveal-d1">
+      <div><img src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331736/1_rvnerq.png" alt="TSN" width="192" height="108" loading="lazy"></div>
+      <div><img src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331738/6_ec1zmf.png" alt="Atlantic Superstore" width="192" height="108" loading="lazy"></div>
+      <div><img src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331737/2_h7cypj.png" alt="ResearchNB" width="192" height="108" loading="lazy"></div>
+      <div><img src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1784480233/Trusted_By_1_oqki2n.png" alt="Pond-Deshpande Centre" width="192" height="108" loading="lazy"></div>
+      <div><img src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331742/14_qgzhpl.png" alt="UNHCR" width="192" height="108" loading="lazy"></div>
+      <div><img src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331738/5_rrw4hq.png" alt="Premium Management Group" width="192" height="108" loading="lazy"></div>
+      <div><img src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1790520265/Trusted_By_runlxj.png" alt="LUMAR Electric" width="192" height="108" loading="lazy"></div>
+      <div><img src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331741/11_dvkrbf.png" alt="Maritime Stone &amp; Decor" width="192" height="108" loading="lazy"></div>
+    </div>
+    <div class="v3-voice">
+      <div class="v3-voice__head">
+        <div class="v3-kicker lif-reveal">In their words</div>
+        <a href="./reviews/" class="v3-link lif-reveal">All reviews &rarr;</a>
+      </div>
+      <div class="v3-reviews">
+        <figure class="v3-review lif-reveal">
+          <blockquote>&ldquo;LIF Media has a fantastic ability to tell stories through visuals. Deadlines are always met, communication is always open, and they consistently go above and beyond to elevate the quality of each project.&rdquo;</blockquote>
+          <figcaption><img src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto,w_160/v1775332274/Disen%CC%83o_sin_ti%CC%81tulo_10_2_jmjuoa.webp" alt="Sebastien Soucy" width="48" height="48" loading="lazy"><span><strong>S&eacute;bastien Soucy</strong>ResearchNB</span></figcaption>
+        </figure>
+        <figure class="v3-review lif-reveal lif-reveal-d1">
+          <blockquote>&ldquo;Having worked with other videographers previously, I can say that LIF Media produce top-notch work and are easy to collaborate with.&rdquo;</blockquote>
+          <figcaption><img src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto,w_160/v1775332357/DSCF5813_kqiavg.webp" alt="Dawn Henwood, PhD" width="48" height="48" loading="lazy"><span><strong>Dawn Henwood, PhD</strong>Clarity Connect</span></figcaption>
+        </figure>
+        <figure class="v3-review lif-reveal">
+          <blockquote>&ldquo;Working with Jorge Melgar and LIF Media at One Conference was an exceptional experience. Professional, creative, and a joy to work with.&rdquo;</blockquote>
+          <figcaption><img src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto,w_160/v1775332447/IMG_F26922B71E4E-1_pso82b.webp" alt="Spencer Conway" width="48" height="48" loading="lazy"><span><strong>Spencer Conway</strong>OneCon</span></figcaption>
+        </figure>
+        <figure class="v3-review lif-reveal lif-reveal-d1">
+          <blockquote>&ldquo;I&rsquo;m always impressed and satisfied with the work LIF Media does. They consistently deliver beyond expectations.&rdquo;</blockquote>
+          <figcaption><img src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto,w_160/v1775332450/laura_y9779w.webp" alt="Laura Steckly" width="48" height="48" loading="lazy"><span><strong>Laura Steckly</strong>Hillside Church</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     6. HOW IT WORKS — easy, with timings
+     ══════════════════════════════════════ -->
+<section class="v3-process">
+  <div class="v3-wrap">
+    <div class="v3-kicker lif-reveal">How it works</div>
+    <ol class="v3-steps">
+      <li class="lif-reveal"><span class="v3-steps__n">01</span><h3>Discovery call</h3><p>Free, 15 minutes. We learn your goals and the numbers you want to move.</p></li>
+      <li class="lif-reveal lif-reveal-d1"><span class="v3-steps__n">02</span><h3>Plan &amp; quote</h3><p>A clear plan and a tailored quote within 24 hours.</p></li>
+      <li class="lif-reveal lif-reveal-d2"><span class="v3-steps__n">03</span><h3>Production day</h3><p>Built around your schedule. Aerial coverage included.</p></li>
+      <li class="lif-reveal lif-reveal-d3"><span class="v3-steps__n">04</span><h3>Delivery</h3><p>Edited, colour-graded and ready to publish, typically 2&ndash;3 weeks after the shoot.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     6. CONTACT — one action
+     ══════════════════════════════════════ -->
+<section class="v3-contact" id="contact">
+  <div class="v3-wrap">
+    <div class="v3-kicker lif-reveal" style="color: rgba(255,255,255,0.7);">Start a project</div>
+    <h2 class="lif-reveal lif-reveal-d1" style="margin-top: 28px;">Let&rsquo;s make something <em>worth watching</em>.</h2>
+    <div class="v3-contact__grid">
+      <div class="v3-contact__side lif-reveal">
+        <p class="v3-contact__lead">Tell us about your project and we&rsquo;ll get back to you within 24 hours with next steps.</p>
+        <a href="mailto:contact@lifmedia.ca" class="v3-contact__mail">contact@lifmedia.ca</a>
+        <a href="tel:+15066887043" onclick="return gtag_report_conversion('tel:+15066887043');" class="v3-contact__tel">+1 (506) 688-7043</a>
+        <a href="https://calendly.com/contact-lifmedia/discovery-meeting" target="_blank" rel="noopener noreferrer" class="v3-btn v3-btn--ghost">Book a discovery call</a>
+        <p class="v3-contact__small">We work in English, French and Spanish.</p>
+      </div>
+      <div class="v3-contact__form lif-reveal lif-reveal-d1">
+<div class="lif-form-card" id="hpForm">
           <div class="hp-progress" id="hpProgress">
             <div class="hp-progress-step active" data-step="0"></div>
             <div class="hp-progress-step" data-step="1"></div>
@@ -1334,7 +575,7 @@ function gtag_report_conversion(url) {
                 <div class="hp-field"><label for="hp-phone">Phone number <span class="optional">Optional</span></label><input id="hp-phone" type="tel" data-field="phone" placeholder="+1 (506) 000-0000"></div>
                 <div class="hp-field"><label for="hp-company">Company name <span class="optional">Optional</span></label><input id="hp-company" type="text" data-field="company" placeholder="Acme Inc."></div>
               </div>
-              <div class="hp-field"><label>Estimated budget</label><div class="hp-chips" data-field="budget"><span class="hp-chip" onclick="hpToggleChip(this)">$500 - $1,500</span><span class="hp-chip" onclick="hpToggleChip(this)">$1,500 - $3,000</span><span class="hp-chip" onclick="hpToggleChip(this)">$3,000 - $6,000</span><span class="hp-chip" onclick="hpToggleChip(this)">$6,000+</span></div></div>
+              <div class="hp-field"><label>Estimated budget</label><div class="hp-chips" data-field="budget"><span class="hp-chip" onclick="hpToggleChip(this)">$1,500 &ndash; $3,000</span><span class="hp-chip" onclick="hpToggleChip(this)">$3,000 &ndash; $6,000</span><span class="hp-chip" onclick="hpToggleChip(this)">$6,000+</span><span class="hp-chip" onclick="hpToggleChip(this)">Monthly partnership</span></div><div class="field-error">Please choose a budget range.</div></div>
               <div class="hp-field"><label>How did you find us?</label><div class="hp-chips" data-field="how_found"><span class="hp-chip" onclick="hpToggleChip(this)">Google</span><span class="hp-chip" onclick="hpToggleChip(this)">Instagram</span><span class="hp-chip" onclick="hpToggleChip(this)">Facebook</span><span class="hp-chip" onclick="hpToggleChip(this)">LinkedIn</span><span class="hp-chip" onclick="hpToggleChip(this)">Referral</span><span class="hp-chip" onclick="hpToggleChip(this)">Event</span><span class="hp-chip" onclick="hpToggleChip(this)">Other</span></div></div>
               <div class="hp-field"><label for="hp-notes">Tell us about your project <span class="optional">Optional</span></label><textarea id="hp-notes" data-field="additional_notes" rows="2" placeholder="Share any details, references, or inspiration..."></textarea></div>
               <div class="hp-nav">
@@ -1349,226 +590,123 @@ function gtag_report_conversion(url) {
             <p>Thanks for reaching out. Our team will review your project details and get back to you within 24 hours.</p>
           </div>
         </div>
-        <div class="contact-cta">
-          <p>Prefer to talk? Book a free discovery call.</p>
-          <a href="https://calendly.com/contact-lifmedia/discovery-meeting" target="_blank" rel="noopener noreferrer">Book a Discovery Call</a>
-        </div>
       </div>
     </div>
+    <p class="v3-contact__small v3-contact__areas lif-reveal">Based in Moncton and filming across New Brunswick: <a href="./video-production-moncton/">Moncton</a>, <a href="./video-production-dieppe/">Dieppe</a>, <a href="./video-production-riverview/">Riverview</a>, <a href="./video-production-fredericton/">Fredericton</a>, <a href="./video-production-saint-john/">Saint John</a>, <a href="./video-production-miramichi/">Miramichi</a>, <a href="./video-production-bathurst/">Bathurst</a>, <a href="./video-production-edmundston/">Edmundston</a>, <a href="./video-production-shediac/">Shediac</a>, <a href="./video-production-sussex/">Sussex</a>, <a href="./video-production-sackville/">Sackville</a>.</p>
   </div>
 </section>
+
+</main>
 
 <!-- ══════════════════════════════════════
      FOOTER
      ══════════════════════════════════════ -->
-<footer class="lif-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <h4>Let's create together</h4>
-      <div class="footer-tagline">Audio-Visual Content Production Company</div>
-      <div class="footer-platform-note">LIF Media operates a social media management platform that helps businesses schedule, manage, and publish content across their social media channels — including Facebook, Instagram, LinkedIn, and YouTube — on their behalf and with their authorization. Authorized users connect their accounts to plan and publish posts and videos from a single dashboard.</div>
-      <div class="footer-contact-line">
-        <a href="tel:+15066887043" onclick="return gtag_report_conversion('tel:+15066887043');">+1 506-688-7043</a><br>
-        21 Rue Foxtrot,<br>
-        Moncton, New Brunswick, Canada<br>
-        <a href="mailto:contact@lifmedia.ca">contact@lifmedia.ca</a>
+<footer class="v3-footer">
+  <div class="v3-wrap">
+    <div class="v3-footer__top">
+      <div class="v3-footer__brand">
+        <a href="./" aria-label="LIF Media Home"><img src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331352/Brand_lifmedia_white_logo_1_vdztdx.png" alt="LIF Media" width="200" height="80" loading="lazy"></a>
+        <p>Video studio in Moncton, New Brunswick.<br>Working across Atlantic Canada.</p>
+      </div>
+      <div class="v3-footer__reach">
+        <span class="v3-footer__label">Start a project</span>
+        <a class="v3-footer__mail" href="mailto:contact@lifmedia.ca">contact@lifmedia.ca</a>
+        <a class="v3-footer__tel" href="tel:+15066887043" onclick="return gtag_report_conversion('tel:+15066887043');">+1 (506) 688-7043</a>
+        <span class="v3-footer__addr">21 Rue Foxtrot, Moncton, NB</span>
       </div>
     </div>
-    <div class="footer-nav-col">
-      <h5>Services</h5>
-      <ul>
-        <li><a href="./video-marketing/">Video Marketing</a></li>
-        <li><a href="./cinematic-commercials/">Cinematic Commercials</a></li>
-        <li><a href="./documentaries-interviews/">Brand Documentaries</a></li>
-        <li><a href="./events/">Event Highlight Films</a></li>
-        <li><a href="./social-media/">Social Media Content</a></li>
-      </ul>
-    </div>
-    <div class="footer-nav-col">
-      <h5>Company</h5>
-      <ul>
-        <li><a href="./">Home</a></li>
-        <li><a href="./about-us/">About Us</a></li>
-        <li><a href="./portfolio/">Portfolio</a></li>
-        <li><a href="./blog/">Blog</a></li>
-        <li><a href="./reviews/">Reviews</a></li>
-        <li><a href="./contact/">Contact</a></li>
-      </ul>
-    </div>
-    <div class="footer-nav-col">
-      <h5>Industries</h5>
-      <ul>
-        <li><a href="./industries/construction/">Construction</a></li>
-        <li><a href="./industries/industrial/">Industrial</a></li>
-        <li><a href="./industries/marketing-agencies/">Marketing Agencies</a></li>
-        <li><a href="./industries/real-estate/">Real Estate</a></li>
-        <li><a href="./industries/restaurants-hospitality/">Restaurants &amp; Hospitality</a></li>
-        <li><a href="./industries/healthcare-dental/">Healthcare &amp; Dental</a></li>
-        <li><a href="./industries/non-profit/">Non-Profit</a></li>
-        <li><a href="./industries/government-political/">Government &amp; Political</a></li>
-      </ul>
+    <nav class="v3-footer__nav" aria-label="Footer">
+      <div>
+        <h5>Studio</h5>
+        <ul>
+          <li><a href="./portfolio/">Work</a></li>
+          <li><a href="./about-us/">About</a></li>
+          <li><a href="./blog/">Journal</a></li>
+          <li><a href="./reviews/">Reviews</a></li>
+          <li><a href="./contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="./video-marketing/">Video Marketing</a></li>
+          <li><a href="./cinematic-commercials/">Commercials</a></li>
+          <li><a href="./documentaries-interviews/">Documentaries</a></li>
+          <li><a href="./social-media/">Social Content</a></li>
+          <li><a href="./events/">Event Films</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Industries</h5>
+        <ul>
+          <li><a href="./industries/construction/">Construction</a></li>
+          <li><a href="./industries/restaurants-hospitality/">Hospitality</a></li>
+          <li><a href="./industries/government-political/">Government</a></li>
+          <li><a href="./industries/real-estate/">Real Estate</a></li>
+          <li><a href="./industries/">All industries</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Follow</h5>
+        <ul>
+          <li><a href="https://www.instagram.com/lifmedia/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.linkedin.com/company/lif-media/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.tiktok.com/@lifmedia" target="_blank" rel="noopener">TikTok</a></li>
+          <li><a href="https://www.facebook.com/lifmediaca/" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="v3-footer__base">
+      <p class="v3-footer__note">LIF Media operates a social media management platform that helps businesses schedule, manage, and publish content across their social media channels — including Facebook, Instagram, LinkedIn, and YouTube — on their behalf and with their authorization. Authorized users connect their accounts to plan and publish posts and videos from a single dashboard. <a href="./platform/">About the platform</a></p>
+      <div class="v3-footer__legal"><span>&copy; 2026 LIF Media Inc.</span><span><a href="./privacy/">Privacy</a><a href="./terms/">Terms</a></span></div>
     </div>
   </div>
-  <div class="footer-bottom-row">
-    <img width="160" height="80" src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331352/Brand_lifmedia_white_logo_1_vdztdx.png" alt="LIF Media">
-    <div class="footer-copyright">&copy; 2026 LIF Media Inc, All Rights Reserved. &nbsp;&middot;&nbsp; <a href="/privacy/">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="/terms/">Terms &amp; Conditions</a></div>
-  </div>
+  <div class="v3-footer__mark" aria-hidden="true"><img src="https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775331352/Brand_lifmedia_white_logo_1_vdztdx.png" alt="" width="200" height="80" loading="lazy"></div>
 </footer>
 
-<div class="hp-toast" id="hpToast"></div>
+<div class="v3-lightbox" aria-hidden="true" role="dialog" aria-label="Video player">
+  <button type="button" class="v3-lightbox__close">Close</button>
+  <div class="v3-lightbox__frame"></div>
+</div>
 
-<!-- ══════════════════════════════════════
-     SCRIPTS
-     ══════════════════════════════════════ -->
 <script src="./js/main.js"></script>
+<script src="./js/contact-form.js"></script>
 <script>
+/* Lightbox: YouTube films (data-id) and the reel mp4 (data-reel) */
 (function() {
   'use strict';
+  var box = document.querySelector('.v3-lightbox');
+  var frame = box.querySelector('.v3-lightbox__frame');
+  var closeBtn = box.querySelector('.v3-lightbox__close');
+  var opener = null;
 
-
-  // Hero entrance animation
-  setTimeout(function() {
-    document.querySelectorAll('.lif-hero .lif-reveal').forEach(function(el, i) {
-      setTimeout(function() { el.classList.add('is-visible'); }, i * 200);
-    });
-  }, 300);
-
-  // Service card scroll animations
-  var cards = document.querySelectorAll('.lif-service-card');
-  if (cards.length) {
-    var cardObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          cardObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    cards.forEach(function(card) { cardObserver.observe(card); });
-  }
-
-  // ── Homepage Contact Form (EmailJS) — Simplified 2-Step ──
-  var EMAILJS_PUBLIC_KEY = 'Xp2dcCiComLf_F4S2';
-  var EMAILJS_SERVICE_ID = 'service_46f4l2j';
-  var EMAILJS_TEMPLATE_ID = 'template_w48s8hd';
-  var emailjsReady = false;
-  function ensureEmailJS() {
-    if (!emailjsReady && typeof emailjs !== 'undefined') {
-      emailjs.init(EMAILJS_PUBLIC_KEY);
-      emailjsReady = true;
+  function open(btn) {
+    opener = btn;
+    if (btn.dataset.reel) {
+      frame.innerHTML = '<video controls autoplay playsinline></video>';
+      frame.firstChild.src = btn.dataset.reel;
+    } else {
+      frame.innerHTML = '<iframe allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+      frame.firstChild.title = btn.getAttribute('aria-label');
+      frame.firstChild.src = 'https://www.youtube.com/embed/' + btn.dataset.id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
     }
+    box.classList.add('is-open');
+    box.setAttribute('aria-hidden', 'false');
+    closeBtn.focus();
   }
-  // Init now if already loaded, otherwise it inits on first submit
-  ensureEmailJS();
-
-  var hpSelectedService = null;
-
-  function hpShowToast(message, duration) {
-    duration = duration || 4000;
-    var toast = document.getElementById('hpToast');
-    toast.textContent = message;
-    toast.classList.add('show');
-    setTimeout(function() { toast.classList.remove('show'); }, duration);
+  function close() {
+    box.classList.remove('is-open');
+    box.setAttribute('aria-hidden', 'true');
+    frame.innerHTML = '';
+    if (opener) opener.focus();
   }
-
-  window.hpSelectService = function(card) {
-    document.querySelectorAll('.hp-svc-card').forEach(function(c) { c.classList.remove('selected'); });
-    card.classList.add('selected');
-    hpSelectedService = card.dataset.service;
-    // Auto-advance to step 2 after a brief moment
-    setTimeout(function() { hpGoToStep(1); }, 350);
-  };
-
-  window.hpToggleChip = function(chip) {
-    var parent = chip.parentElement;
-    parent.querySelectorAll('.hp-chip').forEach(function(c) { c.classList.remove('selected'); });
-    chip.classList.toggle('selected');
-  };
-
-  window.hpGoToStep = function(step) {
-    var currentEl = document.querySelector('.hp-step.active');
-    if (currentEl) currentEl.classList.remove('active');
-    setTimeout(function() {
-      var nextEl = document.querySelector('.hp-step[data-step="' + step + '"]');
-      if (nextEl) nextEl.classList.add('active');
-      document.querySelectorAll('.hp-progress-step').forEach(function(p) {
-        var pStep = parseInt(p.dataset.step);
-        p.classList.remove('active', 'completed');
-        if (pStep === step) p.classList.add('active');
-        if (pStep < step) p.classList.add('completed');
-      });
-      var formEl = document.getElementById('hpForm');
-      if (formEl) formEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100);
-  };
-
-  function hpCollectFormData() {
-    var data = { service: hpSelectedService };
-    document.querySelectorAll('.hp-step[data-step="1"] input, .hp-step[data-step="1"] textarea').forEach(function(el) {
-      var field = el.dataset.field;
-      if (field && el.value) data[field] = el.value;
-    });
-    document.querySelectorAll('.hp-step[data-step="1"] .hp-chips').forEach(function(group) {
-      var field = group.dataset.field;
-      var selected = Array.from(group.querySelectorAll('.hp-chip.selected')).map(function(c) { return c.textContent.trim(); });
-      if (selected.length) data[field] = selected.join(', ');
-    });
-    return data;
-  }
-
-  function hpValidateContact() {
-    var valid = true;
-    var step = document.querySelector('.hp-step[data-step="1"]');
-    var name = step.querySelector('[data-field="name"]');
-    var email = step.querySelector('[data-field="email"]');
-    step.querySelectorAll('.hp-field').forEach(function(f) { f.classList.remove('error'); });
-    if (!name.value.trim()) { name.closest('.hp-field').classList.add('error'); valid = false; }
-    if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { email.closest('.hp-field').classList.add('error'); valid = false; }
-    return valid;
-  }
-
-  window.hpSubmitForm = function() {
-    if (!hpValidateContact()) return;
-    var btn = document.getElementById('hpBtnSubmit');
-    var originalHTML = btn.innerHTML;
-    btn.innerHTML = '<span class="hp-spinner"></span> Sending...';
-    btn.disabled = true;
-    var data = hpCollectFormData();
-    var serviceNames = { commercial: 'Cinematic Commercial', social: 'Social Media Content', documentary: 'Brand Documentary', event: 'Event Coverage' };
-    var projectDetails = '';
-    if (data.budget) projectDetails += 'Budget: ' + data.budget + '\n';
-    if (data.how_found) projectDetails += 'How They Found Us: ' + data.how_found + '\n';
-    if (data.additional_notes) projectDetails += 'Notes: ' + data.additional_notes + '\n';
-    var templateParams = {
-      from_name: data.name || '', from_email: data.email || '',
-      company: data.company || 'N/A', phone: data.phone || 'N/A',
-      website: 'N/A', service: serviceNames[data.service] || data.service,
-      project_details: projectDetails || 'No additional details provided.'
-    };
-    ensureEmailJS();
-    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams).then(function() {
-      gtag('event', 'conversion', {
-        'send_to': 'AW-17933483390/qHYXCJLw-JYcEP76rOdC',
-        'value': 1.0,
-        'currency': 'CAD',
-        'event_callback': function() {
-          window.location.href = '/thank-you/';
-        }
-      });
-      // Fallback redirect in case gtag callback doesn't fire
-      setTimeout(function() { window.location.href = '/thank-you/'; }, 1500);
-    }).catch(function(error) {
-      console.error('EmailJS Error:', error);
-      btn.innerHTML = originalHTML;
-      btn.disabled = false;
-      hpShowToast('Something went wrong. Please try again or email us directly at contact@lifmedia.ca');
-    });
-  };
-
+  document.querySelectorAll('[data-id], [data-reel]').forEach(function(btn) {
+    btn.addEventListener('click', function() { open(btn); });
+  });
+  closeBtn.addEventListener('click', close);
+  box.addEventListener('click', function(e) { if (e.target === box) close(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && box.classList.contains('is-open')) close(); });
 })();
 </script>
-
-
-<script src="js/contact-form.js"></script>
 </body>
 </html>

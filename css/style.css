@@ -258,6 +258,26 @@ body::before {
 #lif-mob .mob-logo-bottom { margin-top: auto; }
 #lif-mob .mob-logo-bottom img { height: 32px; width: auto; opacity: 0.2; }
 
+/* Desktop: main pages | Services | Industries side by side, so the whole menu fits one screen */
+@media (min-width: 1024px) {
+  #lif-mob .mob-left {
+    display: grid; align-content: center; column-gap: clamp(32px, 4vw, 72px);
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: auto auto auto auto auto 1fr;
+  }
+  #lif-mob .mob-link { font-size: clamp(40px, 4.4vw, 68px); }
+  #lif-mob .mob-left > :nth-child(1) { grid-area: 1 / 1; }
+  #lif-mob .mob-left > :nth-child(6) { grid-area: 2 / 1; }
+  #lif-mob .mob-left > :nth-child(7) { grid-area: 3 / 1; }
+  #lif-mob .mob-left > :nth-child(8) { grid-area: 4 / 1; }
+  #lif-mob .mob-left > :nth-child(9) { grid-area: 5 / 1; }
+  #lif-mob .mob-left > :nth-child(2) { grid-area: 1 / 2; }
+  #lif-mob .mob-left > :nth-child(3) { grid-area: 2 / 2 / -1 / 3; }
+  #lif-mob .mob-left > :nth-child(4) { grid-area: 1 / 3; }
+  #lif-mob .mob-left > :nth-child(5) { grid-area: 2 / 3 / -1 / 4; }
+  #lif-mob .mob-left > :nth-child(3), #lif-mob .mob-left > :nth-child(5) { align-self: start; }
+}
+
 /* ══════════════════════════════════════
    FOOTER
    ══════════════════════════════════════ */

@@ -54,6 +54,19 @@ body.v3 { background: var(--ink); color: var(--paper); }
 .v3-hero h1 em { color: var(--soft-moss); }
 .v3-hero__row { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-top: 40px; }
 .v3-hero__sub { max-width: 440px; font-size: 1.05rem; font-weight: 300; line-height: 1.7; color: var(--dim); }
+/* Headline + reel fill exactly the first screen, so the whole reel is visible on load */
+.v3-hero { --hero-top: clamp(104px, 14vh, 170px); padding-top: var(--hero-top); }
+.v3-hero h1 { font-size: clamp(3rem, min(8.5vw, 12vh), 9rem); max-width: none; }
+.v3-hero__fold .v3-hero__sub { max-width: 620px; }
+/* Keyword line lives inside the h1 for SEO but keeps the small kicker look */
+.v3-hero h1 .v3-kicker { font-family: var(--font-body); line-height: 1.4; letter-spacing: 0.2em; margin-bottom: clamp(20px, 3.5vh, 32px); }
+.v3-hero__line { display: block; }
+.v3-hero__fold { display: flex; flex-direction: column; justify-content: center;min-height: calc(100vh - var(--hero-top)); min-height: calc(100svh - var(--hero-top)); padding-bottom: clamp(20px, 3vh, 36px); }
+.v3-hero__fold .v3-hero__row { margin-top: clamp(20px, 3.5vh, 40px); }
+.v3-hero__fold .v3-reel {
+  flex: 1 1 0; aspect-ratio: auto; min-height: 240px; margin-top: clamp(24px, 4vh, 56px);
+  max-height: calc((min(100vw, 1440px) - 2 * var(--gutter)) / 2.39);
+}
 .v3-reel {
   position: relative; display: block; width: 100%; margin-top: clamp(48px, 7vw, 88px);
   aspect-ratio: 2.39 / 1; border-radius: 4px; overflow: hidden; background: #000; cursor: pointer; border: 0; padding: 0;

@@ -183,6 +183,26 @@ function gtag_report_conversion(url) {
 }
 
 /* ══════════════════════════════════════
+   ABOUT — ON SET
+   ══════════════════════════════════════ */
+.about-onset { margin-top: 96px; }
+.about-onset__header { text-align: center; margin-bottom: 36px; }
+.about-onset__header h3 {
+  font-family: var(--font-accent); font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+  line-height: 1.25; color: var(--obsidian); margin-top: 14px;
+}
+.about-onset__grid {
+  display: grid; grid-template-columns: 2fr 1fr; gap: 16px;
+}
+.about-onset__grid figure { margin: 0; overflow: hidden; aspect-ratio: 3 / 2; }
+.about-onset__grid figure:first-child { grid-row: span 2; aspect-ratio: auto; }
+.about-onset__grid img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.6s;
+}
+.about-onset__grid figure:hover img { transform: scale(1.03); }
+
+/* ══════════════════════════════════════
    ABOUT — MID CTA
    ══════════════════════════════════════ */
 .about-mcta {
@@ -357,6 +377,9 @@ function gtag_report_conversion(url) {
   .about-team__grid { grid-template-columns: 1fr; gap: 48px; }
   .about-stats { grid-template-columns: 1fr; gap: 16px; }
   .about-member__photo { width: 200px; height: 200px; }
+  .about-onset { margin-top: 64px; }
+  .about-onset__grid { grid-template-columns: 1fr; }
+  .about-onset__grid figure:first-child { grid-row: auto; aspect-ratio: 3 / 2; }
   .about-mcta__btns,
   .about-fcta__btns { flex-direction: column; align-items: center; }
   .about-mcta__btns .lif-btn,
@@ -521,6 +544,17 @@ function gtag_report_conversion(url) {
         <div class="about-member__bar"></div>
         <p class="about-member__bio" itemprop="description">The financial backbone of LIF Media. Carolina oversees all accounting and fiscal strategy, ensuring the company operates with precision and stability so our creative team can execute ambitious projects with confidence.</p>
       </article>
+    </div>
+    <div class="about-onset">
+      <div class="about-onset__header lif-reveal">
+        <div class="lif-label" style="justify-content: center;">On Set</div>
+        <h3>Hard hat on. Gimbal up. Drone in the air.</h3>
+      </div>
+      <div class="about-onset__grid lif-reveal lif-reveal-d1">
+        <figure><img width="1600" height="1067" src="../assets/images/behind-the-scenes/construction-site/bts-construction-drone-portrait-DSC09366.webp" alt="LIF Media videographer in a hard hat with a drone in flight on a construction site in New Brunswick" loading="lazy"></figure>
+        <figure><img width="1600" height="1066" src="../assets/images/behind-the-scenes/construction-site/bts-construction-gimbal-hardhat-DSC09229.webp" alt="LIF Media videographer filming a construction project with a gimbal-mounted cinema camera" loading="lazy"></figure>
+        <figure><img width="1600" height="1066" src="../assets/images/behind-the-scenes/construction-site/bts-construction-gimbal-bw-DSC09225.webp" alt="Behind the scenes of a LIF Media construction video shoot, camera on gimbal" loading="lazy"></figure>
+      </div>
     </div>
   </div>
 </section>

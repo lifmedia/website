@@ -72,22 +72,19 @@ function gtag_report_conversion(url) {
    HERO
    ══════════════════════════════════════ */
 .hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--obsidian); overflow: hidden; }
-.hero__bg { position: absolute; inset: 0; background: url('https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775349368/DSC07562_tdlm2l.jpg') center/cover; opacity: .35; animation: hz 14s var(--ease) forwards; }
+.hero__bg { position: absolute; inset: 0; background: url('https://res.cloudinary.com/dsqbqhqvf/image/upload/f_auto,q_auto/v1775349368/DSC07562_tdlm2l.jpg') center/cover; opacity: .5; filter: saturate(.3); animation: hz 14s var(--ease) forwards; }
 @keyframes hz { from { transform: scale(1.02); } to { transform: scale(1); } }
-.hero__overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.2) 70%, rgba(0,0,0,0.5) 100%); }
-.hero__c { position: relative; z-index: 2; text-align: center; max-width: 760px; padding: 0 24px; }
+.hero__overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.62) 45%, rgba(0,0,0,0.12) 100%); }
+.hero__c { position: relative; z-index: 2; width: 100%; max-width: 1440px; margin: 0 auto; padding: 0 var(--gutter); }
 .hero__c > * { opacity: 0; animation: fu .8s var(--ease) forwards; }
-.hero__c .lif-label { animation-delay: .2s; justify-content: center; }
+.hero__c .lif-label { animation-delay: .2s; justify-content: flex-start; margin-bottom: 20px; }
 .hero__c .lif-label::before { background: rgba(255,255,255,0.4); }
 .hero__c .lif-label { color: rgba(255,255,255,0.6); }
-.hero__c h1 { font-family: var(--font-accent); font-size: clamp(38px, 7vw, 74px); line-height: 1.05; color: #fff; margin-bottom: 24px; animation-delay: .4s; font-weight: 400; }
-.hero__c h1 em { font-style: italic; color: var(--soft-moss); }
-.hero__c p { font-size: clamp(15px, 1.8vw, 17px); line-height: 1.7; color: rgba(255,255,255,0.5); max-width: 500px; margin: 0 auto 44px; animation-delay: .6s; }
-.hero__a { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; animation-delay: .8s; }
-.hero__scroll { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); z-index: 2; opacity: 0; animation: fu .8s var(--ease) 1.1s forwards; }
-.hero__scroll span { display: block; width: 1px; height: 44px; background: rgba(255,255,255,0.1); position: relative; overflow: hidden; }
-.hero__scroll span::after { content: ''; position: absolute; top: -40%; width: 100%; height: 40%; background: var(--terracotta); animation: sp 2.5s ease-in-out infinite; }
-@keyframes sp { to { top: 140%; } }
+.v3-skin > section.hero:first-of-type h1 { font-size: clamp(2.25rem, 4.6vw, 4.25rem) !important; line-height: 1.08 !important; letter-spacing: -0.015em !important; max-width: 13em; text-wrap: balance; margin-bottom: 20px; animation-delay: .4s; }
+.hero__c p { font-size: clamp(16px, 1.5vw, 18px); line-height: 1.6; max-width: 440px; margin: 0 0 36px; animation-delay: .6s; }
+.hero__a { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; animation-delay: .8s; }
+.hero__link { font-size: 14px; color: rgba(245,243,239,0.82); border-bottom: 1px solid rgba(245,243,239,0.35); padding-bottom: 3px; transition: color .3s, border-color .3s; }
+.hero__link:hover { color: #fff; border-color: #fff; }
 @keyframes fu { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 
 /* ══════════════════════════════════════
@@ -136,9 +133,8 @@ function gtag_report_conversion(url) {
 .pc p { font-size: 13px; line-height: 1.6; color: var(--muted-sage); }
 
 /* ── PROJECTS ── */
-.projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
-.proj:last-child:nth-child(odd) { grid-column: 1 / -1; width: 100%; max-width: 600px; justify-self: center; }
-.proj { position: relative; border-radius: 2px; overflow: hidden; background: #222; aspect-ratio: 16/10; cursor: pointer; }
+.projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; container-type: inline-size; }
+.proj { position: relative; border-radius: 2px; overflow: hidden; background: #222; width: 100%; aspect-ratio: 9/16; height: calc((100cqw - 36px) / 3 * 1.25 + 206px); cursor: pointer; }
 .proj img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
 .proj:hover img { transform: scale(1.05); }
 .proj__ov { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(26,26,26,0.92) 0%, rgba(26,26,26,0.25) 50%, rgba(26,26,26,0.15) 100%); }
@@ -152,6 +148,7 @@ function gtag_report_conversion(url) {
 .proj iframe { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 10; display: none; }
 .proj.playing iframe { display: block; }
 .proj.playing img, .proj.playing .proj__ov, .proj.playing .proj__info, .proj.playing .proj__play { display: none; }
+.proj[data-ig] iframe { border: 0; background: #fff; }
 
 /* ── SERVICES ── */
 .svcs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 1080px; margin: 0 auto; position: relative; z-index: 1; }
@@ -218,13 +215,17 @@ function gtag_report_conversion(url) {
 @media (max-width: 900px) {
   .pain, .local { grid-template-columns: 1fr; gap: 40px; }
   .svcs, .projects { grid-template-columns: 1fr; }
+  .projects { max-width: 420px; }
+  .proj { height: calc(125cqw + 206px); }
+  .hero__overlay { background: rgba(0,0,0,0.66); }
 }
 @media (max-width: 600px) {
   .s { padding: 80px 16px; }
   .process::before { left: 18px; }
   .step { gap: 16px; }
   .step__n { width: 36px; height: 36px; font-size: 14px; box-shadow: 0 0 0 6px var(--off-white); }
-  .hero__a, .cta__btns { flex-direction: column; align-items: center; }
+  .cta__btns { flex-direction: column; align-items: center; }
+  .hero__a { flex-direction: column; align-items: flex-start; gap: 18px; }
   .hero__c h1 { font-size: clamp(32px, 9vw, 48px); }
   .hero__c .lif-label { margin-bottom: 14px; font-size: 11px; }
   .hero__bg { background-position: center 30%; }
@@ -328,14 +329,13 @@ function gtag_report_conversion(url) {
   <div class="hero__overlay"></div>
   <div class="hero__c">
     <div class="lif-label">Video Production for Construction, Moncton, NB</div>
-    <h1>Construction Companies That<br><em>Look Professional</em><br>Win More Bids</h1>
-    <p>Cinematic video that showcases your craftsmanship, documents your projects, and positions your construction company as the clear choice.</p>
+    <h1>Construction companies that <em>look professional</em> win more bids.</h1>
+    <p>Cinematic video that shows your craftsmanship and makes you the clear choice.</p>
     <div class="hero__a">
       <a href="../../contact/" class="lif-btn lif-btn--primary">Get a Quote <span class="lif-btn__arrow"></span></a>
-      <a href="#portfolio" class="lif-btn lif-btn--outline-light"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg> Watch Our Work <span class="lif-btn__arrow"></span></a>
+      <a href="#portfolio" class="hero__link">Watch our work</a>
     </div>
   </div>
-  <div class="hero__scroll"><span></span></div>
 </section>
 
 <!-- ══════════════════════════════════════
@@ -376,6 +376,9 @@ function gtag_report_conversion(url) {
     <div class="proj lif-reveal" data-yt="Y5lV1Br61Pk"><img height="270" width="480" src="https://img.youtube.com/vi/Y5lV1Br61Pk/maxresdefault.jpg" alt="Premium Group Built With Heart construction video Moncton" loading="lazy"><div class="proj__ov"></div><div class="proj__info"><span class="proj__tag">Fireproofing &amp; Drywall</span><h3 class="proj__name">Premium Group</h3><p class="proj__cl">Built With Heart</p></div><div class="proj__play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div><iframe data-src="https://www.youtube.com/embed/Y5lV1Br61Pk?autoplay=1&rel=0" title="Premium Group" frameborder="0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe></div>
     <div class="proj lif-reveal" data-yt="mSGB-cVpIOM"><img height="270" width="480" src="https://img.youtube.com/vi/mSGB-cVpIOM/maxresdefault.jpg" alt="JA Kelly Contracting before and after construction video Moncton" loading="lazy"><div class="proj__ov"></div><div class="proj__info"><span class="proj__tag">Construction</span><h3 class="proj__name">JA Kelly Contracting</h3><p class="proj__cl">Before &amp; After, 1212 Mountain Rd</p></div><div class="proj__play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div><iframe data-src="https://www.youtube.com/embed/mSGB-cVpIOM?autoplay=1&rel=0" title="JA Kelly Contracting" frameborder="0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe></div>
     <div class="proj lif-reveal" data-yt="mD59ghMvH3w"><img height="270" width="480" src="https://img.youtube.com/vi/mD59ghMvH3w/maxresdefault.jpg" alt="Innova Design Studio architectural design video Moncton" loading="lazy"><div class="proj__ov"></div><div class="proj__info"><span class="proj__tag">Architectural Design</span><h3 class="proj__name">Innova Design Studio</h3><p class="proj__cl">Hybrid Bar Top</p></div><div class="proj__play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div><iframe data-src="https://www.youtube.com/embed/mD59ghMvH3w?autoplay=1&rel=0" title="Innova Design Studio" frameborder="0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe></div>
+    <div class="proj lif-reveal" data-ig="Dcb7TqWDIzs"><img height="1136" width="640" src="../../assets/images/reels/premium-group-boarding-vs-taping.jpg" alt="Premium Group boarding vs. taping drywall reel" loading="lazy"><div class="proj__ov"></div><div class="proj__info"><span class="proj__tag">Drywall</span><h3 class="proj__name">Premium Group</h3><p class="proj__cl">Boarding vs. Taping</p></div><div class="proj__play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div><iframe data-src="https://www.instagram.com/reel/Dcb7TqWDIzs/embed/" title="Premium Group, Boarding vs. Taping" scrolling="no" allowfullscreen></iframe></div>
+    <div class="proj lif-reveal" data-ig="DbWJp8MAgUQ"><img height="1136" width="640" src="../../assets/images/reels/premium-group-meet-the-team-sandeep.jpg" alt="Premium Group caulking crew member Sandeep reel" loading="lazy"><div class="proj__ov"></div><div class="proj__info"><span class="proj__tag">Caulking</span><h3 class="proj__name">Premium Group</h3><p class="proj__cl">Meet the Team: Sandeep</p></div><div class="proj__play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div><iframe data-src="https://www.instagram.com/reel/DbWJp8MAgUQ/embed/" title="Premium Group, Meet the Team: Sandeep" scrolling="no" allowfullscreen></iframe></div>
+    <div class="proj lif-reveal" data-ig="DeQymy3DlKr"><img height="1136" width="640" src="../../assets/images/reels/lumar-electric-separate-meters.jpg" alt="LuMar Electric separate meters for rental properties reel" loading="lazy"><div class="proj__ov"></div><div class="proj__info"><span class="proj__tag">Electrical</span><h3 class="proj__name">LuMar Electric</h3><p class="proj__cl">Separate Meters for Rentals</p></div><div class="proj__play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div><iframe data-src="https://www.instagram.com/reel/DeQymy3DlKr/embed/" title="LuMar Electric, Separate Meters for Rentals" scrolling="no" allowfullscreen></iframe></div>
   </div>
 </section>
 
@@ -610,7 +613,7 @@ function gtag_report_conversion(url) {
   });
 
   // Portfolio video play
-  document.querySelectorAll('.proj[data-yt]').forEach(function(c) {
+  document.querySelectorAll('.proj[data-yt], .proj[data-ig]').forEach(function(c) {
     c.addEventListener('click', function() {
       if (!this.classList.contains('playing')) {
         var f = this.querySelector('iframe');

@@ -59,7 +59,7 @@ function gtag_report_conversion(url) {
 </script>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LocalBusiness","name":"LIF Media","description":"Video production agency in Moncton, New Brunswick specializing in cinematic commercials, social media content, brand documentaries, and event coverage.","url":"https://www.lifmedia.ca","telephone":"+1-506-688-7043","email":"contact@lifmedia.ca","address":{"@type":"PostalAddress","streetAddress":"21 Rue Foxtrot","addressLocality":"Moncton","addressRegion":"NB","postalCountry":"CA"},"geo":{"@type":"GeoCoordinates","latitude":46.0878,"longitude":-64.7782},"areaServed":[{"@type":"City","name":"Moncton"},{"@type":"City","name":"Dieppe"},{"@type":"City","name":"Riverview"},{"@type":"City","name":"Fredericton"},{"@type":"City","name":"Saint John"},{"@type":"AdministrativeArea","name":"New Brunswick"},{"@type":"AdministrativeArea","name":"Atlantic Canada"}],"founder":{"@type":"Person","name":"Jorge Melgar","url":"https://www.lifmedia.ca/about-us/","jobTitle":"Creative Director"},"employee":[{"@type":"Person","name":"Isaac Ochoa","jobTitle":"Lead Editor & Digital Specialist"},{"@type":"Person","name":"Carolina Galo","jobTitle":"Chief Financial Officer"}],"sameAs":["https://www.instagram.com/lifmedia/","https://www.facebook.com/lifmediaca/","https://www.tiktok.com/@lifmedia","https://www.linkedin.com/company/lif-media/"]}
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"LIF Media","description":"Video production agency in Moncton, New Brunswick specializing in cinematic commercials, social media content, brand documentaries, and event coverage.","url":"https://www.lifmedia.ca","telephone":"+1-506-688-7043","email":"contact@lifmedia.ca","address":{"@type":"PostalAddress","streetAddress":"21 Rue Foxtrot","addressLocality":"Moncton","addressRegion":"NB","postalCountry":"CA"},"geo":{"@type":"GeoCoordinates","latitude":46.0878,"longitude":-64.7782},"areaServed":[{"@type":"City","name":"Moncton"},{"@type":"City","name":"Dieppe"},{"@type":"City","name":"Riverview"},{"@type":"City","name":"Fredericton"},{"@type":"City","name":"Saint John"},{"@type":"AdministrativeArea","name":"New Brunswick"},{"@type":"AdministrativeArea","name":"Atlantic Canada"}],"founder":{"@type":"Person","name":"Jorge Melgar","url":"https://www.lifmedia.ca/about-us/","jobTitle":"Creative Director"},"employee":[{"@type":"Person","name":"Isaac Ochoa","jobTitle":"Lead Editor & Digital Specialist"},{"@type":"Person","name":"Carolina Galo","jobTitle":"Chief Financial Officer"},{"@type":"Person","name":"Juan Díaz","jobTitle":"Videographer"}],"sameAs":["https://www.instagram.com/lifmedia/","https://www.facebook.com/lifmediaca/","https://www.tiktok.com/@lifmedia","https://www.linkedin.com/company/lif-media/"]}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.lifmedia.ca/"},{"@type":"ListItem","position":2,"name":"About Us","item":"https://www.lifmedia.ca/about-us/"}]}
@@ -153,7 +153,8 @@ function gtag_report_conversion(url) {
   margin-top: 12px; max-width: 540px; margin-left: auto; margin-right: auto;
   line-height: 1.65;
 }
-.about-team__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+.about-team__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; }
+@media (max-width: 1180px) { .about-team__grid { grid-template-columns: repeat(2, 1fr); gap: 56px 36px; } }
 .about-member { text-align: center; }
 .about-member__photo {
   width: 240px; height: 240px; margin: 0 auto 28px;
@@ -543,6 +544,13 @@ function gtag_report_conversion(url) {
         <p class="about-member__role" itemprop="jobTitle">Chief Financial Officer</p>
         <div class="about-member__bar"></div>
         <p class="about-member__bio" itemprop="description">The financial backbone of LIF Media. Carolina oversees all accounting and fiscal strategy, ensuring the company operates with precision and stability so our creative team can execute ambitious projects with confidence.</p>
+      </article>
+      <article class="about-member lif-reveal lif-reveal-d3" itemscope itemtype="https://schema.org/Person">
+        <div class="about-member__photo"><img width="1080" height="1080" src="../assets/images/team/juan-diaz.jpg" alt="Juan Díaz, Videographer at LIF Media" loading="lazy"></div>
+        <h3 itemprop="name">Juan Díaz</h3>
+        <p class="about-member__role" itemprop="jobTitle">Videographer</p>
+        <div class="about-member__bar"></div>
+        <p class="about-member__bio" itemprop="description">Behind the camera on set. Juan films our shoots, from commercials to social content, and makes sure every shot is clean, sharp and ready for the edit.</p>
       </article>
     </div>
     <div class="about-onset">
